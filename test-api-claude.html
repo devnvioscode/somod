@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thử API Claude</title>
+<style>
+  :root { --bg:#14161a; --card:#1d2026; --line:#2e333c; --text:#e8eaed; --mute:#8b93a1; --accent:#6aa7ff; --ok:#4ade80; --err:#f87171; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 -apple-system,system-ui,"Segoe UI",sans-serif; }
+  body { padding:max(16px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom)); max-width:640px; margin:0 auto; }
+  h1 { font-size:20px; margin:8px 0 16px; }
+  label { display:block; font-size:13px; color:var(--mute); margin:12px 0 4px; }
+  input,select,textarea { width:100%; background:var(--card); color:var(--text); border:1px solid var(--line); border-radius:10px; padding:11px 12px; font:inherit; font-size:16px; }
+  textarea { min-height:90px; resize:vertical; }
+  input:focus,select:focus,textarea:focus { outline:2px solid var(--accent); outline-offset:1px; }
+  .row { display:flex; gap:10px; margin-top:14px; }
+  button { flex:1; border:0; border-radius:10px; padding:12px; font:inherit; font-weight:600; background:var(--accent); color:#0b1220; cursor:pointer; }
+  button.ghost { background:var(--card); color:var(--text); border:1px solid var(--line); }
+  button:disabled { opacity:.5; }
+  #status { margin-top:18px; font-weight:600; }
+  #status.ok { color:var(--ok); } #status.err { color:var(--err); }
+  pre { white-space:pre-wrap; word-break:break-word; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; margin:8px 0 0; font-size:14px; min-height:48px; }
+  small { color:var(--mute); display:block; margin-top:6px; }
+</style>
+</head>
+<body>
+<h1>Thử API Claude</h1>
+
+<label for="base">Địa chỉ API (Base URL)</label>
+<input id="base" value="https://vibi.top" autocapitalize="off" autocorrect="off" spellcheck="false">
+<small>Địa chỉ theo hướng dẫn của shop. Model thử: claude-sonnet-5, claude-opus-5, claude-fable-5, claude-haiku-4-5-20251001.</small>
+
+<label for="key">API key</label>
+<input id="key" value="sk-4cy8agrD8URDP6MuxWhOUF9HaStdkJb1rXDlQmgH6McR0mnC" autocapitalize="off" autocorrect="off" spellcheck="false">
+
+<label for="fmt">Kiểu gọi</label>
+<select id="fmt">
+  <option value="anthropic">Anthropic (/v1/messages)</option>
+  <option value="openai">OpenAI (/v1/chat/completions)</option>
+</select>
+
+<label for="model">Model</label>
+<input id="model" value="claude-sonnet-5" autocapitalize="off" autocorrect="off" spellcheck="false">
+
+<label for="msg">Tin nhắn</label>
+<textarea id="msg">Xin chào! Hãy trả lời ngắn gọn bằng tiếng Việt: bạn là model nào?</textarea>
+
+<div class="row">
+  <button id="send">Gửi thử</button>
+  <button id="models" class="ghost">Xem model</button>
+</div>
+
+<div id="status"></div>
+<pre id="out"></pre>
+
+<script>
+const $ = id => document.getElementById(id);
+const status = (t, c) => { $('status').textContent = t; $('status').className = c || ''; };
+
+function endpoint(path) {
+  return $('base').value.trim().replace(/\/+$/, '').replace(/\/v1$/, '') + path;
+}
+function headers() {
+  const key = $('key').value.trim();
+  const h = { 'Content-Type': 'application/json' };
+  if ($('fmt').value === 'anthropic') {
+    h['Authorization'] = 'Bearer ' + key;
+    h['x-api-key'] = key;
+    h['anthropic-version'] = '2023-06-01';
+    h['anthropic-dangerous-direct-browser-access'] = 'true';
+  } else {
+    h['Authorization'] = 'Bearer ' + key;
+  }
+  return h;
+}
+function explain(e) {
+  return String(e).includes('Failed to fetch') || String(e).includes('Load failed')
+    ? 'Không kết nối được. Có thể sai Base URL, hoặc máy chủ chặn gọi trực tiếp từ trình duyệt (CORS).'
+    : String(e);
+}
+
+async function run(btn, fn) {
+  btn.disabled = true; $('out').textContent = ''; status('Đang gọi...');
+  try { await fn(); } catch (e) { status('Lỗi: ' + explain(e), 'err'); }
+  btn.disabled = false;
+}
+
+$('send').onclick = () => run($('send'), async () => {
+  const fmt = $('fmt').value;
+  const body = { model: $('model').value.trim(), max_tokens: 500,
+                 messages: [{ role: 'user', content: $('msg').value }] };
+  const url = endpoint(fmt === 'anthropic' ? '/v1/messages' : '/v1/chat/completions');
+  const r = await fetch(url, { method: 'POST', headers: headers(), body: JSON.stringify(body) });
+  const raw = await r.text();
+  let data; try { data = JSON.parse(raw); } catch { data = null; }
+  if (!r.ok) { status('Lỗi ' + r.status, 'err'); $('out').textContent = raw; return; }
+  const text = data && (fmt === 'anthropic'
+    ? (data.content || []).map(c => c.text || '').join('')
+    : data.choices && data.choices[0] && data.choices[0].message.content);
+  status('Hoạt động ✓', 'ok');
+  $('out').textContent = text || raw;
+});
+
+$('models').onclick = () => run($('models'), async () => {
+  const r = await fetch(endpoint('/v1/models'), { headers: headers() });
+  const raw = await r.text();
+  status(r.ok ? 'Danh sách model ✓' : 'Lỗi ' + r.status, r.ok ? 'ok' : 'err');
+  try {
+    const d = JSON.parse(raw);
+    $('out').textContent = (d.data || []).map(m => m.id).join('\n') || raw;
+  } catch { $('out').textContent = raw; }
+});
+</script>
+</body>
+</html>
