@@ -51,6 +51,8 @@
   <button id="models" class="ghost">Xem model</button>
 </div>
 
+<div class="row"><button id="scan" class="ghost">Dò model nào chạy được</button></div>
+
 <div id="status"></div>
 <pre id="out"></pre>
 
@@ -110,6 +112,25 @@ $('models').onclick = () => run($('models'), async () => {
     const d = JSON.parse(raw);
     $('out').textContent = (d.data || []).map(m => m.id).join('\n') || raw;
   } catch { $('out').textContent = raw; }
+});
+
+const LIST = ['claude-fable-5-1','claude-opus-5-5','claude-haiku-4-5-20251001','claude-opus-5','claude-fable-5','claude-sonnet-5','claude-sonnet-4-6','claude-opus-4-8','claude-opus-4-7','claude-opus-4-6'];
+$('scan').onclick = () => run($('scan'), async () => {
+  const fmt = $('fmt').value;
+  const url = endpoint(fmt === 'anthropic' ? '/v1/messages' : '/v1/chat/completions');
+  let lines = [], firstOk = null;
+  for (const m of LIST) {
+    status('Đang thử ' + m + '...');
+    try {
+      const r = await fetch(url, { method:'POST', headers: headers(),
+        body: JSON.stringify({ model:m, max_tokens:5, messages:[{role:'user',content:'hi'}] }) });
+      if (r.ok) { lines.push('✓ ' + m); firstOk = firstOk || m; }
+      else { const t = await r.text(); let msg = t; try { msg = JSON.parse(t).error.code || JSON.parse(t).error.message; } catch {} lines.push('✗ ' + m + '  (' + r.status + ' ' + String(msg).slice(0,60) + ')'); }
+    } catch (e) { lines.push('✗ ' + m + '  (' + explain(e) + ')'); }
+    $('out').textContent = lines.join('\n');
+  }
+  if (firstOk) { $('model').value = firstOk; status('Chạy được: ' + firstOk, 'ok'); }
+  else status('Không model nào chạy được', 'err');
 });
 </script>
 </body>
