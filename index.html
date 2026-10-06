@@ -2,9 +2,9 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#121320">
-<meta name="description" content="Một đêm mùa đông, những kỷ niệm và vài lá thư dành cho Thuỳ.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c1524">
+<meta name="description" content="Một đêm mùa đông, những kỷ niệm và những lá thư.">
 <title>December — love thuỳ</title>
 
 <link rel="preconnect" href="https://i.postimg.cc">
@@ -15,273 +15,214 @@
 
 <style>
 :root{
-  --night:#121320;
-  --cream:#f2e9df;
-  --gold:#dbc6a6;
-  --muted:#b7b4c6;
+  --night:#0c1524;
+  --cream:#f5eee5;
+  --gold:#dfc4a0;
+  --muted:#b4becd;
   --sans:"Be Vietnam Pro",sans-serif;
   --serif:"Playfair Display",Georgia,serif;
   --script:"Great Vibes",cursive;
-  --paper:#f4ead7;
 }
 *{box-sizing:border-box}
 html{background:var(--night);color-scheme:dark}
 body{
-  margin:0;background:var(--night);color:var(--cream);
+  margin:0;color:var(--cream);background:var(--night);
   font:300 13px/1.8 var(--sans);overflow-x:clip;
 }
 body.locked{overflow:hidden}
 button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible,[tabindex]:focus-visible{
-  outline:2px solid #edcfa7;outline-offset:5px;
+  outline:2px solid #f0d1a9;outline-offset:5px;
 }
+button:disabled{cursor:default;opacity:.5}
 h1,h2,h3,p{margin:0}
 h1,h2,h3{font-family:var(--serif);font-weight:400}
 a{color:inherit}
 canvas{display:block}
 [hidden]{display:none!important}
-::selection{background:#966c8b;color:#fff}
+::selection{background:#84677b;color:white}
 .skip{
   position:fixed;top:-80px;left:16px;z-index:100;
-  padding:12px 18px;background:#ede2d5;color:#171522;
+  background:#f2e5cf;color:#172234;padding:12px 18px;
 }
 .skip:focus{top:16px}
 .eyebrow{
-  font-size:8px;letter-spacing:.3em;text-transform:uppercase;
-  color:#dcc8ad;
+  font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
 }
 .grain{
-  position:fixed;inset:0;z-index:27;pointer-events:none;opacity:.024;
+  position:fixed;inset:0;pointer-events:none;z-index:27;opacity:.018;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
 }
 #snow{
-  position:fixed;inset:0;width:100%;height:100%;
-  pointer-events:none;z-index:25;
+  position:fixed;inset:0;width:100%;height:100%;z-index:25;pointer-events:none;
 }
 .header{
-  position:fixed;inset:0 0 auto;z-index:40;
-  padding:23px 4.5%;display:flex;
-  align-items:center;justify-content:space-between;
-  background:linear-gradient(#101425d9,transparent);
-  pointer-events:none;gap:14px;
+  position:fixed;inset:0 0 auto;z-index:40;padding:22px 5%;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  background:linear-gradient(#091321e6,transparent);pointer-events:none;
 }
-.brand{font:italic 26px var(--serif);pointer-events:auto}
+.brand{font:italic 27px var(--serif);pointer-events:auto;color:#f7eadb}
 .brand small{
-  display:block;font:6px var(--sans);
-  letter-spacing:.28em;color:#d5c0c7;margin-top:7px;
+  display:block;font:6px var(--sans);letter-spacing:.23em;color:#b9aa99;margin-top:7px;
 }
 .tabs{
-  display:flex;gap:4px;padding:5px;border-radius:40px;
-  background:#211d2de0;border:1px solid #e6cbd838;
-  backdrop-filter:blur(15px);pointer-events:auto;
-  box-shadow:0 8px 30px #0002,inset 0 1px #ffffff0d;
+  display:flex;gap:5px;padding:5px;border-radius:40px;
+  background:#101b2cf0;border:1px solid #dec6a52b;
+  box-shadow:0 12px 35px #0003,inset 0 1px #ffffff08;
+  backdrop-filter:blur(12px);pointer-events:auto;
 }
 .tab{
-  border:0;background:none;border-radius:30px;
-  min-height:42px;padding:0 19px;font-size:10px;color:#c7bfd7;
-  transition:background .2s,color .2s;
+  min-height:42px;padding:0 20px;border:0;border-radius:30px;
+  background:none;font-size:10px;color:#bac2ce;
 }
-.tab:hover{color:#fff;background:#ffffff09}
+.tab:hover{color:white;background:#ffffff08}
 .tab[aria-selected=true]{
-  background:linear-gradient(120deg,#ffe7d0,#ead2de 55%,#c6dcef);
-  color:#292336;box-shadow:0 3px 14px #0002;
+  color:#342b25;background:linear-gradient(125deg,#f4e5d0,#d9bd98);
+  box-shadow:0 3px 12px #0003;
 }
 .panel{position:relative;min-height:100svh}
-.panel.entering{animation:arrive .65s both}
+.panel.entering{animation:arrive .45s ease both}
 .pill{
-  min-height:44px;padding:10px 20px;
-  border:1px solid #ebd4bb44;border-radius:30px;
-  background:linear-gradient(120deg,#ccb19320,#a899c71a);
-  color:#ead7c5;font-size:10px;
+  min-height:44px;border:1px solid #d7b89142;border-radius:30px;
+  padding:10px 18px;background:#b893591b;color:#ead9c2;font-size:10px;
 }
-.pill:hover{background:#e4c8aa25}
+.pill:hover{background:#b8935930}
+.round{
+  display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
+  border:1px solid #dec4a344;background:#17263aef;color:#ead5b9;font-size:23px;
+}
+.round:hover{background:#2b3d54}
 
-/* ================= TAB 1 ================= */
+/* ================= THE NIGHT ================= */
 .cinema{
-  height:100svh;min-height:800px;max-height:1400px;
-  isolation:isolate;overflow:hidden;background:#161421;
+  isolation:isolate;overflow:hidden;height:100svh;min-height:800px;
+  max-height:1400px;background:#0b1628;
 }
 .sky{
   position:absolute;inset:0;z-index:-8;
   background:
-    radial-gradient(ellipse at 76% 25%,#7bcad326,transparent 37%),
-    radial-gradient(ellipse at 30% 38%,#b69ff03b,transparent 48%),
-    radial-gradient(ellipse at 70% 65%,#f2a5be42,transparent 46%),
-    linear-gradient(#0a1429 0%,#263553 38%,#7d627e 68%,#d59b9a 88%,#353b53);
-}
-.sky:after{
-  content:"";position:absolute;inset:0;
-  background:
-    linear-gradient(120deg,transparent 15%,#77dbca09 32%,transparent 49%),
-    linear-gradient(72deg,transparent 40%,#d7b2ff0c 52%,transparent 68%);
-}
-.sky-ribbon{
-  position:absolute;left:18%;top:9%;width:70%;height:25%;z-index:-7;
-  border-radius:50%;transform:rotate(-15deg);
-  background:linear-gradient(110deg,transparent,#7bcbbc25,#a391ed22,#f8b4ce18,transparent);
-  filter:blur(32px);animation:ribbon 20s ease-in-out infinite alternate;
-  pointer-events:none;
+    radial-gradient(ellipse at 78% 19%,#b9d7e523,transparent 32%),
+    radial-gradient(ellipse at 66% 66%,#dcbcb83c,transparent 43%),
+    radial-gradient(ellipse at 14% 38%,#667fa827,transparent 49%),
+    linear-gradient(#081321,#182b44 35%,#4f5d78 62%,#ab9297 83%,#343e53);
 }
 #stars{position:absolute;inset:0;width:100%;height:100%;z-index:-7}
 .moon{
-  position:absolute;top:15%;left:77%;
-  width:76px;height:76px;border-radius:50%;z-index:-6;
-  background:radial-gradient(circle at 33% 30%,#fff9e6,#e5d9d6 65%,#afa9c5);
-  box-shadow:0 0 38px #fff2dc24,0 0 125px 38px #e8ccda20;opacity:.95;
+  position:absolute;left:80%;top:16%;width:83px;height:83px;border-radius:50%;z-index:-6;
+  background:radial-gradient(circle at 34% 29%,#fff9e9,#e0d9cd 70%,#a8b2c5);
+  box-shadow:0 0 35px #ffefcc20,0 0 110px 35px #e7e1d917;
 }
 .moon:after{
-  content:"";position:absolute;inset:10px;border-radius:50%;
+  content:"";position:absolute;inset:12px;border-radius:50%;
   background:
-    radial-gradient(circle at 30% 40%,#78778928 0 15%,transparent 17%),
-    radial-gradient(circle at 68% 67%,#78778922 0 19%,transparent 21%);
+    radial-gradient(circle at 30% 40%,#78778922 0 15%,transparent 17%),
+    radial-gradient(circle at 68% 67%,#78778920 0 19%,transparent 21%);
 }
-.mountains{
-  position:absolute;left:-10%;right:-10%;bottom:17%;height:30%;z-index:-5;
-}
+.mountains{position:absolute;left:-10%;right:-10%;bottom:17%;height:30%;z-index:-5}
 .mountain{
-  position:absolute;inset:0;background:linear-gradient(#41465c,#26374b);
+  position:absolute;inset:0;background:linear-gradient(#35445e,#1b2e45);
   clip-path:polygon(0 62%,10% 29%,20% 57%,31% 10%,40% 46%,52% 28%,61% 58%,72% 16%,82% 46%,92% 32%,100% 60%,100% 100%,0 100%);
 }
 .mountain.back{
-  background:linear-gradient(#9b829c,#615d7b);
-  transform:translateY(-32px) scaleX(-1);opacity:.74;
+  background:linear-gradient(#7a819b,#465575);
+  transform:translateY(-32px) scaleX(-1);opacity:.66;
 }
 #fireworks{
-  position:absolute;inset:0;width:100%;height:100%;
-  z-index:-4;pointer-events:none;
+  position:absolute;inset:0;width:100%;height:100%;z-index:-4;pointer-events:none;
 }
 .lake{
-  position:absolute;left:0;right:0;bottom:5%;height:28%;z-index:-3;
+  position:absolute;left:0;right:0;bottom:5%;height:27%;z-index:-3;
   background:
-    repeating-linear-gradient(0deg,transparent 0 8px,#ffe2eb10 9px,transparent 10px),
-    linear-gradient(#f5cbd627,#62728a 28%,#283b56 75%,#182b42);
+    repeating-linear-gradient(0deg,transparent 0 10px,#f6e2ca0c 11px,transparent 12px),
+    linear-gradient(#ddc2b31c,#566379 27%,#1b3048 82%);
 }
 .lake:before{
-  content:"";position:absolute;left:56%;top:0;width:34%;height:100%;
-  background:radial-gradient(ellipse at top,#ffe1b451,transparent 68%);
-  filter:blur(8px);
-}
-.lake:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,transparent 15%,#aa8ad418 40%,#b2eee812 65%,transparent);
+  content:"";position:absolute;left:64%;top:0;width:28%;height:100%;
+  background:radial-gradient(ellipse at top,#f9ddb044,transparent 67%);
 }
 .fog{
   position:absolute;left:-20%;width:140%;bottom:13%;height:23%;z-index:-2;
-  background:radial-gradient(ellipse,#e4d3df30,transparent 66%);
+  background:radial-gradient(ellipse,#e4d3df26,transparent 66%);
   filter:blur(23px);animation:fog 26s ease-in-out infinite alternate;
 }
 .ground{
   position:absolute;left:-17%;right:-17%;bottom:-12%;height:30%;z-index:0;
   border-radius:50% 50% 0 0;
-  background:linear-gradient(#ede3e0aa,#b4adbf 13%,#4f526a 38%,#182537 70%,#121320);
-  box-shadow:0 -1px 20px #ffd5c522;
+  background:linear-gradient(#e1dbe19c,#9299ac 13%,#39485e 37%,#132137 70%,#0b1422);
 }
 .cinema-copy{
-  position:absolute;left:7%;top:25%;z-index:7;pointer-events:none;
+  position:absolute;left:7%;top:28%;z-index:7;max-width:47%;pointer-events:none;
 }
 .cinema-copy .eyebrow{
-  display:inline-block;padding:7px 12px;border:1px solid #f6ddc52a;
-  border-radius:30px;background:#161d302b;
+  display:inline-block;padding-bottom:14px;border-bottom:1px solid #e4cab447;
+  font-size:9px;letter-spacing:.3em;
 }
 .cinema-copy h1{
-  font-size:clamp(49px,6.5vw,96px);line-height:1.1;
-  letter-spacing:-.045em;margin-top:24px;
-  text-shadow:0 5px 32px #0003;
+  margin-top:27px;font-size:clamp(48px,5.4vw,83px);
+  line-height:1.13;letter-spacing:-.045em;color:#f7eee4;
+  text-shadow:0 8px 35px #08111e3d;
 }
-.cinema-copy h1 em{
-  font-weight:400;color:#efcbdc;
-  background:linear-gradient(100deg,#ffddbd,#edc4de 60%,#cae6f5);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+.cinema-copy h1 em{font-weight:400;color:#dfc7b2}
 .cinema-copy .sub{
-  margin-top:26px;color:#ded2e3;font-size:10px;letter-spacing:.14em;
-}
-.cinema-copy .dedication{
-  font:28px var(--script);color:#f7d4bd;margin-top:18px;
+  max-width:360px;margin-top:25px;font-size:10px;line-height:2;
+  letter-spacing:.1em;color:#c5cbd6;
 }
 .couple{
-  position:absolute;left:67%;bottom:4.8%;
-  width:min(860px,70vw);height:94%;max-height:1230px;
-  transform:translateX(-50%);z-index:4;pointer-events:none;
+  position:absolute;left:70%;bottom:5%;z-index:4;pointer-events:none;
+  width:min(850px,64vw);height:91%;max-height:1250px;transform:translateX(-50%);
 }
 .couple svg{width:100%;height:100%;overflow:visible}
-.hair-tail{
-  transform-origin:442px 348px;
-  animation:hair 9s ease-in-out infinite alternate;
-}
 .shadow{
-  position:absolute;left:66%;bottom:5%;width:420px;height:34px;
-  transform:translateX(-50%);border-radius:50%;
-  background:#04030a9c;filter:blur(13px);z-index:3;
+  position:absolute;left:70%;bottom:5.2%;width:410px;height:26px;z-index:3;
+  transform:translateX(-50%);border-radius:50%;background:#010207a8;filter:blur(13px);
 }
 .opening-note{
-  position:absolute;left:7%;bottom:6%;z-index:8;
-  font-size:8px;letter-spacing:.2em;color:#d7cbdc;
+  position:absolute;left:7%;bottom:6%;z-index:8;font-size:8px;
+  color:#c2c3ce;letter-spacing:.17em;
 }
 .pause{
-  position:absolute;right:4.5%;bottom:6%;z-index:9;
-  min-height:42px;padding:10px 17px;border:1px solid #e9cfdb45;
-  border-radius:30px;background:#292536bf;color:#eadde9;font-size:10px;
-  backdrop-filter:blur(12px);
+  position:absolute;right:4.5%;bottom:6%;z-index:9;min-height:42px;
+  padding:10px 17px;border:1px solid #dec5a33d;border-radius:30px;
+  background:#152135df;color:#e7d8c6;font-size:10px;
 }
 
-/* ================= TAB 2 ================= */
+/* ================= THE ORBIT ================= */
 .universe{
-  min-height:100svh;isolation:isolate;overflow:hidden;padding-bottom:32px;
+  isolation:isolate;overflow:hidden;padding-bottom:30px;
   background:
-    radial-gradient(ellipse at 45% 30%,#8663b24b,transparent 57%),
-    radial-gradient(ellipse at 8% 65%,#3b8a9340,transparent 42%),
-    radial-gradient(ellipse at 93% 53%,#c394602e,transparent 38%),
-    linear-gradient(#11172c,#29243f 51%,#13333a);
+    radial-gradient(ellipse at 49% 38%,#51649130,transparent 56%),
+    radial-gradient(ellipse at 6% 79%,#45787924,transparent 42%),
+    radial-gradient(ellipse at 98% 66%,#b8935921,transparent 39%),
+    linear-gradient(#0b1424,#17273d 59%,#102c33);
 }
 .universe:before{
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.42;
-  background-image:
-    radial-gradient(circle,#e6d9ebaa .6px,transparent 1px),
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.27;pointer-events:none;
+  background-image:radial-gradient(circle,#e6d9ebaa .6px,transparent 1px),
     radial-gradient(circle,#cfe8e788 .6px,transparent 1px);
   background-size:123px 143px,187px 217px;
 }
 .aurora{
-  position:absolute;left:3%;top:6%;width:78%;height:400px;z-index:-1;
-  border-radius:50%;filter:blur(65px);opacity:.2;
-  background:conic-gradient(#87c5b9,#9c93cd,#d4a2b3,#d9be8d,#87c5b9);
-  animation:aurora 18s ease-in-out infinite alternate;
+  position:absolute;left:8%;top:14%;width:84%;height:580px;z-index:-1;
+  background:radial-gradient(ellipse,#748db61b,transparent 67%);
 }
-.room-heading{
-  position:relative;z-index:20;text-align:center;padding:117px 20px 0;
-}
-.title-lockup{
-  display:flex;align-items:center;justify-content:center;gap:15px;
-}
+.room-heading{position:relative;z-index:20;text-align:center;padding:124px 20px 0}
+.title-lockup{display:flex;align-items:center;justify-content:center;gap:14px}
 .room-heading h2{
-  font-size:clamp(31px,4.1vw,54px);line-height:1.3;
-  letter-spacing:-.025em;margin-top:13px;color:#f8e8ef;
+  font-size:clamp(36px,4.5vw,59px);letter-spacing:-.035em;color:#f4e9db;
+  line-height:1.3;margin-top:14px;
 }
-.room-heading .description{
-  font-size:11px;color:#c7bcd7;margin-top:16px;
-}
-.title-gif{
-  width:70px;height:70px;object-fit:contain;margin-top:10px;
-  animation:float 6s ease-in-out infinite;
-}
-.gif-heart{font-size:30px;color:#e1adc9}
-.scene{
-  position:relative;width:min(1480px,100%);
-  height:740px;margin:8px auto 0;isolation:isolate;
-}
-#love-particles{
-  position:absolute;inset:0;width:100%;height:100%;
-  z-index:1;pointer-events:none;
-}
+.room-heading .description{margin-top:16px;color:#b9c3d1;font-size:10px;line-height:2}
+.title-gif{width:56px;height:56px;object-fit:contain;margin-top:10px}
+.gif-heart{font-size:30px;color:#dcc0a2}
+.scene{position:relative;width:min(1480px,100%);height:740px;margin:15px auto 0;isolation:isolate}
+#love-particles{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 .tree-wrap{
-  position:absolute;right:-2%;bottom:8px;width:36%;height:720px;
-  z-index:3;pointer-events:none;
+  position:absolute;right:-2%;bottom:8px;width:36%;height:720px;z-index:3;pointer-events:none;
 }
 .tree-wrap:before{
   content:"";position:absolute;inset:15% 0 0;
-  background:radial-gradient(ellipse,#e4b95c30,transparent 67%);
+  background:radial-gradient(ellipse,#e4b95c25,transparent 67%);
 }
 #tree{position:relative;width:100%;height:100%;object-fit:contain}
 .orbit-stage{
@@ -290,70 +231,54 @@ canvas{display:block}
 }
 .orbit-stage.dragging,.dragging .globe-button{cursor:grabbing}
 .globe-position{
-  position:absolute;left:50%;top:49%;width:282px;height:282px;
-  margin:-141px;z-index:10;
+  position:absolute;left:50%;top:49%;width:282px;height:282px;margin:-141px;z-index:10;
 }
 .globe-button{
-  position:relative;display:block;width:100%;height:100%;padding:0;border:0;
-  border-radius:50%;background:transparent;touch-action:none;cursor:grab;
+  position:relative;display:block;width:100%;height:100%;padding:0;border:0;border-radius:50%;
+  background:none;touch-action:none;cursor:grab;
 }
 .earth{
-  position:absolute;inset:0;overflow:hidden;border-radius:50%;
-  background:#183d61;transform:rotate(-13deg);
-  box-shadow:0 0 0 1px #acd3e486,0 0 36px #8fb2db35,0 0 95px #867cce24;
+  position:absolute;inset:0;border-radius:50%;overflow:hidden;background:#183d61;
+  transform:rotate(-13deg);
+  box-shadow:0 0 0 1px #c0e4ee61,0 0 30px #8bbeda26,0 0 80px #7489b91a;
 }
 .earth svg{position:absolute;inset:0;width:100%;height:100%;opacity:.65}
 .earth-map{
   position:absolute;inset:0;
   background:url("https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg") repeat-x 0 50%/auto 100%;
-  filter:saturate(1.05) brightness(.98);
 }
 .earth:after{
   content:"";position:absolute;inset:0;border-radius:50%;
-  background:
-    radial-gradient(circle at 27% 25%,#e9faff22,transparent 36%,#01091844 66%,#00040cf2),
+  background:radial-gradient(circle at 27% 25%,#e9faff22,transparent 36%,#01091844 66%,#00040cf2),
     linear-gradient(110deg,transparent 25%,#03101e33 50%,#000b);
   box-shadow:inset 5px 1px 12px #b8e2f958,inset -10px -5px 22px #0009;
 }
-.earth-dot{
-  position:absolute;left:49%;top:43%;font-size:14px;color:#ffc3db;
-  pointer-events:none;text-shadow:0 2px 8px #0008;
-}
+.earth-dot{position:absolute;left:49%;top:43%;color:#ffc3db;font-size:14px;text-shadow:0 2px 8px #0008}
 .globe-label{
-  position:absolute;top:calc(100% + 17px);left:50%;
-  transform:translateX(-50%);white-space:nowrap;
-  font-size:7px;letter-spacing:.2em;color:#d4c9e5;pointer-events:none;
+  position:absolute;left:50%;top:calc(100% + 17px);transform:translateX(-50%);
+  white-space:nowrap;font-size:7px;letter-spacing:.2em;color:#d3d4dc;pointer-events:none;
 }
 .card{
   position:absolute;left:50%;top:49%;width:188px;height:254px;
-  margin:-127px 0 0 -94px;padding:7px;border-radius:10px;
-  border:1px solid #f0d6c783;
-  background:linear-gradient(135deg,#b7a399,#5c586c 45%,#26364b);
-  box-shadow:0 20px 45px #0006,inset 0 1px #fff3;
-  overflow:hidden;will-change:transform;
+  margin:-127px 0 0 -94px;padding:6px;border-radius:8px;
+  border:1px solid #e0c5a966;background:linear-gradient(135deg,#b49f89,#5c6275 40%,#26364a);
+  box-shadow:0 18px 35px #0006;overflow:hidden;will-change:transform;
 }
-.card img{
-  display:block;width:100%;height:100%;object-fit:contain;
-  background:#0d1523;border-radius:5px;pointer-events:none;
-}
+.card img{display:block;width:100%;height:100%;object-fit:contain;background:#101b2b;border-radius:4px;pointer-events:none}
 .card:after{
   content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(130deg,#ffffff1b,transparent 46%,#ffffff03);
+  background:linear-gradient(135deg,#ffffff12,transparent 47%);
 }
 .fallback{
-  height:100%;display:grid;place-items:center;text-align:center;padding:20px;
-  color:#d0bda8;font:italic 19px/1.7 var(--serif);background:#172334;
+  height:100%;display:grid;place-items:center;padding:18px;
+  color:#d6c2a8;font:italic 17px/1.7 var(--serif);background:#172334;
 }
 .orbit-ring{
-  position:absolute;left:50%;top:49%;
-  width:530px;height:145px;margin:-72.5px -265px;
-  border:1px solid #dfc4ef45;border-radius:50%;
-  transform:rotate(-16deg);pointer-events:none;
-  box-shadow:0 0 18px #d7b6ec0b;
+  position:absolute;left:50%;top:49%;width:530px;height:145px;margin:-72.5px -265px;
+  border:1px solid #dac3a638;border-radius:50%;transform:rotate(-16deg);pointer-events:none;
 }
 .orbit-ring.second{
-  width:440px;height:183px;margin:-91.5px -220px;
-  transform:rotate(24deg);border-color:#b2dfdb2d;
+  width:440px;height:183px;margin:-91.5px -220px;transform:rotate(24deg);border-color:#b4d2de25;
 }
 .satellite{
   position:absolute;left:50%;top:49%;width:62px;height:62px;margin:-31px;
@@ -366,22 +291,15 @@ canvas{display:block}
 }
 .saturn:after{
   content:"";position:absolute;left:-20px;right:-20px;top:12px;height:15px;
-  border:5px solid #cbb5a077;border-left-color:#e9cfb3c0;
-  border-radius:50%;transform:rotate(-23deg);
+  border:5px solid #cbb5a077;border-left-color:#e9cfb3c0;border-radius:50%;transform:rotate(-23deg);
 }
 .moonlet{
   position:absolute;inset:12px;border-radius:50%;
   background:radial-gradient(circle at 35% 30%,#e7ded8,#a49aac 60%,#35324c);
   box-shadow:inset -8px -3px 10px #181a2d;
 }
-.moonlet:after{
-  content:"";position:absolute;inset:8px;border-radius:50%;
-  background:radial-gradient(circle at 25% 30%,#69607166 0 15%,transparent 17%),
-  radial-gradient(circle at 68% 66%,#69607155 0 20%,transparent 22%);
-}
 .crystal{
-  position:absolute;inset:8px;
-  clip-path:polygon(50% 0,100% 40%,78% 100%,23% 100%,0 40%);
+  position:absolute;inset:8px;clip-path:polygon(50% 0,100% 40%,78% 100%,23% 100%,0 40%);
   background:conic-gradient(from 45deg at 50% 40%,#dfb9e4,#73548e,#c5b4ed,#708ba7,#e9d8ee);
 }
 .star-object{
@@ -395,8 +313,7 @@ canvas{display:block}
   border:1px solid #d5a59866;transform:rotate(-9deg);box-shadow:5px 5px 0 #34203a;
 }
 .gift-object:before{
-  content:"";position:absolute;top:-5px;left:-3px;right:-3px;height:10px;
-  background:#c08597;border:1px solid #dfb3ab66;
+  content:"";position:absolute;top:-5px;left:-3px;right:-3px;height:10px;background:#c08597;
 }
 .gift-object:after{
   content:"";position:absolute;top:-5px;bottom:0;left:43%;width:17%;
@@ -406,274 +323,209 @@ canvas{display:block}
   position:absolute;bottom:38px;left:0;width:78%;z-index:20;
   display:flex;justify-content:center;align-items:center;gap:22px;
 }
-.round{
-  width:44px;height:44px;border-radius:50%;
-  border:1px solid #d4b8c14d;background:#28273de8;
-  display:grid;place-items:center;font-size:22px;color:#ead5c6;
-}
-.round:hover{background:#41334e}
-.controls small{font-size:8px;letter-spacing:.12em;color:#c9badc}
+.controls small{font-size:8px;letter-spacing:.12em;color:#bec6d2}
 .footer{
-  position:relative;z-index:10;width:min(1080px,calc(100% - 44px));margin:0 auto;
-  padding:28px 0 50px;border-top:1px solid #d9bcc626;
-  display:flex;justify-content:space-between;align-items:center;gap:25px;
+  position:relative;z-index:10;width:min(1080px,calc(100% - 44px));margin:auto;
+  padding:28px 0 50px;border-top:1px solid #e2c6a526;
+  display:flex;align-items:center;justify-content:space-between;gap:25px;
 }
-.footer small{font-size:8px;letter-spacing:.17em;color:#b7aac7}
-.back{
-  display:block;border:0;background:none;font-size:10px;
-  color:#e3d5e6;min-height:44px;padding:8px 0;
-}
+.footer small{font-size:8px;letter-spacing:.17em;color:#acb9c7}
+.collection-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.back{border:0;background:none;font-size:10px;min-height:44px;padding:8px 0;color:#e3d5e6}
 .countdown{display:flex;gap:17px}
 .time{text-align:center}
-.time strong{
-  display:block;font:26px var(--serif);font-variant-numeric:tabular-nums;color:#ead0b7;
-}
-.time small{font-size:6px;letter-spacing:.14em;text-transform:uppercase;color:#b7adc7}
-.collection-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.time strong{display:block;font:26px var(--serif);font-variant-numeric:tabular-nums;color:#e4c8a6}
+.time small{font-size:6px;text-transform:uppercase;letter-spacing:.14em}
 
-/* ================= TAB 3 ================= */
+/* ================= THE LETTERS ================= */
 .letters-room{
-  isolation:isolate;overflow:hidden;padding:120px 24px 100px;
-  background:
-    radial-gradient(ellipse at 50% 8%,#b68a6650,transparent 43%),
-    radial-gradient(ellipse at 0% 55%,#6f587637,transparent 47%),
-    radial-gradient(ellipse at 95% 65%,#4c818333,transparent 48%),
-    linear-gradient(155deg,#181c2b,#302b34 50%,#182b33);
+  isolation:isolate;overflow:hidden;padding:124px 24px 100px;
+  background:radial-gradient(ellipse at 50% 3%,#b894642a,transparent 48%),
+    radial-gradient(ellipse at 100% 80%,#5277801a,transparent 48%),
+    linear-gradient(145deg,#101b2a,#222935 50%,#13232e);
 }
 .letters-room:before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:
-    repeating-linear-gradient(90deg,transparent 0 109px,#f0d8ae03 110px 111px),
-    radial-gradient(ellipse at center,#fff1ce05,transparent 70%);
+  background:repeating-linear-gradient(90deg,transparent 0 139px,#ead3b403 140px 141px);
 }
-.letters-heading{position:relative;text-align:center;z-index:2}
-.letters-heading h2{
-  font-size:clamp(38px,5vw,65px);line-height:1.2;
-  margin-top:17px;color:#f6e5d2;letter-spacing:-.025em;
-}
-.letters-heading h2 em{font-weight:400;color:#ddbb9e}
-.letters-heading .description{
-  color:#cbc0c4;font-size:11px;max-width:510px;
-  margin:18px auto 0;line-height:2;
-}
+.letters-heading{position:relative;z-index:2;text-align:center}
 .postmark-heading{
-  display:inline-flex;align-items:center;gap:12px;
-  border:1px solid #dec4a736;border-radius:40px;padding:8px 16px;
+  display:inline-flex;align-items:center;gap:12px;padding-bottom:13px;
+  border-bottom:1px solid #d7bb9445;
 }
-.postmark-heading span{font-size:15px;color:#e2c09b}
-.writing-desk{
-  width:min(1120px,100%);margin:53px auto 0;padding:43px 38px 36px;
-  position:relative;border-radius:25px;
-  border:1px solid #f1d9be1c;
+.postmark-heading span{color:#e0c3a1;font-size:17px}
+.letters-heading h2{
+  margin-top:24px;font-size:clamp(43px,5vw,66px);line-height:1.2;
+  color:#f3e7d7;letter-spacing:-.04em;
+}
+.letters-heading .description{
+  margin:19px auto 0;max-width:480px;color:#bdc3cd;font-size:11px;line-height:2;
+}
+.celebration{
+  position:relative;isolation:isolate;max-width:1080px;margin:28px auto 0;
+  height:300px;border-radius:18px;overflow:hidden;border:1px solid #cfb68d24;
   background:
-    repeating-linear-gradient(4deg,#fff8ed02 0 2px,transparent 3px 14px),
-    linear-gradient(135deg,#77604c22,#201f2b77);
-  box-shadow:0 35px 85px #0003,inset 0 1px #fff1;
+    radial-gradient(ellipse at 50% 80%,#53648823,transparent 65%),
+    linear-gradient(#07121f,#132338);
+  box-shadow:inset 0 1px #ffffff08,0 15px 45px #0002;
 }
-.writing-desk:before{
-  content:"";position:absolute;left:8%;right:8%;bottom:-28px;height:45px;
-  background:#0004;filter:blur(23px);border-radius:50%;z-index:-1;
+.celebration:before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle,#e7ddcfaa .6px,transparent 1px);
+  background-size:91px 73px;
+}
+#letter-fireworks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.celebration-label{
+  position:absolute;left:20px;top:15px;font-size:7px;letter-spacing:.2em;color:#b6c2d3;
+}
+.celebration-status{
+  position:absolute;right:20px;top:14px;font-size:8px;color:#c7b08f;
+}
+.firework-controls{
+  display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;
+  max-width:1080px;margin:17px auto 0;
+}
+.firework-button{
+  min-height:40px;border:1px solid #dec39c32;border-radius:24px;
+  padding:8px 15px;font-size:10px;background:#142236dd;color:#decdb7;
+}
+.firework-button:hover{background:#344157}
+.firework-button.primary{color:#352c24;background:linear-gradient(120deg,#efdcc0,#cfb28b)}
+.firework-button[aria-pressed=false]{color:#9facbd}
+.writing-desk{
+  position:relative;width:min(1080px,100%);margin:35px auto 0;padding:31px 37px 42px;
+  border-radius:16px;border:1px solid #dfc49c20;
+  background:repeating-linear-gradient(3deg,#fff5db02 0 1px,transparent 2px 12px),
+    linear-gradient(130deg,#594b3c29,#152130a6);
+  box-shadow:0 28px 75px #0003,inset 0 1px #ffffff07;
 }
 .desk-topline{
-  display:flex;justify-content:space-between;align-items:center;gap:15px;
-  margin-bottom:30px;font-size:8px;letter-spacing:.2em;color:#d0bca8;
+  display:flex;justify-content:space-between;gap:15px;padding-bottom:20px;margin-bottom:32px;
+  border-bottom:1px solid #d9bd9620;font-size:8px;letter-spacing:.18em;color:#bca88d;
 }
-.letters-grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:36px 30px;
-}
+.letters-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:39px 33px}
 .mail-card{
-  position:relative;display:block;width:100%;padding:0;
-  border:0;background:none;text-align:left;perspective:1000px;
+  display:block;position:relative;width:100%;padding:0;border:0;background:none;text-align:left;
+  perspective:1000px;
 }
 .envelope{
-  display:block;position:relative;height:185px;
-  transform:rotate(var(--tilt,-2deg)) rotateX(7deg);
-  transform-style:preserve-3d;
-  transition:transform .4s cubic-bezier(.2,.8,.2,1),filter .4s;
-  filter:drop-shadow(0 15px 12px #0005);
+  display:block;position:relative;height:190px;transform-style:preserve-3d;
+  transform:rotate(var(--tilt,-2deg)) rotateX(3deg);
+  filter:drop-shadow(0 12px 10px #0005);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
 }
-.mail-card:hover .envelope,
-.mail-card:focus-visible .envelope{
-  transform:translateY(-9px) rotate(0deg) rotateX(0deg) rotateY(-4deg);
-  filter:drop-shadow(5px 23px 17px #0006);
+.mail-card:hover .envelope,.mail-card:focus-visible .envelope{
+  transform:translateY(-8px) rotate(0) rotateY(-4deg);
 }
 .envelope-base{
-  position:absolute;inset:0;border-radius:5px;
-  background:
-    repeating-linear-gradient(0deg,#78552906 0 1px,transparent 1px 4px),
-    linear-gradient(125deg,var(--mail-light,#f1e4ca),var(--mail-dark,#d8c1a0));
+  position:absolute;inset:0;border-radius:3px;
+  background:repeating-linear-gradient(0deg,#7c5c3307 0 1px,transparent 1px 4px),
+    linear-gradient(135deg,var(--mail-light,#f1e5ce),var(--mail-dark,#d8c2a0));
   box-shadow:inset 0 0 0 1px #8e6f4938,inset 0 2px #fff6;
 }
-.envelope-left,.envelope-right,.envelope-bottom,.envelope-flap{
-  position:absolute;inset:0;pointer-events:none;
-}
-.envelope-left{
-  clip-path:polygon(0 0,55% 58%,0 100%);
-  background:linear-gradient(100deg,#ffffff22,#a47d4d24);
-}
-.envelope-right{
-  clip-path:polygon(100% 0,45% 58%,100% 100%);
-  background:linear-gradient(-100deg,#ffffff14,#72512b22);
-}
-.envelope-bottom{
-  clip-path:polygon(0 100%,50% 43%,100% 100%);
-  background:linear-gradient(#fff5,var(--mail-light,#ead5b6));
-  border-radius:0 0 5px 5px;
-}
+.envelope-left,.envelope-right,.envelope-bottom,.envelope-flap{position:absolute;inset:0;pointer-events:none}
+.envelope-left{clip-path:polygon(0 0,55% 58%,0 100%);background:linear-gradient(100deg,#ffffff22,#a47d4d24)}
+.envelope-right{clip-path:polygon(100% 0,45% 58%,100% 100%);background:linear-gradient(-100deg,#ffffff14,#72512b22)}
+.envelope-bottom{clip-path:polygon(0 100%,50% 43%,100% 100%);background:linear-gradient(#fff5,var(--mail-light,#ead5b6))}
 .envelope-flap{
-  clip-path:polygon(0 0,100% 0,50% 62%);
+  clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:50% 0;
   background:linear-gradient(var(--mail-light,#f4e7cf),var(--mail-dark,#d9c2a3));
-  transform-origin:50% 0;
   filter:drop-shadow(0 2px 1px #7b57384a);
 }
-.envelope-stitch{
-  position:absolute;inset:8px;border:1px solid #94724a14;border-radius:2px;
-}
+.envelope-stitch{position:absolute;inset:8px;border:1px solid #94724a14}
 .wax-seal{
-  display:grid;place-items:center;position:absolute;
-  width:48px;height:48px;left:calc(50% - 24px);top:calc(55% - 24px);
-  border-radius:46% 51% 44% 49%;
-  color:#f4c3a2;font:italic 24px var(--serif);
-  background:
-    radial-gradient(circle at 30% 24%,#d58980,transparent 46%),
-    radial-gradient(circle at 55% 64%,#8d3f48,#b76565 60%,#74343e);
+  display:grid;place-items:center;position:absolute;width:45px;height:45px;
+  left:calc(50% - 22.5px);top:calc(55% - 22.5px);border-radius:46% 51% 44% 49%;
+  color:#e7c5a0;font:italic 24px var(--serif);transform:translateZ(8px);
+  background:radial-gradient(circle at 31% 24%,#b87968,transparent 45%),
+    radial-gradient(circle at 55% 66%,#6b3637,#975951 62%,#572a30);
   box-shadow:0 4px 7px #4d232746,inset 1px 2px 2px #ffc7a67d,inset -2px -3px 3px #4c182b7d;
-  transform:translateZ(8px);
 }
-.wax-seal:after{
-  content:"";position:absolute;inset:7px;border:1px solid #e8b29b77;
-  border-radius:50%;box-shadow:inset 0 1px 2px #45192866;
-}
+.wax-seal:after{content:"";position:absolute;inset:7px;border:1px solid #e8b29b77;border-radius:50%}
 .envelope-address{
-  position:absolute;left:17px;bottom:17px;
-  font:20px var(--script);color:#785c48;transform:translateZ(5px);
+  position:absolute;left:17px;bottom:17px;color:#796044;font:italic 15px var(--serif);
+  transform:translateZ(5px);
 }
 .envelope-stamp{
-  position:absolute;right:14px;top:12px;width:32px;height:39px;
-  border:2px dotted #98785c55;display:grid;place-items:center;
-  color:#98775a88;font:20px var(--serif);transform:rotate(8deg);
+  position:absolute;right:14px;top:12px;width:32px;height:39px;border:2px dotted #8c755655;
+  display:grid;place-items:center;font:20px var(--serif);color:#8c755699;transform:rotate(8deg);
 }
-.mail-meta{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:8px;margin-top:19px;padding:0 4px;
-}
-.mail-meta strong{
-  font:400 15px var(--serif);color:#edddcc;
-}
-.mail-meta small{
-  color:#c4b0a1;font-size:8px;letter-spacing:.1em;
-}
-.mail-note{
-  display:block;padding:2px 4px 0;font-size:9px;color:#b8adb5;
-}
+.mail-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:20px;padding:0 4px}
+.mail-meta strong{font:400 17px var(--serif);color:#eee0ce}
+.mail-meta small{font-size:7px;letter-spacing:.08em;color:#b6a38a}
+.mail-note{display:block;padding:6px 4px 0;font-size:10px;line-height:1.7;color:#aeb9c7}
 .letters-bottom{
-  margin:35px auto 0;width:min(1120px,100%);
   display:flex;justify-content:space-between;align-items:center;gap:20px;
+  max-width:1080px;margin:30px auto 0;
 }
-.letters-bottom p{font-size:9px;color:#c5b4b8;letter-spacing:.05em}
+.letters-bottom p{font-size:9px;color:#aeb9c7}
 
-/* ================= LETTER DIALOG ================= */
+/* ================= DIALOGS ================= */
 dialog{border:0;padding:0;background:transparent;color:var(--cream)}
-dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
-.letter-dialog{
-  width:100%;height:100%;max-width:none;max-height:none;
-  overflow:auto;overscroll-behavior:contain;
-}
-.letter-dialog::backdrop{background:#11121de8;backdrop-filter:blur(9px)}
+dialog::backdrop{background:#07101de8;backdrop-filter:blur(6px)}
+.lightbox{width:100%;height:100%;max-width:none;max-height:none;overflow:hidden}
+.lightbox-inner{height:100%;padding:75px;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.lightbox img{max-width:100%;max-height:calc(100svh - 170px);object-fit:contain;border-radius:5px}
+.lightbox p{margin-top:19px;font-size:11px;color:#d0bbaa;text-align:center}
+.close-photo{position:absolute;top:20px;right:20px}
+.prev-photo,.next-photo{position:absolute;top:48%}
+.prev-photo{left:18px}.next-photo{right:18px}
+.letter-dialog{width:100%;height:100%;max-width:none;max-height:none;overflow:auto;overscroll-behavior:contain}
 .letter-stage{
-  position:relative;min-height:100%;
-  display:flex;align-items:center;justify-content:center;
-  padding:82px 24px 100px;perspective:1400px;
+  position:relative;min-height:100%;display:flex;align-items:center;justify-content:center;
+  padding:82px 24px 90px;perspective:1400px;
 }
 .letter-close{
-  position:fixed;right:24px;top:22px;z-index:15;
-  display:flex;align-items:center;gap:8px;
-  padding:10px 17px;min-height:44px;border-radius:30px;
-  border:1px solid #dbc4b84a;background:#292634e8;font-size:11px;
+  position:fixed;right:24px;top:22px;z-index:15;min-height:44px;padding:10px 17px;
+  border:1px solid #d6bd964a;border-radius:30px;background:#162337;font-size:11px;
 }
-.letter-close span{font-size:20px;line-height:1}
-.letter-view{
-  width:min(600px,100%);position:relative;
-  transform-style:preserve-3d;
-}
+.letter-view{position:relative;width:min(600px,100%);transform-style:preserve-3d}
 .open-envelope{
-  position:absolute;width:82%;height:220px;
-  left:9%;bottom:-18px;z-index:0;
+  position:absolute;left:9%;bottom:0;width:82%;height:220px;z-index:0;opacity:.8;
   transform:rotateX(12deg) translateZ(-30px);
-  opacity:.85;
 }
-.open-envelope .envelope-base{
-  background:linear-gradient(135deg,#b99d7b,#e0c7a2);
-}
-.open-envelope .envelope-flap{
-  transform:rotateX(178deg);
-  background:linear-gradient(#d2b994,#e9d3b1);
-}
+.open-envelope .envelope-flap{transform:rotateX(178deg)}
 .letter-sheet{
-  position:relative;z-index:2;padding:45px 48px 36px;
-  color:#514537;border-radius:3px 8px 7px 3px;
-  background:
-    repeating-linear-gradient(0deg,#79542b05 0 1px,transparent 1px 4px),
-    radial-gradient(ellipse at 8% 0,#fffef9c9,transparent 68%),
-    linear-gradient(100deg,#e8dcc5,#fbf3e3 10%,#f8efdd 88%,#e8dcc5);
-  border:1px solid #e1cfac;
-  box-shadow:0 25px 80px #0006,3px 4px 0 #cbbda6,5px 7px 0 #eee2ca;
-  transform-origin:50% 90%;
+  position:relative;z-index:2;padding:40px 45px 32px;border:1px solid #e1cfac;
+  border-radius:3px 8px 7px 3px;color:#403a32;transform-origin:50% 90%;
+  background:repeating-linear-gradient(0deg,#70502904 0 1px,transparent 1px 4px),
+    linear-gradient(105deg,#eadfc9,#fff9ec 12%,#faf1df 89%,#e7d8bc);
+  box-shadow:0 28px 75px #0006,2px 3px 0 #d9c9aa,4px 6px 0 #efe3cb;
 }
 .letter-sheet:before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    linear-gradient(0deg,transparent 32.7%,#8763390c 33%,#fff8 33.3%,transparent 33.6%),
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(0deg,transparent 32.7%,#8763390c 33%,#fff8 33.3%,transparent 33.6%),
     linear-gradient(0deg,transparent 66%,#8763390e 66.4%,#fff7 66.7%,transparent 67%);
-  border-radius:inherit;
 }
 .letter-sheet:after{
-  content:"";position:absolute;right:0;top:0;width:35px;height:35px;
+  content:"";position:absolute;right:0;top:0;width:35px;height:35px;opacity:.45;
   background:linear-gradient(225deg,#cbb796,#f5e8cd 48%,#bda787 49%,transparent 52%);
-  opacity:.45;
 }
-.letter-dialog.reveal .open-envelope{
-  animation:envelopeAppear .8s cubic-bezier(.2,.8,.2,1) both;
-}
-.letter-dialog.reveal .letter-sheet{
-  animation:letterUnfold 1.05s cubic-bezier(.18,.75,.2,1) both;
-}
+.letter-dialog.reveal .letter-sheet{animation:letterUnfold 1s cubic-bezier(.18,.75,.2,1) both}
+.letter-dialog.reveal .open-envelope{animation:envelopeAppear .8s ease both}
 .letter-topline{
   display:flex;justify-content:space-between;align-items:center;gap:12px;
-  padding-bottom:16px;border-bottom:1px solid #a0825429;
-  font-size:8px;letter-spacing:.17em;color:#967b59;
+  padding-bottom:16px;border-bottom:1px solid #a0825429;color:#806746;font-size:9px;letter-spacing:.12em;
 }
-.letter-topline .letter-monogram{
-  font:italic 23px var(--serif);color:#97724e;
-}
-.letter-sheet h3{
-  font:400 clamp(25px,4vw,35px)/1.35 var(--serif);
-  color:#674b39;margin:25px 0 22px;
-}
-.letter-greeting{font:28px var(--script);color:#996b57;margin-bottom:15px}
-.letter-copy{position:relative;font-size:13px;line-height:2.05;color:#5e5143}
-.letter-copy p+p{margin-top:15px}
+.letter-monogram{font:italic 23px var(--serif)}
+.letter-sheet h3{margin:28px 0 24px;color:#4c3e2c;font-size:34px;line-height:1.35}
+.letter-copy{position:relative;color:#443e35;font-size:14px;line-height:2;font-weight:400}
+.letter-copy p+p{margin-top:18px}
 .letter-signature{
-  margin-top:27px;padding-top:17px;border-top:1px solid #a0825424;
+  margin-top:28px;padding-top:17px;border-top:1px solid #a0825424;
   display:flex;justify-content:space-between;align-items:end;gap:12px;
 }
-.letter-signature small{font-size:8px;letter-spacing:.12em;color:#9c8062}
-.letter-signature span{font:29px var(--script);color:#9a6554}
-.letter-navigation{
-  position:relative;z-index:5;display:flex;justify-content:center;
-  align-items:center;gap:22px;margin-top:38px;
-}
-.letter-navigation small{font-size:9px;color:#d7c7b8;letter-spacing:.16em}
-.letter-navigation .round{background:#3b3340}
+.letter-signature small{font-size:8px;letter-spacing:.1em;color:#8a7458}
+.letter-signature span{font:italic 16px var(--serif);color:#886846}
+.letter-navigation{position:relative;z-index:5;display:flex;justify-content:center;align-items:center;gap:22px;margin-top:38px}
+.letter-navigation small{font-size:9px;letter-spacing:.16em;color:#d7c7b8}
 .letter-hint{text-align:center;margin-top:15px;font-size:9px;color:#a99dab}
 
-/* ================= MUSIC & PHOTO ================= */
+/* ================= SOUND ================= */
 .music{
   position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:45;
   display:flex;align-items:center;gap:9px;min-height:44px;padding:0 15px;
-  border:1px solid #d3b4c03b;border-radius:30px;
-  background:#262235f0;backdrop-filter:blur(14px);
+  border:1px solid #d3b4c03b;border-radius:30px;background:#162235f0;backdrop-filter:blur(10px);
 }
 .music span{font-size:9px;color:#e0c5be}
 .bars{display:flex;align-items:center;gap:3px;height:17px}
@@ -684,99 +536,67 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
 .bars i:nth-child(4){animation-delay:-.9s}
 .audio-frame{position:fixed;left:-700px;top:0;width:300px;height:166px;border:0}
 .audio-help{
-  position:fixed;right:16px;bottom:75px;z-index:50;
-  width:min(310px,calc(100% - 32px));padding:17px;
-  border:1px solid #cfb1c044;border-radius:8px;background:#302a42f5;
+  position:fixed;right:16px;bottom:75px;z-index:50;width:min(310px,calc(100% - 32px));
+  padding:17px;border:1px solid #cfb1c044;border-radius:8px;background:#253149fa;
   font-size:11px;color:#d5cadf;
 }
 .audio-help a{color:#e9c9ae}
-.audio-help button{
-  display:block;border:0;background:none;padding:10px 0 0;
-  min-height:35px;color:#e1bfa5;
-}
-.lightbox{width:100%;height:100%;max-width:none;max-height:none;overflow:hidden}
-.lightbox-inner{
-  height:100%;padding:75px;display:flex;align-items:center;
-  justify-content:center;flex-direction:column;
-}
-.lightbox img{
-  max-width:100%;max-height:calc(100svh - 170px);object-fit:contain;border-radius:5px;
-}
-.lightbox p{margin-top:19px;font-size:11px;color:#d0bbaa;text-align:center}
-.close-photo{position:absolute;top:20px;right:20px}
-.prev-photo,.next-photo{position:absolute;top:48%}
-.prev-photo{left:18px}.next-photo{right:18px}
+.audio-help button{display:block;min-height:35px;padding:10px 0 0;border:0;background:none;color:#e1bfa5}
 
-/* ================= ANIMATION ================= */
-@keyframes arrive{
-  from{opacity:0;transform:translateY(6px)}
-  to{opacity:1;transform:none}
-}
-@keyframes float{50%{transform:translateY(-6px) rotate(3deg)}}
+@keyframes arrive{from{opacity:0}to{opacity:1}}
 @keyframes fog{to{transform:translateX(10%)}}
-@keyframes aurora{to{transform:rotate(10deg) translateY(25px);opacity:.27}}
-@keyframes ribbon{to{transform:rotate(-9deg) translateX(5%);opacity:.65}}
-@keyframes hair{to{transform:rotate(-.6deg)}}
 @keyframes bars{to{height:17px}}
-@keyframes envelopeAppear{
-  from{opacity:0;transform:translateY(80px) rotateX(35deg) translateZ(-80px)}
-  to{opacity:.85;transform:rotateX(12deg) translateZ(-30px)}
-}
 @keyframes letterUnfold{
   0%{opacity:0;transform:translateY(100px) rotateX(-65deg) scale(.82)}
   40%{opacity:1}
-  75%{transform:translateY(-8px) rotateX(5deg) scale(1)}
-  100%{opacity:1;transform:translateY(0) rotateX(0) scale(1)}
+  75%{transform:translateY(-8px) rotateX(5deg)}
+  100%{opacity:1;transform:none}
+}
+@keyframes envelopeAppear{
+  from{opacity:0;transform:translateY(80px) rotateX(35deg) translateZ(-80px)}
+  to{opacity:.8;transform:rotateX(12deg) translateZ(-30px)}
 }
 
-/* ================= RESPONSIVE ================= */
 @media(min-width:1500px){
-  .couple{left:65%;height:96%;width:min(950px,68vw)}
+  .couple{left:68%;width:min(950px,65vw);height:93%}
 }
 @media(max-width:1100px){
-  .cinema-copy{left:5%;top:24%}
-  .cinema-copy h1{font-size:64px}
-  .couple{left:69%;width:82vw;height:91%}
+  .cinema-copy{left:5%}
+  .cinema-copy h1{font-size:clamp(45px,6vw,65px)}
+  .couple{left:71%;width:74vw;height:89%}
   .orbit-stage,.controls{width:84%}
   .tree-wrap{right:-8%;width:43%}
-  .letters-grid{gap:32px 22px}
-  .writing-desk{padding:35px 26px}
-  .envelope{height:166px}
+  .letters-grid{gap:33px 25px}
+  .envelope{height:167px}
 }
 @media(max-width:760px){
-  .letters-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 23px}
-  .envelope{height:180px}
+  .letters-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .envelope{height:183px}
 }
 @media(max-width:600px){
-  .header{padding:16px 12px;align-items:center;gap:8px}
-  .brand{font-size:19px;white-space:nowrap}
-  .brand small{font-size:5px;letter-spacing:.18em}
+  .header{padding:17px 13px;gap:7px}
+  .brand{font-size:20px;white-space:nowrap}
+  .brand small{font-size:5px;letter-spacing:.12em}
   .tabs{gap:2px;padding:4px}
-  .tab{font-size:8px;min-height:38px;padding:0 10px}
-  .cinema{height:110svh;min-height:890px;max-height:1200px}
-  .cinema-copy{left:24px;top:13%}
-  .cinema-copy h1{font-size:clamp(43px,11.4vw,61px);margin-top:17px}
-  .cinema-copy .sub{font-size:8px;margin-top:18px;letter-spacing:.08em}
-  .cinema-copy .dedication{font-size:25px;margin-top:10px}
-  .cinema-copy .eyebrow{font-size:7px}
-  .moon{left:81%;top:16%;width:44px;height:44px}
-  .sky-ribbon{top:20%;left:5%;width:100%;filter:blur(22px)}
-  .couple{
-    width:137vw;left:53%;height:72%;bottom:4.5%;max-height:835px;
-  }
-  .shadow{left:54%;width:260px;bottom:5%}
+  .tab{min-height:38px;padding:0 10px;font-size:8px}
+  .cinema{min-height:890px;height:110svh;max-height:1200px}
+  .cinema-copy{left:25px;top:13%;max-width:87%}
+  .cinema-copy .eyebrow{font-size:7px;padding-bottom:11px}
+  .cinema-copy h1{font-size:clamp(43px,11vw,59px);margin-top:19px}
+  .cinema-copy .sub{font-size:8px;line-height:1.9;margin-top:18px;max-width:260px}
+  .moon{width:42px;height:42px;left:81%;top:15%}
+  .couple{left:53%;width:112vw;height:65%;bottom:5%;max-height:850px}
+  .shadow{left:53%;width:280px;bottom:5%}
   .mountains{bottom:20%;height:24%}
   .ground{height:25%}
-  .opening-note{
-    left:24px;bottom:4%;font-size:6px;max-width:175px;line-height:2;
-  }
-  .pause{right:16px;bottom:4%;font-size:8px;padding:8px 12px}
-  .room-heading{padding:109px 16px 0}
+  .opening-note{bottom:3.8%;left:23px;font-size:6px;max-width:167px}
+  .pause{right:15px;bottom:3.8%;font-size:8px}
+  .room-heading{padding-top:111px}
   .room-heading h2{font-size:35px}
-  .room-heading .eyebrow{font-size:7px}
-  .title-lockup{gap:8px}.title-gif{width:52px;height:52px}
-  .room-heading .description{font-size:9px;max-width:300px;margin:12px auto 0}
-  .scene{height:685px;margin-top:3px}
+  .room-heading .description{max-width:290px;font-size:9px;margin:12px auto 0}
+  .title-lockup{gap:8px}
+  .title-gif{width:47px;height:47px}
+  .scene{height:680px;margin-top:12px}
   .orbit-stage{width:100%;height:557px}
   .card{width:135px;height:188px;margin:-94px 0 0 -67.5px;padding:5px}
   .globe-position{width:198px;height:198px;margin:-99px}
@@ -789,50 +609,52 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
   .tree-wrap{width:250px;height:365px;right:-64px;bottom:0;opacity:.82}
   .footer{flex-direction:column;text-align:center;padding-bottom:68px}
   .collection-links{justify-content:center}
-  .music span{font-size:8px}
+  .letters-room{padding:116px 15px 90px}
+  .letters-heading h2{font-size:42px;margin-top:20px}
+  .letters-heading .description{font-size:10px;max-width:310px}
+  .celebration{height:235px;margin-top:25px;border-radius:12px}
+  .celebration-label{left:13px;font-size:6px}
+  .celebration-status{right:13px;font-size:7px}
+  .firework-controls{gap:6px;margin-top:12px}
+  .firework-button{font-size:8px;padding:8px 12px;min-height:38px}
+  .writing-desk{padding:24px 15px 29px;margin-top:28px;border-radius:12px}
+  .desk-topline{font-size:6px;letter-spacing:.1em;padding-bottom:16px;margin-bottom:25px}
+  .letters-grid{gap:28px 20px}
+  .envelope{height:132px}
+  .wax-seal{width:35px;height:35px;left:calc(50% - 17.5px);top:calc(55% - 17.5px);font-size:19px}
+  .wax-seal:after{inset:6px}
+  .envelope-address{font-size:11px;left:11px;bottom:12px}
+  .envelope-stamp{right:10px;top:9px;width:24px;height:29px;font-size:15px}
+  .mail-meta{margin-top:16px}
+  .mail-meta strong{font-size:14px}
+  .mail-meta small{font-size:6px}
+  .mail-note{font-size:8px;padding-top:4px}
+  .letters-bottom{flex-direction:column;text-align:center;gap:12px}
+  .letter-stage{padding:80px 17px 65px}
+  .letter-close{right:17px;top:17px;font-size:10px}
+  .letter-sheet{padding:29px 25px 26px}
+  .letter-topline{font-size:7px;letter-spacing:.06em}
+  .letter-sheet h3{font-size:29px;margin:24px 0 20px}
+  .letter-copy{font-size:13px;line-height:1.95}
+  .letter-signature span{font-size:14px}
+  .letter-signature small{font-size:6px}
   .lightbox-inner{padding:70px 12px 105px}
   .lightbox img{max-height:calc(100svh - 205px)}
   .prev-photo,.next-photo{top:auto;bottom:25px}
   .prev-photo{left:calc(50% - 58px)}
   .next-photo{right:calc(50% - 58px)}
-  .letters-room{padding:114px 16px 90px}
-  .letters-heading h2{font-size:42px}
-  .letters-heading .description{font-size:10px;max-width:315px}
-  .writing-desk{margin-top:35px;padding:25px 16px;border-radius:18px}
-  .desk-topline{font-size:6px;letter-spacing:.12em;margin-bottom:25px}
-  .letters-grid{gap:28px 18px}
-  .envelope{height:130px}
-  .wax-seal{width:38px;height:38px;left:calc(50% - 19px);top:calc(55% - 19px);font-size:20px}
-  .wax-seal:after{inset:6px}
-  .envelope-address{font-size:17px;left:11px;bottom:11px}
-  .envelope-stamp{right:10px;top:9px;width:24px;height:29px;font-size:15px}
-  .mail-meta{margin-top:14px;gap:5px}
-  .mail-meta strong{font-size:13px}
-  .mail-meta small{font-size:6px}
-  .mail-note{font-size:8px}
-  .letters-bottom{flex-direction:column;text-align:center;gap:12px}
-  .letter-stage{padding:80px 17px 65px;align-items:center}
-  .letter-close{top:17px;right:17px;font-size:10px}
-  .letter-sheet{padding:29px 24px 25px}
-  .letter-topline{font-size:6px;letter-spacing:.13em}
-  .letter-sheet h3{margin:21px 0 17px;font-size:29px}
-  .letter-copy{font-size:12px;line-height:2}
-  .letter-greeting{font-size:26px}
-  .letter-signature span{font-size:25px}
-  .letter-signature small{font-size:6px}
-  .letter-navigation{margin-top:31px}
 }
 @media(max-width:350px){
-  .brand{font-size:16px}
+  .brand{font-size:17px}
   .tab{font-size:7px;padding:0 8px}
   .cinema-copy h1{font-size:40px}
-  .room-heading h2{font-size:30px}
+  .room-heading h2{font-size:29px}
   .globe-position{width:168px;height:168px;margin:-84px}
   .card{width:123px;height:174px;margin:-87px 0 0 -61.5px}
   .orbit-ring{width:300px;margin-left:-150px}
-  .envelope{height:113px}
-  .mail-meta strong{font-size:11px}
-  .letter-sheet{padding:25px 20px}
+  .envelope{height:114px}
+  .mail-meta strong{font-size:12px}
+  .letters-grid{gap:26px 15px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation:none!important;transition:none!important}
@@ -846,7 +668,7 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
 <canvas id="snow" aria-hidden="true"></canvas>
 
 <header class="header">
-  <div class="brand">December.<small>A WINTER EDITION · THUỲ</small></div>
+  <div class="brand">December.<small>A WINTER EDITION</small></div>
   <nav class="tabs" role="tablist" aria-label="Chọn không gian">
     <button class="tab" id="tab-cinema" role="tab" aria-selected="true"
       aria-controls="cinema" tabindex="0">The night</button>
@@ -858,15 +680,12 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
 </header>
 
 <main>
-<!-- ================= TAB 1 ================= -->
 <section class="panel cinema" id="cinema" role="tabpanel" aria-labelledby="tab-cinema">
   <div class="sky" aria-hidden="true"></div>
-  <div class="sky-ribbon" aria-hidden="true"></div>
   <canvas id="stars" aria-hidden="true"></canvas>
   <div class="moon" aria-hidden="true"></div>
   <div class="mountains" aria-hidden="true">
-    <div class="mountain back"></div>
-    <div class="mountain"></div>
+    <div class="mountain back"></div><div class="mountain"></div>
   </div>
   <canvas id="fireworks" aria-hidden="true"></canvas>
   <div class="lake" aria-hidden="true"></div>
@@ -874,193 +693,77 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
   <div class="ground" aria-hidden="true"></div>
 
   <div class="cinema-copy">
-    <p class="eyebrow">December · After dark</p>
-    <h1>A quiet night.<br><em>A brighter sky.</em></h1>
-    <p class="sub">WINTER, IN GOOD COMPANY.</p>
-    <p class="dedication">Một buổi tối dành cho Thuỳ.</p>
+    <p class="eyebrow">December · A winter night</p>
+    <h1>Một đêm yên.<br><em>Một trời sáng.</em></h1>
+    <p class="sub">MỘT CHÚT BÌNH YÊN GIỮA NHỮNG NGÀY CUỐI NĂM.</p>
   </div>
-
   <div class="shadow" aria-hidden="true"></div>
 
   <div class="couple" role="img"
-    aria-label="Hai người mặc áo khoác mùa đông, cô gái tựa đầu lên vai chàng trai cùng ngắm pháo hoa">
-    <svg viewBox="120 25 460 840" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="manCoat" x1="0" y1="0" x2="1" y2=".3">
-          <stop stop-color="#172538"/>
-          <stop offset=".4" stop-color="#34495e"/>
-          <stop offset=".76" stop-color="#26374b"/>
-          <stop offset="1" stop-color="#121e31"/>
-        </linearGradient>
-        <linearGradient id="womanCoat" x1="0" y1="0" x2="1" y2=".2">
-          <stop stop-color="#916d69"/>
-          <stop offset=".35" stop-color="#d0aaa0"/>
-          <stop offset=".7" stop-color="#bb908a"/>
-          <stop offset="1" stop-color="#7f5964"/>
-        </linearGradient>
-        <linearGradient id="trousers" x1="0" y1="0" x2="1" y2="0">
-          <stop stop-color="#0f1828"/>
-          <stop offset=".5" stop-color="#253044"/>
-          <stop offset="1" stop-color="#111a2c"/>
-        </linearGradient>
-        <linearGradient id="skin" x1="0" y1="0" x2="1" y2=".4">
-          <stop stop-color="#b98574"/>
-          <stop offset=".45" stop-color="#e0b49b"/>
-          <stop offset="1" stop-color="#ad786b"/>
-        </linearGradient>
-        <linearGradient id="hairColor" x1="0" y1="0" x2="1" y2="0">
-          <stop stop-color="#171724"/>
-          <stop offset=".45" stop-color="#403039"/>
-          <stop offset=".72" stop-color="#291f2c"/>
-          <stop offset="1" stop-color="#151724"/>
-        </linearGradient>
-        <linearGradient id="scarfColor" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#b69380"/>
-          <stop offset=".5" stop-color="#ecd0aa"/>
-          <stop offset="1" stop-color="#a47d6b"/>
-        </linearGradient>
-        <linearGradient id="bootsColor" x1="0" y1="0" x2="1" y2="0">
-          <stop stop-color="#1b1824"/>
-          <stop offset=".5" stop-color="#493544"/>
-          <stop offset="1" stop-color="#1e1b2a"/>
-        </linearGradient>
-      </defs>
-
-      <g stroke-linejoin="round">
-        <!-- Chân nam -->
-        <path fill="url(#trousers)" d="M218 522 C230 516 255 518 272 526 C276 568 271 613 267 653 C264 697 260 738 260 780 C252 790 232 792 223 783 C222 742 225 706 220 665 C214 615 210 563 218 522Z"/>
-        <path fill="url(#trousers)" d="M275 525 C292 515 315 518 330 524 C334 568 325 611 326 654 C327 698 337 740 342 779 C336 790 317 795 308 786 C300 746 292 710 287 669 C282 621 276 573 275 525Z"/>
-        <path fill="none" stroke="#6b789033" stroke-width="2" d="M243 577 C240 645 244 702 242 766 M306 578 C305 643 312 718 324 767"/>
-
-        <!-- Giày nam -->
-        <path fill="#182032" d="M222 773 C231 767 251 769 261 775 L264 795 C264 809 250 815 234 815 L193 815 C181 814 179 807 185 800 C193 793 207 790 220 784Z"/>
-        <path fill="#172030" d="M308 777 C318 771 334 769 342 776 L350 794 C358 798 370 800 375 807 C379 814 371 819 357 819 L315 818 C302 816 299 808 303 796Z"/>
-        <path fill="none" stroke="#79809855" stroke-width="2" d="M190 809 L240 809 Q256 809 260 800 M309 810 L362 812"/>
-
-        <!-- Đầu và cổ nam -->
-        <path fill="url(#skin)" d="M241 157 C249 164 274 168 287 160 L294 207 C280 224 257 225 238 212Z"/>
-        <path fill="url(#skin)" d="M222 100 C220 80 228 61 242 52 C255 43 276 43 289 52 C305 62 313 79 311 101 C311 112 307 121 305 135 C302 157 290 174 271 179 C252 180 235 165 230 148 C225 134 224 117 222 100Z"/>
-        <path fill="#c18e7e" d="M225 109 C211 101 208 111 212 127 C214 140 221 146 230 145 L230 119Z"/>
-        <path fill="#c18e7e" d="M306 109 C318 103 322 113 317 128 C314 139 309 144 302 143Z"/>
-
-        <!-- Tóc nam -->
-        <path fill="url(#hairColor)" d="M219 119 C212 100 212 85 219 69 C224 55 235 47 247 44 C250 39 259 36 266 40 C276 34 285 40 291 46 C304 48 313 61 314 74 C322 91 316 107 308 122 C306 111 303 105 300 98 C296 107 293 109 287 114 L282 102 C277 114 273 119 266 122 L260 108 C253 117 248 121 241 120 L236 108 L229 123Z"/>
-        <path fill="none" stroke="#a6827950" stroke-width="2" d="M229 76 C245 51 282 48 301 75 M240 65 C255 57 274 55 288 63"/>
-
-        <!-- Áo nam -->
-        <path fill="url(#manCoat)" stroke="#a5c3d329" stroke-width="1.2" d="M239 199 C220 199 202 206 190 219 C175 235 168 260 169 287 L181 373 C188 405 196 432 195 466 L190 543 C224 568 294 576 342 548 L336 476 C333 451 339 413 344 384 L351 292 C352 262 346 234 330 218 C318 204 302 200 289 200 L265 217Z"/>
-        <path fill="#121f3266" d="M241 210 L267 235 L244 273 L220 224Z"/>
-        <path fill="#66829633" d="M290 210 L268 235 L294 273 L316 223Z"/>
-        <path fill="none" stroke="#8fa8bc44" stroke-width="2" d="M267 239 L263 538 M209 445 L237 451 M296 453 L321 445"/>
-        <g fill="#b5b5b599">
-          <circle cx="271" cy="291" r="3"/>
-          <circle cx="269" cy="341" r="3"/>
-          <circle cx="267" cy="392" r="3"/>
-          <circle cx="265" cy="445" r="3"/>
-          <circle cx="264" cy="495" r="3"/>
-        </g>
-
-        <!-- Tay trái nam -->
-        <path fill="url(#manCoat)" d="M195 213 C174 216 160 237 156 267 C151 293 151 321 156 348 L170 421 C177 434 191 438 203 429 C211 422 211 410 208 398 L195 338 C195 309 207 281 214 255Z"/>
-        <path fill="url(#skin)" d="M171 417 C169 428 166 444 171 455 C177 467 188 473 198 468 C207 463 210 453 207 443 L201 427Z"/>
-        <path fill="none" stroke="#95a9be33" stroke-width="2" d="M178 259 C168 300 171 339 184 389 M171 411 L203 415"/>
-
-        <!-- Chân nữ -->
-        <path fill="#3c2d3b" d="M352 551 C361 543 378 547 389 556 C390 597 380 636 378 678 L373 785 C363 794 348 792 344 783 C345 748 348 714 346 679 C343 632 342 586 352 551Z"/>
-        <path fill="#392b3b" d="M390 555 C403 544 421 544 432 552 C436 591 427 635 429 673 C430 711 439 750 444 783 C438 795 422 799 414 791 C407 755 398 718 396 680 C393 639 390 596 390 555Z"/>
-
-        <!-- Boots nữ -->
-        <path fill="url(#bootsColor)" d="M344 712 C353 709 369 711 380 717 L378 784 C380 793 389 798 389 805 C389 814 381 819 367 819 L332 818 C321 815 323 805 329 799 L341 785Z"/>
-        <path fill="url(#bootsColor)" d="M408 716 C419 711 433 709 440 715 L449 782 C454 790 470 795 472 805 C474 813 466 819 452 820 L422 821 C409 820 402 811 404 799Z"/>
-        <path fill="none" stroke="#c4979d44" stroke-width="2" d="M349 723 L344 784 M417 722 L427 786 M331 812 L374 813 M416 814 L463 813"/>
-        <path fill="none" stroke="#d6b8a94d" stroke-width="3" d="M345 718 L376 722 M412 722 L439 719"/>
-
-        <!-- Áo nữ -->
-        <path fill="url(#womanCoat)" stroke="#f9d6bd42" stroke-width="1.2" d="M343 265 C325 275 317 293 318 318 C320 342 329 369 327 393 C325 429 317 467 311 500 L304 557 C338 581 414 593 458 565 C454 532 447 500 441 471 C433 435 425 411 428 386 L439 325 C442 298 428 277 407 270 C384 259 363 258 343 265Z"/>
-        <path fill="#f2d4bd44" d="M345 282 L372 303 L351 336 L333 299Z"/>
-        <path fill="#6e46533a" d="M402 283 L373 304 L397 338 L416 304Z"/>
-        <path fill="none" stroke="#77556375" stroke-width="2" d="M373 319 C369 393 378 474 386 568"/>
-        <path fill="none" stroke="#ffe1c443" stroke-width="2" d="M326 501 C361 521 408 527 445 509 M330 453 L351 459 M408 461 L429 454"/>
-        <path fill="#83576466" d="M327 394 C356 406 394 407 428 396 L429 410 C394 421 357 421 326 408Z"/>
-        <rect x="369" y="400" width="19" height="13" rx="2" fill="none" stroke="#efd4b7" stroke-width="2"/>
-        <g fill="#72515c">
-          <circle cx="372" cy="346" r="3"/>
-          <circle cx="373" cy="375" r="3"/>
-          <circle cx="377" cy="445" r="3"/>
-          <circle cx="380" cy="479" r="3"/>
-        </g>
-
-        <!-- Tay ngoài nữ -->
-        <path fill="url(#womanCoat)" d="M415 276 C438 282 451 304 455 329 L466 390 C468 413 461 439 452 457 C445 465 432 463 425 455 C419 446 423 434 426 423 L435 388 C434 367 423 341 414 321Z"/>
-        <path fill="url(#skin)" d="M429 448 C422 459 422 473 427 485 C432 494 443 496 450 489 C457 482 459 468 454 456Z"/>
-        <path fill="none" stroke="#ffe3d050" stroke-width="2" d="M444 329 C449 352 453 383 449 406 M429 449 L454 454"/>
-
-        <!-- Cổ nữ -->
-        <path fill="url(#skin)" d="M346 227 C361 224 376 229 386 239 L393 281 C379 296 350 293 334 278Z"/>
-
-        <!-- Đầu nghiêng tựa vai -->
+    aria-label="Bóng đen hai người đứng cạnh nhau, cô gái tựa đầu lên vai chàng trai">
+    <svg viewBox="140 28 345 806" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#030407">
+        <path d="M218 522 C230 516 255 518 272 526 C276 568 271 613 267 653 C264 697 260 738 260 780 C252 790 232 792 223 783 C222 742 225 706 220 665 C214 615 210 563 218 522Z"/>
+        <path d="M275 525 C292 515 315 518 330 524 C334 568 325 611 326 654 C327 698 337 740 342 779 C336 790 317 795 308 786 C300 746 292 710 287 669 C282 621 276 573 275 525Z"/>
+        <path d="M222 773 C231 767 251 769 261 775 L264 795 C264 809 250 815 234 815 L193 815 C181 814 179 807 185 800 C193 793 207 790 220 784Z"/>
+        <path d="M308 777 C318 771 334 769 342 776 L350 794 C358 798 370 800 375 807 C379 814 371 819 357 819 L315 818 C302 816 299 808 303 796Z"/>
+        <path d="M241 157 C249 164 274 168 287 160 L294 207 C280 224 257 225 238 212Z"/>
+        <path d="M222 100 C220 80 228 61 242 52 C255 43 276 43 289 52 C305 62 313 79 311 101 C311 112 307 121 305 135 C302 157 290 174 271 179 C252 180 235 165 230 148 C225 134 224 117 222 100Z"/>
+        <path d="M225 109 C211 101 208 111 212 127 C214 140 221 146 230 145 L230 119Z"/>
+        <path d="M306 109 C318 103 322 113 317 128 C314 139 309 144 302 143Z"/>
+        <path d="M219 119 C212 100 212 85 219 69 C224 55 235 47 247 44 C250 39 259 36 266 40 C276 34 285 40 291 46 C304 48 313 61 314 74 C322 91 316 107 308 122 C306 111 303 105 300 98 C296 107 293 109 287 114 L282 102 C277 114 273 119 266 122 L260 108 C253 117 248 121 241 120 L236 108 L229 123Z"/>
+        <path d="M239 199 C220 199 202 206 190 219 C175 235 168 260 169 287 L181 373 C188 405 196 432 195 466 L190 543 C224 568 294 576 342 548 L336 476 C333 451 339 413 344 384 L351 292 C352 262 346 234 330 218 C318 204 302 200 289 200 L265 217Z"/>
+        <path d="M195 213 C174 216 160 237 156 267 C151 293 151 321 156 348 L170 421 C177 434 191 438 203 429 C211 422 211 410 208 398 L195 338 C195 309 207 281 214 255Z"/>
+        <path d="M171 417 C169 428 166 444 171 455 C177 467 188 473 198 468 C207 463 210 453 207 443 L201 427Z"/>
+        <path d="M352 551 C361 543 378 547 389 556 C390 597 380 636 378 678 L373 785 C363 794 348 792 344 783 C345 748 348 714 346 679 C343 632 342 586 352 551Z"/>
+        <path d="M390 555 C403 544 421 544 432 552 C436 591 427 635 429 673 C430 711 439 750 444 783 C438 795 422 799 414 791 C407 755 398 718 396 680 C393 639 390 596 390 555Z"/>
+        <path d="M344 712 C353 709 369 711 380 717 L378 784 C380 793 389 798 389 805 C389 814 381 819 367 819 L332 818 C321 815 323 805 329 799 L341 785Z"/>
+        <path d="M408 716 C419 711 433 709 440 715 L449 782 C454 790 470 795 472 805 C474 813 466 819 452 820 L422 821 C409 820 402 811 404 799Z"/>
+        <path d="M343 265 C325 275 317 293 318 318 C320 342 329 369 327 393 C325 429 317 467 311 500 L304 557 C338 581 414 593 458 565 C454 532 447 500 441 471 C433 435 425 411 428 386 L439 325 C442 298 428 277 407 270 C384 259 363 258 343 265Z"/>
+        <path d="M415 276 C438 282 451 304 455 329 L466 390 C468 413 461 439 452 457 C445 465 432 463 425 455 C419 446 423 434 426 423 L435 388 C434 367 423 341 414 321Z"/>
+        <path d="M429 448 C422 459 422 473 427 485 C432 494 443 496 450 489 C457 482 459 468 454 456Z"/>
+        <path d="M346 227 C361 224 376 229 386 239 L393 281 C379 296 350 293 334 278Z"/>
         <g transform="rotate(-30 355 262) translate(-32 8)">
-          <path fill="url(#skin)" d="M335 195 C333 173 342 155 358 148 C374 140 394 144 406 155 C418 167 420 185 416 203 C413 220 404 239 390 247 C377 255 360 251 350 240 C341 229 337 211 335 195Z"/>
-          <path fill="url(#hairColor)" d="M333 203 C321 183 325 162 338 148 C350 134 371 128 390 134 C412 140 427 158 429 181 C431 209 421 232 424 257 C427 286 441 311 438 338 C428 329 425 320 421 312 C423 332 418 347 408 358 C407 342 402 330 397 318 C398 340 389 355 379 363 C379 345 370 334 366 323 C363 343 356 354 346 358 C350 334 345 314 341 295 C336 270 339 246 335 222Z"/>
-          <path class="hair-tail" fill="url(#hairColor)" d="M416 217 C434 257 432 298 452 329 C441 327 430 313 426 301 C430 322 425 340 416 352 C420 325 408 291 409 266Z"/>
-          <path fill="none" stroke="#b9908150" stroke-width="2" d="M343 171 C345 146 377 132 402 153 M348 200 C345 243 353 282 357 316 M408 176 C418 214 398 259 407 300"/>
-          <path fill="none" stroke="#cfab9630" stroke-width="1.4" d="M366 148 C349 175 357 226 362 253 M390 151 C406 183 394 220 393 255"/>
+          <path d="M335 195 C333 173 342 155 358 148 C374 140 394 144 406 155 C418 167 420 185 416 203 C413 220 404 239 390 247 C377 255 360 251 350 240 C341 229 337 211 335 195Z"/>
+          <path d="M333 203 C321 183 325 162 338 148 C350 134 371 128 390 134 C412 140 427 158 429 181 C431 209 421 232 424 257 C427 286 441 311 438 338 C428 329 425 320 421 312 C423 332 418 347 408 358 C407 342 402 330 397 318 C398 340 389 355 379 363 C379 345 370 334 366 323 C363 343 356 354 346 358 C350 334 345 314 341 295 C336 270 339 246 335 222Z"/>
+          <path d="M416 217 C434 257 432 298 452 329 C441 327 430 313 426 301 C430 322 425 340 416 352 C420 325 408 291 409 266Z"/>
         </g>
-
-        <!-- Tay nam ôm qua vai nữ -->
-        <path fill="url(#manCoat)" stroke="#a5c3d329" stroke-width="1" d="M322 216 C342 214 357 228 367 244 C378 261 390 271 407 278 L442 289 C453 293 456 306 450 316 C445 326 432 329 421 323 L385 307 C366 299 351 284 341 268 L316 246Z"/>
-        <path fill="url(#skin)" d="M439 289 C451 289 461 296 464 306 C466 315 461 327 451 331 C444 334 434 331 430 325 L427 310Z"/>
-        <path fill="none" stroke="#a4b8c740" stroke-width="2" d="M335 228 C352 237 365 271 397 287 L428 301"/>
-
-        <!-- Khăn nam -->
-        <path fill="url(#scarfColor)" d="M237 195 C250 201 272 211 288 198 C296 196 303 202 303 211 C294 222 278 230 263 232 C250 228 235 222 231 213Z"/>
-        <path fill="url(#scarfColor)" d="M288 219 C305 229 320 245 342 246 C330 252 312 249 298 242 L284 232Z"/>
-        <path fill="none" stroke="#76585366" stroke-width="1.3" d="M241 207 C256 218 278 220 292 208 M293 228 L317 243"/>
-
-        <!-- Ánh viền -->
-        <path fill="none" stroke="#f6d2b659" stroke-width="1.8" d="M219 71 C224 55 235 47 247 44 M191 220 C179 236 175 259 177 285 M308 555 C341 577 415 585 451 566"/>
+        <path d="M322 216 C342 214 357 228 367 244 C378 261 390 271 407 278 L442 289 C453 293 456 306 450 316 C445 326 432 329 421 323 L385 307 C366 299 351 284 341 268 L316 246Z"/>
+        <path d="M439 289 C451 289 461 296 464 306 C466 315 461 327 451 331 C444 334 434 331 430 325 L427 310Z"/>
+        <path d="M237 195 C250 201 272 211 288 198 C296 196 303 202 303 211 C294 222 278 230 263 232 C250 228 235 222 231 213Z"/>
+        <path d="M288 219 C305 229 320 245 342 246 C330 252 312 249 298 242 L284 232Z"/>
       </g>
     </svg>
   </div>
 
-  <p class="opening-note">A MOMENT BEFORE THE NEXT CHAPTER</p>
+  <p class="opening-note">THE QUIET MOMENTS ARE WORTH KEEPING</p>
   <button class="pause" id="pause-intro" aria-pressed="false">Stay here</button>
 </section>
 
-<!-- ================= TAB 2 ================= -->
-<section class="panel universe" id="universe" role="tabpanel"
-  aria-labelledby="tab-world" hidden>
+<section class="panel universe" id="universe" role="tabpanel" aria-labelledby="tab-world" hidden>
   <div class="aurora" aria-hidden="true"></div>
-
   <div class="room-heading">
-    <p class="eyebrow">The private collection</p>
+    <p class="eyebrow">The memory collection</p>
     <div class="title-lockup">
-      <h2>A little universe.</h2>
-      <img class="title-gif" id="love-gif" width="70" height="70"
-        alt="Nhân vật hoạt hình vui nhộn"
-        data-src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyaGI4dDAxcjNtcmU0aDNlOGQyY2lsdWJtZzY0d244cHRpdHJzaDJ1NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/GPV6LaVEUPhvKlsJcv/giphy.gif"
-        hidden>
+      <h2>Những điều đáng nhớ.</h2>
+      <img class="title-gif" id="love-gif" width="56" height="56" alt="Nhân vật hoạt hình vui nhộn"
+        data-src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyaGI4dDAxcjNtcmU0aDNlOGQyY2lsdWJtZzY0d244cHRpdHJzaDJ1NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/GPV6LaVEUPhvKlsJcv/giphy.gif" hidden>
       <span class="gif-heart" id="gif-fallback" aria-hidden="true">♡</span>
     </div>
-    <p class="description">Kéo quả địa cầu. Xoay một vòng. Mở một kỷ niệm.</p>
+    <p class="description">Kéo để xoay quỹ đạo · Chạm vào ảnh để xem kỷ niệm.</p>
   </div>
 
   <div class="scene" id="scene">
     <canvas id="love-particles" aria-hidden="true"></canvas>
-
-    <div class="tree-wrap" role="img"
-      aria-label="Cây thông Giáng sinh phủ tuyết, có đèn, đồ trang trí và quà">
+    <div class="tree-wrap" role="img" aria-label="Cây thông phủ tuyết với đèn, đồ trang trí và quà">
       <canvas id="tree" aria-hidden="true"></canvas>
     </div>
-
-    <div class="orbit-stage" id="orbit-stage" role="region"
-      aria-label="Quỹ đạo ảnh ba chiều có thể kéo xoay">
+    <div class="orbit-stage" id="orbit-stage" role="region" aria-label="Quỹ đạo ảnh kéo xoay ba chiều">
       <div class="orbit-ring" aria-hidden="true"></div>
       <div class="orbit-ring second" aria-hidden="true"></div>
-
       <div class="globe-position">
         <button class="globe-button" id="globe-handle"
-          aria-label="Kéo để xoay địa cầu và ảnh. Dùng phím mũi tên để xoay, Home để đặt lại.">
+          aria-label="Kéo để xoay địa cầu. Phím mũi tên để xoay, Home để đặt lại.">
           <span class="earth" id="earth">
             <svg viewBox="0 0 300 300" aria-hidden="true">
               <g fill="#94a78e">
@@ -1075,25 +778,21 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
         <span class="globe-label" id="globe-label">DRAG TO EXPLORE</span>
       </div>
 
-      <button class="card" data-photo="0" aria-label="Mở kỷ niệm: A quiet afternoon">
-        <img src="https://i.postimg.cc/cKZzCBNp/IMG-0950.jpg"
-          alt="A quiet afternoon" width="800" height="1000"
-          loading="lazy" decoding="async" draggable="false">
+      <button class="card" data-photo="0" aria-label="Mở ảnh A quiet afternoon">
+        <img src="https://i.postimg.cc/cKZzCBNp/IMG-0950.jpg" alt="A quiet afternoon"
+          width="800" height="1000" loading="lazy" decoding="async" draggable="false">
       </button>
-      <button class="card" data-photo="1" aria-label="Mở kỷ niệm: The little things">
-        <img src="https://i.postimg.cc/CZY25sV9/IMG-0951.jpg"
-          alt="The little things" width="800" height="1000"
-          loading="lazy" decoding="async" draggable="false">
+      <button class="card" data-photo="1" aria-label="Mở ảnh The little things">
+        <img src="https://i.postimg.cc/CZY25sV9/IMG-0951.jpg" alt="The little things"
+          width="800" height="1000" loading="lazy" decoding="async" draggable="false">
       </button>
-      <button class="card" data-photo="2" aria-label="Mở kỷ niệm: Somewhere together">
-        <img src="https://i.postimg.cc/XZ3Pqk0T/IMG-0954.jpg"
-          alt="Somewhere together" width="800" height="1000"
-          loading="lazy" decoding="async" draggable="false">
+      <button class="card" data-photo="2" aria-label="Mở ảnh Somewhere together">
+        <img src="https://i.postimg.cc/XZ3Pqk0T/IMG-0954.jpg" alt="Somewhere together"
+          width="800" height="1000" loading="lazy" decoding="async" draggable="false">
       </button>
-      <button class="card" data-photo="3" aria-label="Mở kỷ niệm: Days to remember">
-        <img src="https://i.postimg.cc/v1MKTtdN/IMG-0955.jpg"
-          alt="Days to remember" width="800" height="1000"
-          loading="lazy" decoding="async" draggable="false">
+      <button class="card" data-photo="3" aria-label="Mở ảnh Days to remember">
+        <img src="https://i.postimg.cc/v1MKTtdN/IMG-0955.jpg" alt="Days to remember"
+          width="800" height="1000" loading="lazy" decoding="async" draggable="false">
       </button>
 
       <div class="satellite" aria-hidden="true"><span class="saturn"></span></div>
@@ -1102,7 +801,6 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
       <div class="satellite" aria-hidden="true"><span class="star-object"></span></div>
       <div class="satellite" aria-hidden="true"><span class="gift-object"></span></div>
     </div>
-
     <div class="controls">
       <button class="round" id="orbit-prev" aria-label="Xoay trái">‹</button>
       <small>DRAG · ROTATE · DISCOVER</small>
@@ -1119,10 +817,8 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
       </div>
     </div>
     <div>
-      <p id="countdown-label" class="eyebrow"
-        style="font-size:7px;margin-bottom:12px">Until Christmas</p>
-      <div class="countdown" id="countdown" role="timer"
-        aria-label="Thời gian đến Giáng sinh theo múi giờ của bạn">
+      <p id="countdown-label" class="eyebrow" style="font-size:7px;margin-bottom:12px">Until Christmas</p>
+      <div class="countdown" id="countdown" role="timer" aria-label="Thời gian đến Giáng sinh">
         <div class="time"><strong id="days">00</strong><small>Days</small></div>
         <div class="time"><strong id="hours">00</strong><small>Hours</small></div>
         <div class="time"><strong id="minutes">00</strong><small>Minutes</small></div>
@@ -1132,19 +828,29 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
   </footer>
 </section>
 
-<!-- ================= TAB 3 ================= -->
-<section class="panel letters-room" id="letters-room" role="tabpanel"
-  aria-labelledby="tab-letters" hidden>
+<section class="panel letters-room" id="letters-room" role="tabpanel" aria-labelledby="tab-letters" hidden>
   <div class="letters-heading">
     <div class="postmark-heading">
-      <span aria-hidden="true">✉</span>
-      <p class="eyebrow">A few words, just for you</p>
+      <span aria-hidden="true">✉</span><p class="eyebrow">The winter letters</p>
     </div>
-    <h2>Gửi em, <em>Thuỳ.</em></h2>
-    <p class="description">
-      Một vài điều anh muốn gửi em, viết gọn trong những lá thư.<br>
-      Chọn một phong bì, mở ra và đọc lúc em thấy thoải mái.
-    </p>
+    <h2>Những lời chúc.</h2>
+    <p class="description">Một khoảng trời sáng và sáu lá thư cho những ngày cuối năm.<br>Chọn một phong bì để đọc.</p>
+  </div>
+
+  <div class="celebration" id="celebration" role="img"
+    aria-label="Pháo hoa trái tim, ngôi sao, hộp quà và tên thuỳ húi">
+    <canvas id="letter-fireworks" aria-hidden="true"></canvas>
+    <span class="celebration-label">A LITTLE CELEBRATION</span>
+    <span class="celebration-status" id="firework-status">thuỳ húi</span>
+  </div>
+
+  <div class="firework-controls" role="group" aria-label="Chọn kiểu pháo hoa">
+    <button class="firework-button" data-firework="heart">♡ Trái tim</button>
+    <button class="firework-button" data-firework="star">☆ Ngôi sao</button>
+    <button class="firework-button" data-firework="gift">▣ Hộp quà</button>
+    <button class="firework-button primary" data-firework="name">thuỳ húi</button>
+    <button class="firework-button" data-firework="random">✦ Ngẫu nhiên</button>
+    <button class="firework-button" id="auto-fireworks" aria-pressed="true">Tự động: bật</button>
   </div>
 
   <div class="writing-desk">
@@ -1154,9 +860,8 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
     </div>
     <div class="letters-grid" id="letters-grid"></div>
   </div>
-
   <div class="letters-bottom">
-    <p>Không cần đọc hết một lần. Những lá thư vẫn ở đây.</p>
+    <p>Mỗi phong bì là một lời chúc. Đọc theo thứ tự bạn thích.</p>
     <button class="pill" id="letters-back">← Trở về không gian kỷ niệm</button>
   </div>
 </section>
@@ -1168,61 +873,46 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
 </button>
 
 <div class="audio-help" id="audio-help" hidden>
-  Chưa thể phát nhạc. Trình duyệt có thể yêu cầu bạn bấm phát, hoặc link
-  SoundCloud rút gọn cần được thay bằng URL đầy đủ của bài hát.
-  <br>
-  <a href="https://on.soundcloud.com/hzcf1AntOBaMzUcnvJ"
-    target="_blank" rel="noopener">Mở bài hát trên SoundCloud ↗</a>
+  Chưa thể phát nhạc. Có thể cần bấm phát hoặc thay link SoundCloud rút gọn bằng URL đầy đủ của bài hát.
+  <br><a href="https://on.soundcloud.com/hzcf1AntOBaMzUcnvJ" target="_blank" rel="noopener">Mở bài hát trên SoundCloud ↗</a>
   <button id="close-audio-help">Đóng</button>
 </div>
-
-<iframe id="soundcloud-player" class="audio-frame"
-  title="Nhạc nền SoundCloud" allow="autoplay" tabindex="-1"></iframe>
+<iframe id="soundcloud-player" class="audio-frame" title="Nhạc nền SoundCloud" allow="autoplay" tabindex="-1"></iframe>
 
 <dialog class="lightbox" id="lightbox" aria-label="Trình xem kỷ niệm">
   <button class="round close-photo" id="close-photo" aria-label="Đóng ảnh" autofocus>×</button>
   <button class="round prev-photo" id="prev-photo" aria-label="Ảnh trước">‹</button>
   <div class="lightbox-inner" id="lightbox-inner">
     <img id="large-photo" alt="">
-    <p id="photo-error" hidden>Chưa tải được ảnh. Bạn hãy kiểm tra kết nối và thử lại.</p>
+    <p id="photo-error" hidden>Chưa tải được ảnh. Hãy kiểm tra kết nối và thử lại.</p>
     <p id="photo-caption" aria-live="polite"></p>
   </div>
   <button class="round next-photo" id="next-photo" aria-label="Ảnh tiếp theo">›</button>
 </dialog>
 
-<dialog class="letter-dialog" id="letter-dialog"
-  aria-labelledby="letter-title" aria-describedby="letter-body">
-  <button class="letter-close" id="close-letter" autofocus>
-    <span aria-hidden="true">×</span> Đóng thư
-  </button>
+<dialog class="letter-dialog" id="letter-dialog" aria-labelledby="letter-title">
+  <button class="letter-close" id="close-letter" autofocus>× &nbsp; Đóng thư</button>
   <div class="letter-stage" id="letter-stage">
-    <div class="letter-view" id="letter-view">
+    <div class="letter-view">
       <div class="open-envelope" aria-hidden="true">
-        <div class="envelope-base"></div>
-        <div class="envelope-flap"></div>
-        <div class="envelope-left"></div>
-        <div class="envelope-right"></div>
+        <div class="envelope-base"></div><div class="envelope-flap"></div>
+        <div class="envelope-left"></div><div class="envelope-right"></div>
         <div class="envelope-bottom"></div>
       </div>
-
-      <article class="letter-sheet" id="letter-sheet">
+      <article class="letter-sheet">
         <div class="letter-topline">
-          <span>DECEMBER · A PERSONAL LETTER</span>
-          <span class="letter-monogram">T.</span>
+          <span>DECEMBER · NHỮNG LỜI CHÚC</span><span class="letter-monogram">D.</span>
         </div>
         <h3 id="letter-title"></h3>
-        <p class="letter-greeting">Thuỳ à,</p>
         <div class="letter-copy" id="letter-body"></div>
         <div class="letter-signature">
-          <small id="letter-footer"></small>
-          <span>Gửi em, từ anh.</span>
+          <small id="letter-footer"></small><span>Chúc những ngày thật tốt.</span>
         </div>
       </article>
-
       <div class="letter-navigation">
-        <button class="round" id="prev-letter" aria-label="Đọc lá thư trước">‹</button>
+        <button class="round" id="prev-letter" aria-label="Lá thư trước">‹</button>
         <small id="letter-index">01 / 06</small>
-        <button class="round" id="next-letter" aria-label="Đọc lá thư tiếp theo">›</button>
+        <button class="round" id="next-letter" aria-label="Lá thư tiếp theo">›</button>
       </div>
       <p class="letter-hint">Đóng thư để chọn phong bì khác · Esc để đóng</p>
     </div>
@@ -1234,230 +924,166 @@ dialog::backdrop{background:#080916ed;backdrop-filter:blur(12px)}
 "use strict";
 
 /* ================= HELPERS ================= */
-const $ = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
-const TAU = Math.PI * 2;
-const rand = (a,b) => a + Math.random() * (b-a);
-const clamp = (v,a,b) => Math.min(b,Math.max(a,v));
-const mobile = () => innerWidth <= 600;
-const motionQuery = matchMedia("(prefers-reduced-motion: reduce)");
-let reduced = motionQuery.matches;
-
-let W = innerWidth, H = innerHeight, DPR = 1;
-let activeTab = 0;
-let raf = 0, lastTime = 0, lastTreeTime = 0, lastSatelliteTime = 0;
-let introElapsed = 0, autoIntro = true, introPaused = false;
-let animationClock = 0;
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const TAU=Math.PI*2;
+const rand=(a,b)=>a+Math.random()*(b-a);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const mobile=()=>innerWidth<=600;
+const motionQuery=matchMedia("(prefers-reduced-motion: reduce)");
+let reduced=motionQuery.matches;
+let W=innerWidth,H=innerHeight,DPR=1;
+let activeTab=0,raf=0,lastTime=0,clock=0;
+let introElapsed=0,autoIntro=true,introPaused=false;
+let lastTreeTime=0,lastSatelliteTime=0;
 
 function makeCanvas(w,h){
-  const c = document.createElement("canvas");
-  c.width = Math.max(1,Math.ceil(w));
-  c.height = Math.max(1,Math.ceil(h));
+  const c=document.createElement("canvas");
+  c.width=Math.max(1,Math.ceil(w));c.height=Math.max(1,Math.ceil(h));
   return c;
 }
 function fitCanvas(c,w,h,dpr){
-  c.width = Math.max(1,Math.round(w*dpr));
-  c.height = Math.max(1,Math.round(h*dpr));
+  c.width=Math.max(1,Math.round(w*dpr));
+  c.height=Math.max(1,Math.round(h*dpr));
   c.getContext("2d").setTransform(dpr,0,0,dpr,0,0);
 }
 function seeded(seed){
-  return () => {
-    seed |= 0;
-    seed = seed + 0x6D2B79F5 | 0;
-    let t = Math.imul(seed ^ seed >>> 15,1 | seed);
-    t = t + Math.imul(t ^ t >>> 7,61 | t) ^ t;
-    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  return ()=>{
+    seed|=0;seed=seed+0x6D2B79F5|0;
+    let t=Math.imul(seed^seed>>>15,1|seed);
+    t=t+Math.imul(t^t>>>7,61|t)^t;
+    return ((t^t>>>14)>>>0)/4294967296;
   };
 }
-function syncBodyLock(){
-  document.body.classList.toggle(
-    "locked",
-    $("#lightbox").open || $("#letter-dialog").open
-  );
-}
+const lightbox=$("#lightbox"),letterDialog=$("#letter-dialog");
+function modalOpen(){return lightbox.open||letterDialog.open}
+function syncLock(){document.body.classList.toggle("locked",modalOpen())}
 
 /* ================= TABS ================= */
-const tabs = [$("#tab-cinema"),$("#tab-world"),$("#tab-letters")];
-const panels = [$("#cinema"),$("#universe"),$("#letters-room")];
-
+const tabs=[$("#tab-cinema"),$("#tab-world"),$("#tab-letters")];
+const panels=[$("#cinema"),$("#universe"),$("#letters-room")];
 function loadGif(){
-  const img = $("#love-gif");
-  if(reduced){
-    img.hidden = true;
-    $("#gif-fallback").hidden = false;
-    return;
-  }
-  if(!img.getAttribute("src")) img.src = img.dataset.src;
-  if(img.complete && img.naturalWidth){
-    img.hidden = false;
-    $("#gif-fallback").hidden = true;
-  }
+  const img=$("#love-gif");
+  if(reduced){img.hidden=true;$("#gif-fallback").hidden=false;return}
+  if(!img.getAttribute("src")) img.src=img.dataset.src;
+  if(img.complete&&img.naturalWidth){img.hidden=false;$("#gif-fallback").hidden=true}
 }
 $("#love-gif").addEventListener("load",()=>{
-  if(!reduced){
-    $("#love-gif").hidden = false;
-    $("#gif-fallback").hidden = true;
-  }
+  if(!reduced){$("#love-gif").hidden=false;$("#gif-fallback").hidden=true}
 });
 $("#love-gif").addEventListener("error",()=>{
-  $("#love-gif").hidden = true;
-  $("#gif-fallback").hidden = false;
+  $("#love-gif").hidden=true;$("#gif-fallback").hidden=false;
 });
-
 function switchTab(index,manual=true){
-  if(index<0 || index>=tabs.length) return;
-  if(manual) autoIntro = false;
-  if(index === activeTab) return;
-
+  if(index<0||index>=tabs.length) return;
+  if(manual) autoIntro=false;
+  if(index===activeTab) return;
   if(pointerId!==null) finishDrag({pointerId},true);
-  if($("#lightbox").open) $("#lightbox").close();
-  if($("#letter-dialog").open) $("#letter-dialog").close();
-
-  activeTab = index;
-  document.body.dataset.scene = String(index);
-
+  if(lightbox.open) lightbox.close();
+  if(letterDialog.open) letterDialog.close();
+  activeTab=index;
   tabs.forEach((tab,i)=>{
     tab.setAttribute("aria-selected",String(i===index));
-    tab.tabIndex = i===index ? 0 : -1;
-    panels[i].hidden = i!==index;
+    tab.tabIndex=i===index?0:-1;
+    panels[i].hidden=i!==index;
     panels[i].classList.remove("entering");
   });
-
   panels[index].classList.add("entering");
   window.scrollTo({top:0,behavior:"instant"});
-
-  if(index===1){
-    loadGif();
-    layoutOrbit();
-    resizeLoveCanvas();
-    drawTree(animationClock);
-  }else{
-    loveCtx.clearRect(0,0,loveWidth,loveHeight);
-    if(index===0){
-      nextLaunch = animationClock + 250;
-      resizeSky();
-      $("#pause-intro").hidden = false;
-    }
+  if(index===0){resizeSky();nextLaunch=clock+250}
+  if(index===1){loadGif();layoutOrbit();resizeRain();drawTree(clock)}
+  if(index===2){
+    resizeCelebration();
+    if(!shapeBursts.length&&!shapeRockets.length) launchShape("name",true);
+    nextShapeAt=shapeTime+4.8;
   }
-
-  if(!manual){
-    panels[index].tabIndex = -1;
-    panels[index].focus({preventScroll:true});
-  }
+  if(!manual){panels[index].tabIndex=-1;panels[index].focus({preventScroll:true})}
 }
 tabs.forEach((tab,i)=>{
   tab.addEventListener("click",()=>switchTab(i));
   tab.addEventListener("keydown",e=>{
     if(!["ArrowLeft","ArrowRight","Home","End"].includes(e.key)) return;
     e.preventDefault();
-    const next = e.key==="Home" ? 0 :
-      e.key==="End" ? tabs.length-1 :
-      (i + (e.key==="ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
-    switchTab(next);
-    tabs[next].focus();
+    const n=e.key==="Home"?0:e.key==="End"?2:(i+(e.key==="ArrowRight"?1:-1)+3)%3;
+    switchTab(n);tabs[n].focus();
   });
 });
-$("#skip").addEventListener("click",e=>{
-  e.preventDefault();switchTab(1);tabs[1].focus();
-});
+$("#skip").addEventListener("click",e=>{e.preventDefault();switchTab(1);tabs[1].focus()});
 $("#back").addEventListener("click",()=>switchTab(0));
 $("#go-letters").addEventListener("click",()=>switchTab(2));
 $("#letters-back").addEventListener("click",()=>switchTab(1));
 $("#pause-intro").addEventListener("click",()=>{
-  introPaused = !introPaused;
+  introPaused=!introPaused;
   $("#pause-intro").setAttribute("aria-pressed",String(introPaused));
-  $("#pause-intro").textContent = introPaused ? "Continue" : "Stay here";
+  $("#pause-intro").textContent=introPaused?"Continue":"Stay here";
 });
 
 /* ================= SOUND ================= */
-const SOUNDCLOUD_URL = "https://on.soundcloud.com/hzcf1AntOBaMzUcnvJ";
-const audioFrame = $("#soundcloud-player");
-let widget = null, audioReady = false, playing = false;
-let wantsMusic = true, userPaused = false, audioCheck = 0;
-
-function updateMusicUI(){
+const SOUNDCLOUD_URL="https://on.soundcloud.com/hzcf1AntOBaMzUcnvJ";
+let widget=null,audioReady=false,playing=false,wantsMusic=true,userPaused=false,audioCheck=0;
+function updateMusic(){
   $("#music").setAttribute("aria-pressed",String(playing));
-  $("#music").setAttribute("aria-label",playing ? "Tạm dừng nhạc nền" : "Phát nhạc nền");
-  $("#music-label").textContent = playing ? "Sound on" : "Enable sound";
+  $("#music").setAttribute("aria-label",playing?"Tạm dừng nhạc nền":"Phát nhạc nền");
+  $("#music-label").textContent=playing?"Sound on":"Enable sound";
 }
-function tryMusic(showHelp=false){
-  if(!wantsMusic || userPaused) return;
-  if(widget && audioReady && !playing) widget.play();
-  if(showHelp){
+function tryMusic(help=false){
+  if(!wantsMusic||userPaused) return;
+  if(widget&&audioReady&&!playing) widget.play();
+  if(help){
     clearTimeout(audioCheck);
-    audioCheck = setTimeout(()=>{
-      if(!playing) $("#audio-help").hidden = false;
-    },4000);
+    audioCheck=setTimeout(()=>{if(!playing) $("#audio-help").hidden=false},4000);
   }
 }
 function setupSound(){
-  audioFrame.src = "https://w.soundcloud.com/player/?url=" +
-    encodeURIComponent(SOUNDCLOUD_URL) +
+  const frame=$("#soundcloud-player");
+  frame.src="https://w.soundcloud.com/player/?url="+encodeURIComponent(SOUNDCLOUD_URL)+
     "&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false";
-
-  const script = document.createElement("script");
-  script.src = "https://w.soundcloud.com/player/api.js";
-  script.onload = ()=>{
+  const script=document.createElement("script");
+  script.src="https://w.soundcloud.com/player/api.js";
+  script.onload=()=>{
     if(!window.SC?.Widget) return;
-    const SC = window.SC;
-    widget = SC.Widget(audioFrame);
-    widget.bind(SC.Widget.Events.READY,()=>{
-      audioReady = true;widget.setVolume(32);tryMusic();
-    });
+    const SC=window.SC;widget=SC.Widget(frame);
+    widget.bind(SC.Widget.Events.READY,()=>{audioReady=true;widget.setVolume(32);tryMusic()});
     widget.bind(SC.Widget.Events.PLAY,()=>{
-      playing = true;clearTimeout(audioCheck);
-      $("#audio-help").hidden = true;updateMusicUI();
+      playing=true;clearTimeout(audioCheck);$("#audio-help").hidden=true;updateMusic();
     });
-    widget.bind(SC.Widget.Events.PAUSE,()=>{
-      playing = false;updateMusicUI();
-    });
+    widget.bind(SC.Widget.Events.PAUSE,()=>{playing=false;updateMusic()});
     widget.bind(SC.Widget.Events.FINISH,()=>{
-      playing = false;
-      if(wantsMusic && !userPaused){widget.seekTo(0);widget.play()}
-      updateMusicUI();
+      playing=false;if(wantsMusic&&!userPaused){widget.seekTo(0);widget.play()}updateMusic();
     });
-    if(SC.Widget.Events.ERROR){
-      widget.bind(SC.Widget.Events.ERROR,()=>{
-        playing = false;updateMusicUI();
-        $("#music-label").textContent = "Sound unavailable";
-      });
-    }
+    if(SC.Widget.Events.ERROR) widget.bind(SC.Widget.Events.ERROR,()=>{
+      playing=false;updateMusic();$("#music-label").textContent="Sound unavailable";
+    });
   };
-  script.onerror = ()=>$("#music-label").textContent = "Sound unavailable";
+  script.onerror=()=>$("#music-label").textContent="Sound unavailable";
   document.head.append(script);
 }
 $("#music").addEventListener("click",()=>{
   if(playing){
-    wantsMusic = false;userPaused = true;
-    widget?.pause();playing = false;updateMusicUI();
-  }else{
-    wantsMusic = true;userPaused = false;tryMusic(true);
-  }
+    wantsMusic=false;userPaused=true;widget?.pause();playing=false;updateMusic();
+  }else{wantsMusic=true;userPaused=false;tryMusic(true)}
 });
 document.addEventListener("pointerdown",e=>{
-  if(!e.target.closest("#music") && !e.target.closest("#audio-help")) tryMusic();
+  if(!e.target.closest("#music,#audio-help")) tryMusic();
 },{passive:true});
 document.addEventListener("keydown",e=>{
-  if((e.key==="Enter" || e.key===" ") && !e.target.closest("#music")) tryMusic();
+  if((e.key==="Enter"||e.key===" ")&&!e.target.closest("#music")) tryMusic();
 });
-$("#close-audio-help").addEventListener("click",()=>$("#audio-help").hidden = true);
+$("#close-audio-help").addEventListener("click",()=>$("#audio-help").hidden=true);
 
 /* ================= SNOW ================= */
-const snowCanvas = $("#snow");
-const snowCtx = snowCanvas.getContext("2d");
-
-const snowSprites = Array.from({length:5},(_,type)=>{
-  const c = makeCanvas(80,80),x = c.getContext("2d"),r = seeded(31+type);
-  x.translate(40,40);x.lineCap = "round";
+const snowCanvas=$("#snow"),snowCtx=snowCanvas.getContext("2d");
+const snowSprites=Array.from({length:5},(_,type)=>{
+  const c=makeCanvas(80,80),x=c.getContext("2d"),r=seeded(31+type);
+  x.translate(40,40);x.lineCap="round";
   if(type===4){
-    x.filter = "blur(2px)";x.fillStyle = "#f1edf8";
-    x.beginPath();x.moveTo(-8,-17);x.lineTo(9,-12);x.lineTo(15,3);
-    x.lineTo(4,17);x.lineTo(-13,8);x.lineTo(-14,-5);x.closePath();x.fill();
+    x.filter="blur(2px)";x.fillStyle="#f1edf8";x.beginPath();
+    x.moveTo(-8,-17);x.lineTo(9,-12);x.lineTo(15,3);x.lineTo(4,17);x.lineTo(-13,8);
+    x.closePath();x.fill();
   }else{
-    x.strokeStyle = "#f1edf8";x.lineWidth = 1.2;
+    x.strokeStyle="#f1edf8";x.lineWidth=1.2;
     for(let i=0;i<6;i++){
-      x.save();x.rotate(i*Math.PI/3);
-      x.beginPath();x.moveTo(0,0);x.lineTo(0,-29-r()*4);
+      x.save();x.rotate(i*Math.PI/3);x.beginPath();x.moveTo(0,0);x.lineTo(0,-29-r()*4);
       for(let j=0;j<3;j++){
         const y=-8-j*7,b=3+r()*4;
         x.moveTo(0,y);x.lineTo(-b,y-b);x.moveTo(0,y);x.lineTo(b,y-b);
@@ -1467,145 +1093,107 @@ const snowSprites = Array.from({length:5},(_,type)=>{
   }
   return c;
 });
-let flakes = [];
+let flakes=[];
 function newFlake(){
-  const depth = Math.random(),near = depth>.945;
-  return {
-    x:rand(-35,W+35),y:rand(-35,H+35),
-    size:near?rand(24,39):2+depth*11,
-    speed:15+depth*depth*52,drift:rand(-8,8),phase:rand(0,TAU),
-    alpha:near?.13:.12+depth*.34,angle:rand(0,TAU),
-    spin:rand(-.22,.22),sprite:near?4:Math.floor(rand(0,4))
-  };
+  const d=Math.random(),near=d>.95;
+  return {x:rand(-35,W+35),y:rand(-35,H+35),size:near?rand(24,36):2+d*10,
+    speed:15+d*d*48,drift:rand(-8,8),phase:rand(0,TAU),alpha:near?.13:.12+d*.32,
+    angle:rand(0,TAU),spin:rand(-.18,.18),sprite:near?4:Math.floor(rand(0,4))};
 }
 function drawSnow(t,dt){
   snowCtx.clearRect(0,0,W,H);
   for(const f of flakes){
     if(!reduced){
-      f.y += f.speed*dt;
-      f.x += (f.drift+Math.sin(t*.00035+f.phase)*10)*dt;
-      f.angle += f.spin*dt;
+      f.y+=f.speed*dt;f.x+=(f.drift+Math.sin(t*.00035+f.phase)*9)*dt;f.angle+=f.spin*dt;
     }
     if(f.y>H+45){f.y=-40;f.x=rand(-20,W+20)}
     if(f.x>W+45) f.x=-40;
     if(f.x< -45) f.x=W+40;
     snowCtx.save();snowCtx.translate(f.x,f.y);snowCtx.rotate(f.angle);
-    snowCtx.globalAlpha = f.alpha*(reduced?.4:1);
+    snowCtx.globalAlpha=f.alpha*(reduced?.4:1);
     if(f.size<4){
-      snowCtx.strokeStyle="#f0eaf5";snowCtx.lineWidth=.65;
-      snowCtx.beginPath();snowCtx.moveTo(0,0);
-      snowCtx.lineTo(-.6,f.size*1.4);snowCtx.stroke();
-    }else{
-      snowCtx.drawImage(snowSprites[f.sprite],-f.size/2,-f.size/2,f.size,f.size);
-    }
+      snowCtx.fillStyle="#f0eaf5";snowCtx.fillRect(0,0,1,f.size);
+    }else snowCtx.drawImage(snowSprites[f.sprite],-f.size/2,-f.size/2,f.size,f.size);
     snowCtx.restore();
   }
 }
 
-/* ================= STARS & FIREWORKS ================= */
-const starsCanvas = $("#stars"),starsCtx = starsCanvas.getContext("2d");
-const fireworksCanvas = $("#fireworks"),fw = fireworksCanvas.getContext("2d");
-let skyW=W,skyH=H;
-
-function drawStars(){
-  starsCtx.clearRect(0,0,skyW,skyH);
-  const r = seeded(241225);
-  for(let i=0;i<(mobile()?110:220);i++){
-    const x=r()*skyW,y=r()*skyH*.7,size=.4+r()*1.15;
-    starsCtx.fillStyle=i%5 ? "#ebe2f2" : "#ffe5bf";
-    starsCtx.globalAlpha=.2+r()*.6;starsCtx.fillRect(x,y,size,size);
-    if(i%17===0){
-      starsCtx.globalAlpha=.25;
-      starsCtx.fillRect(x-2,y+.4,5,.5);starsCtx.fillRect(x+.4,y-2,.5,5);
-    }
-  }
-  starsCtx.globalAlpha=1;
-}
-const glow = makeCanvas(48,48);
+/* ================= INTRO FIREWORKS ================= */
+const starsCanvas=$("#stars"),starsCtx=starsCanvas.getContext("2d");
+const fwCanvas=$("#fireworks"),fw=fwCanvas.getContext("2d");
+let skyW=W,skyH=H,rockets=[],embers=[],nextLaunch=700;
+const glow=makeCanvas(48,48);
 {
   const c=glow.getContext("2d"),g=c.createRadialGradient(24,24,0,24,24,24);
   g.addColorStop(0,"#fff3cf");g.addColorStop(.1,"#ffe7b7dd");
   g.addColorStop(.35,"#e8bf7d44");g.addColorStop(1,"#e8bf7d00");
   c.fillStyle=g;c.fillRect(0,0,48,48);
 }
-let rockets=[],embers=[],nextLaunch=700;
-const FIREWORK_PALETTES=[
+function drawStars(){
+  starsCtx.clearRect(0,0,skyW,skyH);
+  const r=seeded(241225);
+  for(let i=0;i<(mobile()?100:190);i++){
+    const x=r()*skyW,y=r()*skyH*.7,s=.4+r();
+    starsCtx.fillStyle=i%5?"#ebe2f2":"#ffe5bf";starsCtx.globalAlpha=.2+r()*.6;
+    starsCtx.fillRect(x,y,s,s);
+    if(i%17===0){starsCtx.globalAlpha=.25;starsCtx.fillRect(x-2,y+.4,5,.5);starsCtx.fillRect(x+.4,y-2,.5,5)}
+  }
+  starsCtx.globalAlpha=1;
+}
+const INTRO_PALETTES=[
   ["#ffd4e8","#ffbbcc","#ffe6bd"],
   ["#c0eaf5","#a8d9f4","#f7e4ca"],
   ["#d7c5ff","#bdabf4","#ffe0d8"],
   ["#e9d5ad","#fff0ce","#f3baca"]
 ];
 function burst(x,y,age=0){
-  const count=mobile()?90:145,radius=mobile()?105:165;
-  const palette=FIREWORK_PALETTES[Math.floor(rand(0,FIREWORK_PALETTES.length))];
+  const count=mobile()?85:135,radius=mobile()?100:155;
+  const colors=INTRO_PALETTES[Math.floor(rand(0,4))];
   for(let i=0;i<count;i++){
-    const a=i/count*TAU+rand(-.02,.02);
-    const speed=radius*(Math.random()>.2?rand(.75,1):rand(.3,.6));
-    embers.push({
-      x:x+Math.cos(a)*speed*age,y:y+Math.sin(a)*speed*age,
-      vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,
-      life:rand(2.2,3.6),size:rand(.65,1.5),
-      color:palette[i%palette.length],trail:[],phase:rand(0,TAU)
-    });
+    const a=i/count*TAU+rand(-.02,.02),speed=radius*(Math.random()>.2?rand(.75,1):rand(.3,.6));
+    embers.push({x:x+Math.cos(a)*speed*age,y:y+Math.sin(a)*speed*age,
+      vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,life:rand(2.2,3.6),
+      size:rand(.7,1.5),color:colors[i%3],phase:rand(0,TAU)});
   }
 }
-function staticFireworks(){
-  const r=seeded(987);
-  [[.66,.27,.12],[.84,.17,.08]].forEach(([px,py,rr])=>{
-    const x=skyW*px,y=skyH*py,radius=Math.min(skyW,skyH)*rr;
-    for(let i=0;i<70;i++){
-      const a=i/70*TAU,l=radius*(.7+r()*.3);
-      fw.strokeStyle=i%3?"#dfd4e7":"#dac09c";fw.lineWidth=.8;
-      fw.globalAlpha=.25+r()*.45;fw.beginPath();
-      fw.moveTo(x+Math.cos(a)*l*.7,y+Math.sin(a)*l*.7);
-      fw.lineTo(x+Math.cos(a)*l,y+Math.sin(a)*l);fw.stroke();
-    }
-  });
-  fw.globalAlpha=1;
-}
-function drawFireworks(t,dt){
-  if(activeTab!==0) return;
+function drawIntroFireworks(t,dt){
   fw.clearRect(0,0,skyW,skyH);
-  if(reduced){staticFireworks();return}
-  if(t>nextLaunch){
-    rockets.push({
-      x:skyW*rand(.48,.92),y:skyH*.8,
-      vy:-rand(310,430),target:skyH*rand(.12,.34),trail:[]
+  if(reduced){
+    const r=seeded(987);
+    [[.66,.27,.12],[.84,.17,.08]].forEach(([px,py,rr])=>{
+      const x=skyW*px,y=skyH*py,radius=Math.min(skyW,skyH)*rr;
+      for(let i=0;i<70;i++){
+        const a=i/70*TAU,l=radius*(.7+r()*.3);
+        fw.strokeStyle=i%3?"#dfd4e7":"#dac09c";fw.globalAlpha=.25+r()*.45;
+        fw.beginPath();fw.moveTo(x+Math.cos(a)*l*.7,y+Math.sin(a)*l*.7);
+        fw.lineTo(x+Math.cos(a)*l,y+Math.sin(a)*l);fw.stroke();
+      }
     });
-    nextLaunch=t+rand(1050,1500);
+    fw.globalAlpha=1;return;
+  }
+  if(t>nextLaunch){
+    rockets.push({x:skyW*rand(.49,.91),y:skyH*.8,vy:-rand(310,430),target:skyH*rand(.12,.34)});
+    nextLaunch=t+rand(1150,1600);
   }
   fw.globalCompositeOperation="lighter";
   for(let i=rockets.length-1;i>=0;i--){
-    const r=rockets[i];
-    r.trail.push({x:r.x,y:r.y});
-    if(r.trail.length>12) r.trail.shift();
-    r.y+=r.vy*dt;r.vy+=25*dt;
-    for(let j=1;j<r.trail.length;j++){
-      fw.globalAlpha=j/r.trail.length*.6;
-      fw.strokeStyle="#e9cfb6";fw.lineWidth=1;fw.beginPath();
-      fw.moveTo(r.trail[j-1].x,r.trail[j-1].y);
-      fw.lineTo(r.trail[j].x,r.trail[j].y);fw.stroke();
-    }
-    fw.globalAlpha=.8;fw.drawImage(glow,r.x-6,r.y-6,12,12);
-    if(r.y<r.target || r.vy> -90){burst(r.x,r.y);rockets.splice(i,1)}
+    const r=rockets[i],oldY=r.y;r.y+=r.vy*dt;r.vy+=25*dt;
+    fw.strokeStyle="#e9cfb6";fw.globalAlpha=.6;fw.lineWidth=1;
+    fw.beginPath();fw.moveTo(r.x,oldY+15);fw.lineTo(r.x,r.y);fw.stroke();
+    fw.drawImage(glow,r.x-6,r.y-6,12,12);
+    if(r.y<r.target||r.vy> -90){burst(r.x,r.y);rockets.splice(i,1)}
   }
   for(let i=embers.length-1;i>=0;i--){
     const p=embers[i];p.life-=dt;
     if(p.life<=0){embers.splice(i,1);continue}
-    p.trail.push({x:p.x,y:p.y});
-    if(p.trail.length>7) p.trail.shift();
+    const ox=p.x,oy=p.y;
     p.vx*=Math.exp(-.39*dt);p.vy*=Math.exp(-.28*dt);p.vy+=24*dt;
     p.x+=p.vx*dt;p.y+=p.vy*dt;
-    const alpha=clamp(p.life/.9,0,1)*(.85+.15*Math.sin(t*.012+p.phase));
-    fw.lineWidth=p.size;fw.strokeStyle=p.color;
-    for(let j=1;j<p.trail.length;j++){
-      fw.globalAlpha=alpha*j/p.trail.length*.7;fw.beginPath();
-      fw.moveTo(p.trail[j-1].x,p.trail[j-1].y);
-      fw.lineTo(p.trail[j].x,p.trail[j].y);fw.stroke();
-    }
-    fw.globalAlpha=alpha;fw.fillStyle=p.color;fw.fillRect(p.x,p.y,p.size,p.size);
+    fw.globalAlpha=clamp(p.life/.9,0,1)*(.85+.15*Math.sin(t*.012+p.phase));
+    fw.strokeStyle=p.color;fw.lineWidth=p.size;
+    fw.beginPath();fw.moveTo(ox-p.vx*.04,oy-p.vy*.04);fw.lineTo(p.x,p.y);fw.stroke();
   }
-  if(embers.length>950) embers.splice(0,embers.length-950);
+  if(embers.length>800) embers.splice(0,embers.length-800);
   fw.globalAlpha=1;fw.globalCompositeOperation="source-over";
 }
 
@@ -1613,50 +1201,38 @@ function drawFireworks(t,dt){
 const treeCanvas=$("#tree"),treeCtx=treeCanvas.getContext("2d");
 const TW=760,TH=1070;
 treeCanvas.width=TW;treeCanvas.height=TH;
-let treeTexture=null;
+let treeTexture=null,treeLights=null;
 const bulbs=[];
-let treeLights=null,treeLightsCtx=null;
-
 function createTree(){
-  bulbs.length=0;
   const c=makeCanvas(TW,TH),x=c.getContext("2d"),r=seeded(251226),cx=380;
-  x.lineCap="round";
+  bulbs.length=0;x.lineCap="round";
   const bark=x.createLinearGradient(368,0,393,0);
-  bark.addColorStop(0,"#20281c");bark.addColorStop(.5,"#66563b");
-  bark.addColorStop(1,"#17271d");
+  bark.addColorStop(0,"#20281c");bark.addColorStop(.5,"#66563b");bark.addColorStop(1,"#17271d");
   x.fillStyle=bark;x.fillRect(370,120,21,835);
-
   for(let layer=29;layer>=0;layer--){
     const t=layer/29,y=125+t*775,spread=14+Math.pow(t,.93)*307;
     for(let b=0;b<13;b++){
-      const side=b%2?1:-1,len=spread*(.18+r()*.82);
-      const sy=y+r()*24,ey=sy+28+t*32;
+      const side=b%2?1:-1,len=spread*(.18+r()*.82),sy=y+r()*24,ey=sy+28+t*32;
       x.strokeStyle="#535137";x.lineWidth=1+t*2.2;
-      x.beginPath();x.moveTo(cx,sy-12);
-      x.quadraticCurveTo(cx+side*len*.6,ey+14,cx+side*len,ey);x.stroke();
+      x.beginPath();x.moveTo(cx,sy-12);x.quadraticCurveTo(cx+side*len*.6,ey+14,cx+side*len,ey);x.stroke();
       const count=12+Math.floor(len/8);
       for(let j=0;j<count;j++){
-        const p=j/count,bx=cx+side*len*p;
-        const by=sy-8+(ey-sy+12)*p+Math.sin(p*Math.PI)*12;
-        const a=side>0?-.42-r():Math.PI+.42+r();
-        const tl=(18+r()*32)*(1-p*.3);
+        const p=j/count,bx=cx+side*len*p,by=sy-8+(ey-sy+12)*p+Math.sin(p*Math.PI)*12;
+        const a=side>0?-.42-r():Math.PI+.42+r(),tl=(18+r()*32)*(1-p*.3);
         const tx=bx+Math.cos(a)*tl,ty=by+Math.sin(a)*tl;
-        x.strokeStyle="#526845";x.lineWidth=.7;
-        x.beginPath();x.moveTo(bx,by);x.lineTo(tx,ty);x.stroke();
+        x.strokeStyle="#526845";x.lineWidth=.7;x.beginPath();x.moveTo(bx,by);x.lineTo(tx,ty);x.stroke();
         for(let n=0;n<10;n++){
           const q=n/10,nx=bx+(tx-bx)*q,ny=by+(ty-by)*q;
           for(const s of [-1,1]){
             const na=a+s*(.3+r()*.65),nl=7+r()*13,shade=r();
-            x.strokeStyle=shade>.9?"#9baa86":shade>.68?"#667f58":
-              shade>.4?"#3c5b3b":shade>.2?"#25452f":"#132d21";
+            x.strokeStyle=shade>.9?"#9baa86":shade>.68?"#667f58":shade>.4?"#3c5b3b":shade>.2?"#25452f":"#132d21";
             x.lineWidth=.55+r()*.75;x.beginPath();x.moveTo(nx,ny);
             x.lineTo(nx+Math.cos(na)*nl,ny+Math.sin(na)*nl);x.stroke();
           }
         }
         if(r()>.72){
-          x.strokeStyle=`rgba(221,231,212,${.25+r()*.4})`;
-          x.lineWidth=1+r()*3;x.beginPath();x.moveTo(tx,ty-1);
-          x.lineTo(bx+(tx-bx)*.3,by+(ty-by)*.3-2);x.stroke();
+          x.strokeStyle=`rgba(221,231,212,${.25+r()*.4})`;x.lineWidth=1+r()*3;
+          x.beginPath();x.moveTo(tx,ty-1);x.lineTo(bx+(tx-bx)*.3,by+(ty-by)*.3-2);x.stroke();
         }
       }
     }
@@ -1667,1048 +1243,356 @@ function createTree(){
     for(let j=0;j<=80;j++){
       const p=j/80,xx=cx-w+w*2*p,yy=y+Math.sin(p*Math.PI)*(18+row*2);
       j?x.lineTo(xx,yy):x.moveTo(xx,yy);
-      if(j%5===0) bulbs.push({x:xx,y:yy,size:1.2+r(),phase:r()*TAU});
+      if(j%5===0) bulbs.push({x:xx,y:yy,size:1.2+r()});
     }
     x.stroke();
   }
   for(let i=0;i<74;i++){
-    const t=.15+r()*.81;
-    const xx=cx+(r()*2-1)*t*278,y=135+t*780,rr=4+r()*8,red=i%3!==0;
-    x.strokeStyle="#c1aa7b88";x.lineWidth=.6;
-    x.beginPath();x.moveTo(xx,y-rr-8);x.lineTo(xx,y);x.stroke();
+    const t=.15+r()*.81,xx=cx+(r()*2-1)*t*278,y=135+t*780,rr=4+r()*8,red=i%3!==0;
+    x.strokeStyle="#c1aa7b88";x.lineWidth=.6;x.beginPath();x.moveTo(xx,y-rr-8);x.lineTo(xx,y);x.stroke();
     const g=x.createRadialGradient(xx-rr*.35,y-rr*.4,.3,xx,y,rr);
-    g.addColorStop(0,red?"#efc0a8":"#fff1bd");
-    g.addColorStop(.23,red?"#b75851":"#d5b47a");
-    g.addColorStop(.7,red?"#782d35":"#98753f");
-    g.addColorStop(1,red?"#301924":"#353326");
+    g.addColorStop(0,red?"#efc0a8":"#fff1bd");g.addColorStop(.23,red?"#b75851":"#d5b47a");
+    g.addColorStop(.7,red?"#782d35":"#98753f");g.addColorStop(1,red?"#301924":"#353326");
     x.fillStyle=g;x.beginPath();x.arc(xx,y,rr,0,TAU);x.fill();
     x.fillStyle="#c8b17d";x.fillRect(xx-2,y-rr-2,4,3);
-    x.fillStyle="#ffffff77";x.beginPath();
-    x.ellipse(xx-rr*.3,y-rr*.4,rr*.12,rr*.2,-.5,0,TAU);x.fill();
+    x.fillStyle="#ffffff77";x.beginPath();x.ellipse(xx-rr*.3,y-rr*.4,rr*.12,rr*.2,-.5,0,TAU);x.fill();
   }
-
   x.drawImage(glow,cx-55,29,110,110);x.beginPath();
   for(let i=0;i<10;i++){
-    const a=-Math.PI/2+i*Math.PI/5,rr=i%2?12:28;
-    const xx=cx+Math.cos(a)*rr,y=88+Math.sin(a)*rr;
+    const a=-Math.PI/2+i*Math.PI/5,rr=i%2?12:28,xx=cx+Math.cos(a)*rr,y=88+Math.sin(a)*rr;
     i?x.lineTo(xx,y):x.moveTo(xx,y);
   }
-  x.closePath();x.fillStyle="#e5c58e";x.fill();
-  x.strokeStyle="#ffe4ad";x.lineWidth=.7;x.stroke();
-
+  x.closePath();x.fillStyle="#e5c58e";x.fill();x.strokeStyle="#ffe4ad";x.lineWidth=.7;x.stroke();
   function gift(px,py,w,h,color,ribbon){
-    x.save();x.translate(px,py);
-    x.fillStyle="#0004";x.beginPath();x.ellipse(w/2,h+4,w*.65,8,0,0,TAU);x.fill();
-    const g=x.createLinearGradient(0,0,w,h);
-    g.addColorStop(0,color);g.addColorStop(1,"#242b23");
-    x.fillStyle=g;x.fillRect(0,0,w,h);
-    x.fillStyle=ribbon;x.fillRect(w*.43,0,w*.14,h);
-    x.fillStyle=color;x.fillRect(-3,-7,w+6,12);
-    x.fillStyle=ribbon;x.fillRect(w*.43,-7,w*.14,12);
+    x.save();x.translate(px,py);x.fillStyle="#0004";x.beginPath();x.ellipse(w/2,h+4,w*.65,8,0,0,TAU);x.fill();
+    const g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,color);g.addColorStop(1,"#242b23");
+    x.fillStyle=g;x.fillRect(0,0,w,h);x.fillStyle=ribbon;x.fillRect(w*.43,0,w*.14,h);
+    x.fillStyle=color;x.fillRect(-3,-7,w+6,12);x.fillStyle=ribbon;x.fillRect(w*.43,-7,w*.14,12);
     x.strokeStyle=ribbon;x.lineWidth=2.4;x.beginPath();
-    x.ellipse(w*.4,-13,w*.14,8,.4,0,TAU);
-    x.ellipse(w*.6,-13,w*.14,8,-.4,0,TAU);x.stroke();x.restore();
+    x.ellipse(w*.4,-13,w*.14,8,.4,0,TAU);x.ellipse(w*.6,-13,w*.14,8,-.4,0,TAU);x.stroke();x.restore();
   }
   gift(222,923,91,65,"#914950","#d4b27c");
   gift(444,913,105,80,"#b3a17e","#7c414a");
   gift(341,956,81,50,"#3d5944","#c7aa77");
-    gift(518,957,59,43,"#843d49","#d4b783");
-
+  gift(518,957,59,43,"#843d49","#d4b783");
   treeLights=makeCanvas(TW,TH);
-  treeLightsCtx=treeLights.getContext("2d");
-
-  for(const b of bulbs){
-    const s=b.size*12;
-    treeLightsCtx.globalAlpha=.75;
-    treeLightsCtx.drawImage(
-      glow,
-      b.x-s/2,
-      b.y-s/2,
-      s,
-      s
-    );
-  }
-
-  treeLightsCtx.globalAlpha=1;
+  const l=treeLights.getContext("2d");
+  for(const b of bulbs){const s=b.size*12;l.drawImage(glow,b.x-s/2,b.y-s/2,s,s)}
   return c;
 }
-
 function drawTree(t){
   if(!treeTexture) return;
-
-  treeCtx.clearRect(0,0,TW,TH);
-  treeCtx.drawImage(treeTexture,0,0);
-
-  if(treeLights){
-    treeCtx.globalAlpha=reduced
-      ?.8
-      :.78+Math.sin(t*.0008)*.12;
-
-    treeCtx.drawImage(treeLights,0,0);
-  }
-
+  treeCtx.clearRect(0,0,TW,TH);treeCtx.drawImage(treeTexture,0,0);
+  if(treeLights){treeCtx.globalAlpha=reduced?.8:.8+Math.sin(t*.0008)*.12;treeCtx.drawImage(treeLights,0,0)}
   treeCtx.globalAlpha=1;
 }
 
-/* ================= DRAGGABLE ORBIT ================= */
+/* ================= ORBIT ================= */
 const photos=[
-  {
-    src:"https://i.postimg.cc/cKZzCBNp/IMG-0950.jpg",
-    title:"A quiet afternoon"
-  },
-  {
-    src:"https://i.postimg.cc/CZY25sV9/IMG-0951.jpg",
-    title:"The little things"
-  },
-  {
-    src:"https://i.postimg.cc/XZ3Pqk0T/IMG-0954.jpg",
-    title:"Somewhere together"
-  },
-  {
-    src:"https://i.postimg.cc/v1MKTtdN/IMG-0955.jpg",
-    title:"Days to remember"
-  }
+  {src:"https://i.postimg.cc/cKZzCBNp/IMG-0950.jpg",title:"A quiet afternoon"},
+  {src:"https://i.postimg.cc/CZY25sV9/IMG-0951.jpg",title:"The little things"},
+  {src:"https://i.postimg.cc/XZ3Pqk0T/IMG-0954.jpg",title:"Somewhere together"},
+  {src:"https://i.postimg.cc/v1MKTtdN/IMG-0955.jpg",title:"Days to remember"}
 ];
-
-const stage=$("#orbit-stage");
-const handle=$("#globe-handle");
-const cards=$$(".card");
-const satellites=$$(".satellite");
-const earthMap=$("#earth-map");
-const earth=$("#earth");
-
-let yaw=-45,targetYaw=-45;
-let pitch=-16,targetPitch=-16;
-
-let velocityX=0,velocityY=0;
-let radius=280,perspective=1200;
-
-let orbitDirty=true;
-let pointerId=null,captureTarget=null;
-
+const stage=$("#orbit-stage"),handle=$("#globe-handle"),cards=$$(".card"),satellites=$$(".satellite");
+let yaw=-45,targetYaw=-45,pitch=-16,targetPitch=-16,velocityX=0,velocityY=0;
+let radius=280,perspective=1200,orbitDirty=true,pointerId=null,captureTarget=null;
 let dragging=false,dragAxis=null,fromGlobe=false;
-
-let downX=0,downY=0;
-let lastX=0,lastY=0,lastPointerTime=0;
-let suppressClickUntil=0;
-
+let downX=0,downY=0,lastX=0,lastY=0,lastPointerTime=0,suppressClickUntil=0;
 function layoutOrbit(){
-  const width=stage.clientWidth || W*(mobile()?1:.78);
-
-  radius=mobile()
-    ?clamp(width*.53,164,230)
-    :clamp(width*.31,250,330);
-
-  perspective=mobile()?1000:1400;
-
-  orbitDirty=true;
-  renderOrbit(animationClock);
+  const width=stage.clientWidth||W*(mobile()?1:.78);
+  radius=mobile()?clamp(width*.53,164,230):clamp(width*.31,250,330);
+  perspective=mobile()?1000:1400;orbitDirty=true;renderOrbit(clock);
 }
-
-function project(angle,distance,height=0){
-  const tilt=pitch*Math.PI/180;
-
-  const x=Math.sin(angle)*distance;
-  const z0=Math.cos(angle)*distance;
-
-  const y=-z0*Math.sin(tilt)+height;
-  const z=z0*Math.cos(tilt);
-
-  const scale=perspective/(perspective-z);
-
-  return {
-    x:x*scale,
-    y:y*scale,
-    z,
-    scale
-  };
+function project(a,d,h=0){
+  const tilt=pitch*Math.PI/180,x=Math.sin(a)*d,z0=Math.cos(a)*d;
+  const y=-z0*Math.sin(tilt)+h,z=z0*Math.cos(tilt),s=perspective/(perspective-z);
+  return {x:x*s,y:y*s,z,scale:s};
 }
-
 function renderOrbit(t){
   cards.forEach((card,i)=>{
-    const a=(yaw+i*90)*Math.PI/180;
-    const p=project(a,radius);
-    const front=(Math.cos(a)+1)/2;
-
-    card.style.transform=
-      `translate3d(${p.x.toFixed(2)}px,${p.y.toFixed(2)}px,0) `+
-      `scale(${p.scale.toFixed(4)}) perspective(850px) `+
-      `rotateY(${(-Math.sin(a)*24).toFixed(2)}deg)`;
-
+    const a=(yaw+i*90)*Math.PI/180,p=project(a,radius),front=(Math.cos(a)+1)/2;
+    card.style.transform=`translate3d(${p.x.toFixed(2)}px,${p.y.toFixed(2)}px,0) scale(${p.scale.toFixed(4)}) perspective(850px) rotateY(${(-Math.sin(a)*24).toFixed(2)}deg)`;
     card.style.zIndex=p.z>0?"12":"4";
-    card.style.filter=
-      `brightness(${(.62+front*.38).toFixed(3)})`;
-
-    /*
-      Ảnh và địa cầu luôn có nền đặc.
-      Chữ rơi ở canvas phía sau không xuyên qua ảnh.
-    */
+    card.style.filter=`brightness(${(.62+front*.38).toFixed(3)})`;
     card.tabIndex=p.z>0?0:-1;
   });
-
-  earthMap.style.backgroundPosition=
-    `${(-yaw*2.2).toFixed(2)}px 50%`;
-
-  earth.style.transform=
-    `rotate(${(-13+pitch*.3).toFixed(2)}deg)`;
-
-  renderSatellites(t);
-  lastSatelliteTime=t;
-  orbitDirty=false;
+  $("#earth-map").style.backgroundPosition=`${(-yaw*2.2).toFixed(2)}px 50%`;
+  $("#earth").style.transform=`rotate(${(-13+pitch*.3).toFixed(2)}deg)`;
+  renderSatellites(t);lastSatelliteTime=t;orbitDirty=false;
 }
-
 function renderSatellites(t){
   satellites.forEach((el,i)=>{
-    const drift=reduced
-      ?0
-      :t*.00004*(i%2?1:-1);
-
-    const a=
-      (yaw*.65+i*72+25)*Math.PI/180+drift;
-
-    const height=
-      (i%2?-1:1)*(mobile()?148:195)+
-      (reduced?0:Math.sin(t*.0006+i)*8);
-
-    const p=project(
-      a,
-      radius*(.78+i*.035),
-      height
-    );
-
-    el.style.transform=
-      `translate3d(${p.x.toFixed(2)}px,${p.y.toFixed(2)}px,0) `+
-      `scale(${(p.scale*.87).toFixed(3)}) `+
-      `rotate(${(yaw*.2+i*18).toFixed(2)}deg)`;
-
-    el.style.zIndex=p.z>0?"11":"3";
-    el.style.filter=p.z>0
-      ?"brightness(1)"
-      :"brightness(.65)";
+    const a=(yaw*.65+i*72+25)*Math.PI/180+(reduced?0:t*.00004*(i%2?1:-1));
+    const h=(i%2?-1:1)*(mobile()?148:195)+(reduced?0:Math.sin(t*.0006+i)*8);
+    const p=project(a,radius*(.78+i*.035),h);
+    el.style.transform=`translate3d(${p.x.toFixed(2)}px,${p.y.toFixed(2)}px,0) scale(${(p.scale*.87).toFixed(3)}) rotate(${(yaw*.2+i*18).toFixed(2)}deg)`;
+    el.style.zIndex=p.z>0?"11":"3";el.style.filter=p.z>0?"brightness(1)":"brightness(.65)";
   });
 }
-
-function restAngle(a){
-  return Math.round((a+45)/90)*90-45;
-}
-
+const restAngle=a=>Math.round((a+45)/90)*90-45;
 function updateOrbit(t,dt){
-  if(activeTab!==1) return;
-  if($("#lightbox").open) return;
-
+  if(lightbox.open) return;
   if(!dragging){
-    if(
-      !reduced &&
-      (Math.abs(velocityX)>1 || Math.abs(velocityY)>.5)
-    ){
-      yaw+=velocityX*dt;
-      pitch=clamp(pitch+velocityY*dt,-38,30);
-
-      velocityX*=Math.exp(-5*dt);
-      velocityY*=Math.exp(-6*dt);
-
-      targetYaw=restAngle(yaw);
-      targetPitch=pitch;
-      orbitDirty=true;
+    if(!reduced&&(Math.abs(velocityX)>1||Math.abs(velocityY)>.5)){
+      yaw+=velocityX*dt;pitch=clamp(pitch+velocityY*dt,-38,30);
+      velocityX*=Math.exp(-5*dt);velocityY*=Math.exp(-6*dt);
+      targetYaw=restAngle(yaw);targetPitch=pitch;orbitDirty=true;
     }else{
-      velocityX=0;
-      velocityY=0;
-
+      velocityX=velocityY=0;
       if(reduced){
-        if(yaw!==targetYaw || pitch!==targetPitch){
-          yaw=targetYaw;
-          pitch=targetPitch;
-          orbitDirty=true;
-        }
-      }else if(
-        Math.abs(yaw-targetYaw)>.02 ||
-        Math.abs(pitch-targetPitch)>.02
-      ){
-        const f=1-Math.exp(-7*dt);
-
-        yaw+=(targetYaw-yaw)*f;
-        pitch+=(targetPitch-pitch)*f;
-        orbitDirty=true;
+        if(yaw!==targetYaw||pitch!==targetPitch){yaw=targetYaw;pitch=targetPitch;orbitDirty=true}
+      }else if(Math.abs(yaw-targetYaw)>.02||Math.abs(pitch-targetPitch)>.02){
+        const f=1-Math.exp(-7*dt);yaw+=(targetYaw-yaw)*f;pitch+=(targetPitch-pitch)*f;orbitDirty=true;
       }
     }
   }
-
-  if(orbitDirty){
-    renderOrbit(t);
-  }else if(!reduced && t-lastSatelliteTime>=33){
-    /*
-      Vệ tinh cập nhật khoảng 30 lần/giây.
-      Chuyển động kéo địa cầu vẫn cập nhật theo frame.
-    */
-    renderSatellites(t);
-    lastSatelliteTime=t;
-  }
+  if(orbitDirty) renderOrbit(t);
+  else if(!reduced&&t-lastSatelliteTime>=33){renderSatellites(t);lastSatelliteTime=t}
 }
-
-function turn(direction){
-  velocityX=0;
-  velocityY=0;
-
-  targetYaw=restAngle(yaw)-direction*90;
-
-  if(reduced){
-    yaw=targetYaw;
-    renderOrbit(animationClock);
-  }
+function turn(d){
+  velocityX=velocityY=0;targetYaw=restAngle(yaw)-d*90;
+  if(reduced){yaw=targetYaw;renderOrbit(clock)}
 }
-
-$("#orbit-prev").addEventListener("click",()=>{
-  turn(-1);
-});
-
-$("#orbit-next").addEventListener("click",()=>{
-  turn(1);
-});
-
+$("#orbit-prev").addEventListener("click",()=>turn(-1));
+$("#orbit-next").addEventListener("click",()=>turn(1));
 handle.addEventListener("keydown",e=>{
-  if(
-    ![
-      "ArrowLeft",
-      "ArrowRight",
-      "ArrowUp",
-      "ArrowDown",
-      "Home"
-    ].includes(e.key)
-  ){
-    return;
-  }
-
-  e.preventDefault();
-
-  velocityX=0;
-  velocityY=0;
-
-  if(e.key==="Home"){
-    targetYaw=-45;
-    targetPitch=-16;
-  }
-
-  if(e.key==="ArrowLeft"){
-    targetYaw-=15;
-  }
-
-  if(e.key==="ArrowRight"){
-    targetYaw+=15;
-  }
-
-  if(e.key==="ArrowUp"){
-    targetPitch=clamp(targetPitch-8,-38,30);
-  }
-
-  if(e.key==="ArrowDown"){
-    targetPitch=clamp(targetPitch+8,-38,30);
-  }
-
-  if(reduced){
-    yaw=targetYaw;
-    pitch=targetPitch;
-    renderOrbit(animationClock);
-  }
+  if(!["ArrowLeft","ArrowRight","ArrowUp","ArrowDown","Home"].includes(e.key)) return;
+  e.preventDefault();velocityX=velocityY=0;
+  if(e.key==="Home"){targetYaw=-45;targetPitch=-16}
+  if(e.key==="ArrowLeft") targetYaw-=15;
+  if(e.key==="ArrowRight") targetYaw+=15;
+  if(e.key==="ArrowUp") targetPitch=clamp(targetPitch-8,-38,30);
+  if(e.key==="ArrowDown") targetPitch=clamp(targetPitch+8,-38,30);
+  if(reduced){yaw=targetYaw;pitch=targetPitch;renderOrbit(clock)}
 });
-
 stage.addEventListener("keydown",e=>{
   if(e.target===handle) return;
-
-  if(e.key==="ArrowLeft" || e.key==="ArrowRight"){
-    e.preventDefault();
-    turn(e.key==="ArrowRight"?1:-1);
-  }
+  if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();turn(e.key==="ArrowRight"?1:-1)}
 });
-
 stage.addEventListener("pointerdown",e=>{
-  if(e.button!==0 || pointerId!==null) return;
-
-  pointerId=e.pointerId;
-  fromGlobe=Boolean(e.target.closest("#globe-handle"));
-  captureTarget=fromGlobe?handle:stage;
-
-  dragAxis=null;
-  dragging=false;
-
-  downX=lastX=e.clientX;
-  downY=lastY=e.clientY;
-  lastPointerTime=performance.now();
-
-  velocityX=0;
-  velocityY=0;
-
-  if(fromGlobe){
-    captureTarget.setPointerCapture(pointerId);
-  }
+  if(e.button!==0||pointerId!==null) return;
+  pointerId=e.pointerId;fromGlobe=Boolean(e.target.closest("#globe-handle"));
+  captureTarget=fromGlobe?handle:stage;dragAxis=null;dragging=false;
+  downX=lastX=e.clientX;downY=lastY=e.clientY;lastPointerTime=performance.now();velocityX=velocityY=0;
+  if(fromGlobe) captureTarget.setPointerCapture(pointerId);
 });
-
 stage.addEventListener("pointermove",e=>{
   if(e.pointerId!==pointerId) return;
-
-  const totalX=e.clientX-downX;
-  const totalY=e.clientY-downY;
-
-  if(!dragAxis && Math.hypot(totalX,totalY)>5){
-    dragAxis=
-      fromGlobe || Math.abs(totalX)>Math.abs(totalY)
-        ?"orbit"
-        :"scroll";
-
+  const tx=e.clientX-downX,ty=e.clientY-downY;
+  if(!dragAxis&&Math.hypot(tx,ty)>5){
+    dragAxis=fromGlobe||Math.abs(tx)>Math.abs(ty)?"orbit":"scroll";
     if(dragAxis==="orbit"){
-      dragging=true;
-
-      stage.classList.add("dragging");
-      captureTarget.setPointerCapture(pointerId);
-
-      $("#globe-label").textContent=
-        "FOLLOWING YOUR HAND";
+      dragging=true;stage.classList.add("dragging");captureTarget.setPointerCapture(pointerId);
+      $("#globe-label").textContent="FOLLOWING YOUR HAND";
     }
   }
-
   if(dragAxis!=="orbit") return;
-
-  const now=performance.now();
-  const dt=Math.max((now-lastPointerTime)/1000,.008);
-
-  const dx=e.clientX-lastX;
-  const dy=e.clientY-lastY;
-
-  yaw+=dx*.34;
-
-  if(fromGlobe){
-    pitch=clamp(pitch-dy*.2,-38,30);
-  }
-
-  velocityX=clamp(dx*.34/dt,-230,230);
-  velocityY=fromGlobe
-    ?clamp(-dy*.2/dt,-70,70)
-    :0;
-
-  targetYaw=yaw;
-  targetPitch=pitch;
-
-  lastX=e.clientX;
-  lastY=e.clientY;
-  lastPointerTime=now;
-
-  suppressClickUntil=now+350;
-  orbitDirty=true;
+  const now=performance.now(),dt=Math.max((now-lastPointerTime)/1000,.008);
+  const dx=e.clientX-lastX,dy=e.clientY-lastY;
+  yaw+=dx*.34;if(fromGlobe) pitch=clamp(pitch-dy*.2,-38,30);
+  velocityX=clamp(dx*.34/dt,-230,230);velocityY=fromGlobe?clamp(-dy*.2/dt,-70,70):0;
+  targetYaw=yaw;targetPitch=pitch;lastX=e.clientX;lastY=e.clientY;lastPointerTime=now;
+  suppressClickUntil=now+350;orbitDirty=true;
 });
-
 function finishDrag(e,cancel=false){
-  if(pointerId===null || e.pointerId!==pointerId){
-    return;
-  }
-
-  const id=pointerId;
-  const wasDragging=dragging;
-
-  pointerId=null;
-  dragging=false;
-
-  stage.classList.remove("dragging");
-
-  $("#globe-label").textContent="DRAG TO EXPLORE";
-
-  if(captureTarget?.hasPointerCapture(id)){
-    captureTarget.releasePointerCapture(id);
-  }
-
-  if(
-    cancel ||
-    performance.now()-lastPointerTime>100 ||
-    reduced
-  ){
-    velocityX=0;
-    velocityY=0;
-  }
-
-  if(wasDragging){
-    targetYaw=restAngle(yaw);
-    targetPitch=pitch;
-    suppressClickUntil=performance.now()+300;
-  }
-
-  captureTarget=null;
-  dragAxis=null;
+  if(pointerId===null||e.pointerId!==pointerId) return;
+  const id=pointerId,was=dragging;pointerId=null;dragging=false;
+  stage.classList.remove("dragging");$("#globe-label").textContent="DRAG TO EXPLORE";
+  if(captureTarget?.hasPointerCapture(id)) captureTarget.releasePointerCapture(id);
+  if(cancel||performance.now()-lastPointerTime>100||reduced) velocityX=velocityY=0;
+  if(was){targetYaw=restAngle(yaw);targetPitch=pitch;suppressClickUntil=performance.now()+300}
+  captureTarget=null;dragAxis=null;
 }
+stage.addEventListener("pointerup",e=>finishDrag(e));
+stage.addEventListener("pointercancel",e=>finishDrag(e,true));
+window.addEventListener("pointerup",e=>finishDrag(e));
+stage.addEventListener("lostpointercapture",e=>{if(pointerId===e.pointerId) finishDrag(e,true)});
 
-stage.addEventListener("pointerup",e=>{
-  finishDrag(e);
-});
-
-stage.addEventListener("pointercancel",e=>{
-  finishDrag(e,true);
-});
-
-window.addEventListener("pointerup",e=>{
-  finishDrag(e);
-});
-
-stage.addEventListener("lostpointercapture",e=>{
-  if(pointerId===e.pointerId){
-    finishDrag(e,true);
-  }
-});
-
-/* ================= FLOATING LOVE TEXT =================
-   Chỉ hoạt động ở tab 2.
-
-   - Sprite chữ được tạo trước và dùng lại.
-   - Không fillText hay tạo gradient mỗi frame.
-   - Không save/rotate/restore cho từng dòng chữ.
-   - Mỗi cột có tốc độ riêng nhưng khoảng cách ổn định.
-   - Chữ khi ra khỏi màn hình vẫn quay lại cột của nó.
-   - Đổi màu theo chu kỳ, không dựng lại sprite.
-*/
-const loveCanvas=$("#love-particles");
-const loveCtx=loveCanvas.getContext("2d");
-
-let loveWidth=1,loveHeight=1;
-let loveParticles=[];
-let loveTime=0;
-
-let textMask=null;
-let textLayer=null;
-let textLayerCtx=null;
-
-let loveSprites=[];
-let loveColumns=1;
-let loveRows=1;
-let loveSpan=1;
-
-const LOVE_COLORS=[
-  [137,239,181],
-  [248,158,205],
-  [176,173,250],
-  [136,220,242],
-  [247,215,155],
-  [239,163,170]
-];
-
-const COLOR_DURATION=3;
-const COLOR_BLEND=.55;
-const LOVE_SIZES=[18,22,26,30];
-
-function makeTextMask(){
-  const fontSize=37;
-
-  const measure=makeCanvas(1,1).getContext("2d");
-  measure.font=`${fontSize}px "Great Vibes", cursive`;
-
-  const metrics=measure.measureText("love thuỳ");
-  const w=Math.ceil(metrics.width)+30;
-  const h=76;
-
-  textMask=makeCanvas(w,h);
-
-  const c=textMask.getContext("2d");
-  c.font=`${fontSize}px "Great Vibes", cursive`;
-  c.fillStyle="#fff";
-  c.textAlign="center";
-  c.textBaseline="middle";
-  c.fillText("love thuỳ",w/2,h/2);
-
-  /*
-    Giữ lớp sprite tổng để tương thích với phần
-    khởi tạo của file và tạo cache màu từ cùng một mask.
-  */
-  textLayer=makeCanvas(w,h);
-  textLayerCtx=textLayer.getContext("2d");
-  textLayerCtx.drawImage(textMask,0,0);
-
-  loveSprites=LOVE_COLORS.map(rgb=>{
-    return LOVE_SIZES.map(size=>{
-      const scale=size/fontSize;
-      const logicalWidth=w*scale;
-      const logicalHeight=h*scale;
-
-      const density=1.5;
-      const sprite=makeCanvas(
-        logicalWidth*density,
-        logicalHeight*density
-      );
-
-      const ctx=sprite.getContext("2d");
-
-      ctx.drawImage(
-        textMask,
-        0,
-        0,
-        sprite.width,
-        sprite.height
-      );
-
-      ctx.globalCompositeOperation="source-in";
-      ctx.fillStyle=`rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
-      ctx.fillRect(0,0,sprite.width,sprite.height);
-      ctx.globalCompositeOperation="source-over";
-
-      return {
-        canvas:sprite,
-        width:logicalWidth,
-        height:logicalHeight
-      };
-    });
+/* ================= RAIN: TAB 2 ONLY ================= */
+const rainCanvas=$("#love-particles"),rainCtx=rainCanvas.getContext("2d");
+let rainW=1,rainH=1,rainTime=0,rainConfigured=false;
+let rainSprites=[],rainColumns=[],rainParticles=[];
+function makeRainSprites(){
+  rainSprites=[20,23,26].map(size=>{
+    const m=makeCanvas(1,1).getContext("2d");
+    m.font=`${size}px "Great Vibes",cursive`;
+    const w=Math.ceil(m.measureText("love thuỳ").width)+18,h=Math.ceil(size*1.9),density=1.5;
+    const c=makeCanvas(w*density,h*density),x=c.getContext("2d");
+    x.setTransform(density,0,0,density,0,0);x.font=`${size}px "Great Vibes",cursive`;
+    x.textAlign="center";x.textBaseline="middle";x.fillStyle="#ead5b9";
+    x.fillText("love thuỳ",w/2,h/2);
+    return {canvas:c,width:w,height:h};
   });
 }
-
-function newLoveParticle(index,count){
-  const col=index%loveColumns;
-  const row=Math.floor(index/loveColumns);
-
-  const rng=seeded(4301+col*113);
-  const phase=rng()*TAU;
-  const columnOffset=rng();
-
-  const cellWidth=loveWidth/loveColumns;
-  const spacing=loveSpan/loveRows;
-
-  const sizeIndex=(row+col*2)%LOVE_SIZES.length;
-
-  return {
-    col,
-    row,
-    baseX:(col+.5)*cellWidth,
-    y:(row+columnOffset)*spacing-45,
-    speed:20+rng()*12,
-    alpha:.30+((row*7+col*3)%9)/9*.30,
-    phase,
-    drift:Math.min(9,cellWidth*.09),
-    sizeIndex,
-    colorOffset:0
-  };
-}
-
-function resizeLoveCanvas(){
+function resizeRain(){
   const rect=$("#scene").getBoundingClientRect();
-
-  if(rect.width<1 || rect.height<1){
-    return;
+  if(rect.width<1||rect.height<1) return;
+  const changed=Math.abs(rainW-rect.width)>2||Math.abs(rainH-rect.height)>2;
+  rainW=rect.width;rainH=rect.height;
+  fitCanvas(rainCanvas,rainW,rainH,Math.min(DPR,mobile()?1.15:1.35));
+  if(!rainConfigured||changed){
+    const count=mobile()?clamp(Math.floor(rainW/85),3,5):clamp(Math.floor(rainW/132),6,12);
+    const speed=mobile()?57:61,gap=mobile()?98:106;
+    rainColumns=Array.from({length:count},(_,i)=>({
+      x:(i+.5)*rainW/count,speed,interval:gap/speed,
+      nextAt:((i*.381966)%1)*(gap/speed),emitted:0
+    }));
+    rainTime=0;rainParticles=[];rainConfigured=true;
   }
-
-  loveWidth=rect.width;
-  loveHeight=rect.height;
-
-  fitCanvas(
-    loveCanvas,
-    loveWidth,
-    loveHeight,
-    Math.min(DPR,mobile()?1.15:1.35)
-  );
-
-  loveColumns=mobile()
-    ?clamp(Math.round(loveWidth/68),4,8)
-    :clamp(Math.round(loveWidth/94),8,17);
-
-  loveRows=mobile()?19:20;
-  loveSpan=loveHeight+90;
-
-  const count=loveColumns*loveRows;
-
-  loveParticles=Array.from(
-    {length:count},
-    (_,i)=>newLoveParticle(i,count)
-  );
-
-  if(!textMask || !loveSprites.length){
-    makeTextMask();
-  }
-
-  drawLove(0);
 }
-
-function currentLoveColor(){
-  if(reduced) return LOVE_COLORS[0];
-
-  const index=
-    Math.floor(loveTime/COLOR_DURATION)%LOVE_COLORS.length;
-
-  const local=loveTime%COLOR_DURATION;
-  const next=(index+1)%LOVE_COLORS.length;
-  const start=COLOR_DURATION-COLOR_BLEND;
-
-  let blend=clamp((local-start)/COLOR_BLEND,0,1);
-  blend=blend*blend*(3-2*blend);
-
-  return LOVE_COLORS[index].map((v,i)=>{
-    return Math.round(
-      v+(LOVE_COLORS[next][i]-v)*blend
-    );
+function drawRain(dt){
+  if(activeTab!==1||!rainConfigured||lightbox.open) return;
+  rainCtx.clearRect(0,0,rainW,rainH);
+  if(reduced) return;
+  rainTime+=dt;
+  rainColumns.forEach((c,i)=>{
+    if(rainTime>=c.nextAt){
+      const sizeIndex=(c.emitted+i)%rainSprites.length,s=rainSprites[sizeIndex];
+      rainParticles.push({x:c.x,y:-s.height-10,speed:c.speed,sizeIndex,alpha:.49+((c.emitted+i)%3)*.07});
+      c.emitted++;c.nextAt=rainTime+c.interval;
+    }
   });
-}
-
-function tintTextSprite(){
-  /*
-    Sprite đã cache theo màu.
-    Hàm được giữ lại, không dựng lại canvas mỗi frame.
-  */
-  return currentLoveColor();
-}
-
-function drawLove(dt){
-  if(activeTab!==1 || !loveSprites.length) return;
-
-  /*
-    Khi mở ảnh, không cần render chữ nằm sau dialog.
-  */
-  if($("#lightbox").open) return;
-
-  if(!reduced){
-    loveTime+=dt;
+  let alive=0;
+  for(const p of rainParticles){
+    const s=rainSprites[p.sizeIndex];p.y+=p.speed*dt;
+    if(p.y>rainH+s.height) continue;
+    rainParticles[alive++]=p;
+    rainCtx.globalAlpha=p.alpha*clamp((rainH+20-p.y)/65,0,1);
+    rainCtx.drawImage(s.canvas,Math.round(p.x-s.width/2),Math.round(p.y),s.width,s.height);
   }
-
-  loveCtx.clearRect(0,0,loveWidth,loveHeight);
-
-  const paletteIndex=reduced
-    ?0
-    :Math.floor(loveTime/COLOR_DURATION)%LOVE_COLORS.length;
-
-  const nextPalette=
-    (paletteIndex+1)%LOVE_COLORS.length;
-
-  const local=loveTime%COLOR_DURATION;
-
-  let blend=reduced
-    ?0
-    :clamp(
-      (local-(COLOR_DURATION-COLOR_BLEND))/COLOR_BLEND,
-      0,
-      1
-    );
-
-  blend=blend*blend*(3-2*blend);
-
-  for(const p of loveParticles){
-    if(!reduced){
-      p.y+=p.speed*dt;
-
-      if(p.y>loveHeight+45){
-        p.y-=loveSpan;
-      }
-    }
-
-    const wave=reduced
-      ?0
-      :Math.sin(loveTime*.35+p.phase)*p.drift;
-
-    const x=p.baseX+wave;
-
-    const edgeFade=clamp(
-      Math.min(p.y+45,loveHeight+45-p.y)/48,
-      0,
-      1
-    );
-
-    const alpha=p.alpha*edgeFade;
-
-    if(alpha<.005) continue;
-
-    const sprite=
-      loveSprites[paletteIndex][p.sizeIndex];
-
-    const px=x-sprite.width/2;
-    const py=p.y-sprite.height/2;
-
-    loveCtx.globalAlpha=alpha*(1-blend);
-
-    loveCtx.drawImage(
-      sprite.canvas,
-      px,
-      py,
-      sprite.width,
-      sprite.height
-    );
-
-    if(blend>.001){
-      const nextSprite=
-        loveSprites[nextPalette][p.sizeIndex];
-
-      loveCtx.globalAlpha=alpha*blend;
-
-      loveCtx.drawImage(
-        nextSprite.canvas,
-        px,
-        py,
-        nextSprite.width,
-        nextSprite.height
-      );
-    }
-  }
-
-  loveCtx.globalAlpha=1;
+  rainParticles.length=alive;rainCtx.globalAlpha=1;
 }
 
-if(document.fonts){
-  document.fonts.load('37px "Great Vibes"').then(()=>{
-    makeTextMask();
-
-    if(activeTab===1){
-      drawLove(0);
-    }
-  }).catch(()=>{});
-}
-
-/* ================= LIGHTBOX ================= */
-const lightbox=$("#lightbox");
+/* ================= PHOTO VIEWER ================= */
 const large=$("#large-photo");
-
-let photoIndex=0;
-let photoTrigger=null;
-let touchStart=null;
-
-function showPhoto(index){
-  photoIndex=(index+photos.length)%photos.length;
-
-  large.hidden=false;
-  $("#photo-error").hidden=true;
-
-  large.alt=photos[photoIndex].title;
-  large.src=photos[photoIndex].src;
-
-  $("#photo-caption").textContent=
-    photos[photoIndex].title;
+let photoIndex=0,photoTrigger=null,touchStart=null;
+function showPhoto(i){
+  photoIndex=(i+photos.length)%photos.length;
+  large.hidden=false;$("#photo-error").hidden=true;
+  large.alt=photos[photoIndex].title;large.src=photos[photoIndex].src;
+  $("#photo-caption").textContent=photos[photoIndex].title;
 }
-
-cards.forEach((card,index)=>{
+cards.forEach((card,i)=>{
   card.addEventListener("click",e=>{
-    if(performance.now()<suppressClickUntil){
-      e.preventDefault();
-      return;
-    }
-
-    photoTrigger=card;
-    showPhoto(index);
-
-    if(!lightbox.open){
-      lightbox.showModal();
-    }
-
-    syncBodyLock();
+    if(performance.now()<suppressClickUntil){e.preventDefault();return}
+    photoTrigger=card;showPhoto(i);if(!lightbox.open) lightbox.showModal();syncLock();
   });
-
   const img=card.querySelector("img");
-
   function fallback(){
     if(img.dataset.failed) return;
-
-    img.dataset.failed="true";
-    img.hidden=true;
-
-    const text=document.createElement("span");
-    text.className="fallback";
-    text.textContent=
-      "Kỷ niệm vẫn ở đây. Bấm để thử tải lại ảnh.";
-
-    card.append(text);
+    img.dataset.failed="true";img.hidden=true;
+    const text=document.createElement("span");text.className="fallback";
+    text.textContent="Kỷ niệm vẫn ở đây. Bấm để thử tải lại ảnh.";card.append(text);
   }
-
   img.addEventListener("error",fallback);
-
   img.addEventListener("load",()=>{
-    if(!img.naturalWidth) return;
-
-    img.hidden=false;
-    delete img.dataset.failed;
-
-    card.querySelector(".fallback")?.remove();
+    img.hidden=false;delete img.dataset.failed;card.querySelector(".fallback")?.remove();
   });
-
-  if(
-    img.complete &&
-    img.getAttribute("src") &&
-    !img.naturalWidth
-  ){
-    fallback();
-  }
+  if(img.complete&&!img.naturalWidth) fallback();
 });
-
-large.addEventListener("error",()=>{
-  large.hidden=true;
-  $("#photo-error").hidden=false;
-});
-
-$("#close-photo").addEventListener("click",()=>{
-  lightbox.close();
-});
-
-$("#prev-photo").addEventListener("click",()=>{
-  showPhoto(photoIndex-1);
-});
-
-$("#next-photo").addEventListener("click",()=>{
-  showPhoto(photoIndex+1);
-});
-
+large.addEventListener("error",()=>{large.hidden=true;$("#photo-error").hidden=false});
+$("#close-photo").addEventListener("click",()=>lightbox.close());
+$("#prev-photo").addEventListener("click",()=>showPhoto(photoIndex-1));
+$("#next-photo").addEventListener("click",()=>showPhoto(photoIndex+1));
 lightbox.addEventListener("close",()=>{
-  syncBodyLock();
-
-  if(activeTab===1){
-    photoTrigger?.focus({preventScroll:true});
-  }
-
-  lastTime=0;
+  syncLock();if(activeTab===1) photoTrigger?.focus({preventScroll:true});lastTime=0;
 });
-
 lightbox.addEventListener("click",e=>{
-  if(
-    e.target===lightbox ||
-    e.target===$("#lightbox-inner")
-  ){
-    lightbox.close();
-  }
+  if(e.target===lightbox||e.target===$("#lightbox-inner")) lightbox.close();
 });
-
 lightbox.addEventListener("keydown",e=>{
-  if(e.key==="ArrowLeft" || e.key==="ArrowRight"){
-    e.preventDefault();
-
-    showPhoto(
-      photoIndex+(e.key==="ArrowRight"?1:-1)
-    );
-  }
+  if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();showPhoto(photoIndex+(e.key==="ArrowRight"?1:-1))}
 });
-
 lightbox.addEventListener("touchstart",e=>{
-  touchStart=e.touches.length===1
-    ?{
-      x:e.touches[0].clientX,
-      y:e.touches[0].clientY
-    }
-    :null;
+  touchStart=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;
 },{passive:true});
-
 lightbox.addEventListener("touchend",e=>{
-  if(touchStart && e.changedTouches.length){
-    const dx=
-      e.changedTouches[0].clientX-touchStart.x;
-
-    const dy=
-      e.changedTouches[0].clientY-touchStart.y;
-
-    if(Math.abs(dx)>65 && Math.abs(dx)>Math.abs(dy)){
-      showPhoto(photoIndex+(dx<0?1:-1));
-    }
+  if(touchStart&&e.changedTouches.length){
+    const dx=e.changedTouches[0].clientX-touchStart.x,dy=e.changedTouches[0].clientY-touchStart.y;
+    if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)) showPhoto(photoIndex+(dx<0?1:-1));
   }
-
   touchStart=null;
 },{passive:true});
+lightbox.addEventListener("touchcancel",()=>touchStart=null,{passive:true});
 
-lightbox.addEventListener("touchcancel",()=>{
-  touchStart=null;
-},{passive:true});
-
-/* ================= LETTER COLLECTION ================= */
+/* ================= LETTERS ================= */
 const LETTERS=[
   {
-    title:"Một mùa đông dễ chịu",
-    note:"Một lời chúc cho những ngày cuối năm.",
-    footer:"01 · A QUIET WINTER",
-    light:"#f2e5ce",
-    dark:"#d6bc99",
-    tilt:-3,
+    title:"Một mùa đông dễ chịu",note:"Bình yên trong những ngày cuối năm.",footer:"01 · A QUIET WINTER",
+    colors:["#f1e5ce","#d8c2a0"],
     paragraphs:[
-      "Chúc em một mùa đông đủ ấm, không chỉ nhờ áo khoác hay một cốc nước nóng, mà còn vì những người và những điều khiến em thấy dễ chịu.",
-      "Mong công việc của em thuận lợi hơn một chút, những chuyện còn dang dở sớm có hướng giải quyết. Nếu ngày nào cũng bận, nhớ dành cho mình một khoảng nghỉ thật sự.",
-      "Giáng sinh này, anh không chúc điều gì quá lớn. Chỉ mong em khỏe, ngủ ngon và có vài ngày bình yên đúng nghĩa."
+      "Chúc em một mùa đông đủ ấm, có những bữa ăn ngon, những giấc ngủ yên và những người khiến em thấy thoải mái khi ở cạnh.",
+      "Mong công việc thuận lợi hơn, những chuyện còn dang dở dần có hướng giải quyết. Giữa những ngày bận rộn, nhớ dành cho mình một khoảng nghỉ thật sự.",
+      "Giáng sinh này, chỉ mong em khỏe, vui và có vài ngày bình yên đúng nghĩa."
     ]
   },
   {
-    title:"Cho một ngày mệt",
-    note:"Đọc khi em muốn nghỉ một chút.",
-    footer:"02 · TAKE YOUR TIME",
-    light:"#eadde0",
-    dark:"#c6adb5",
-    tilt:2,
+    title:"Cho một ngày mệt",note:"Chậm lại một chút cũng không sao.",footer:"02 · TAKE YOUR TIME",
+    colors:["#ede2d2","#cdb89e"],
     paragraphs:[
-      "Nếu hôm nay em thấy mệt, cứ cho phép mình chậm lại. Không phải việc gì cũng cần xong ngay, và em cũng không cần lúc nào cũng tỏ ra ổn.",
-      "Ăn một bữa tử tế, uống thêm chút nước, để điện thoại sang một bên nếu em cần. Những việc nhỏ đó không giải quyết hết mọi chuyện, nhưng ít nhất sẽ giúp em dễ chịu hơn.",
-      "Khi muốn kể, anh sẽ nghe. Còn nếu em chỉ muốn yên lặng một lúc, cũng không sao. Chúc em ngày mai nhẹ hơn hôm nay."
+      "Nếu hôm nay thấy mệt, em cứ cho phép mình chậm lại. Không phải việc gì cũng cần xong ngay, và cũng không cần lúc nào cũng tỏ ra ổn.",
+      "Ăn một bữa tử tế, uống thêm chút nước, ngủ sớm hơn nếu có thể. Những việc nhỏ không giải quyết hết mọi chuyện, nhưng sẽ giúp em có sức để đi tiếp.",
+      "Chúc ngày mai nhẹ hơn hôm nay. Mong những điều đang làm em lo sớm được tháo gỡ, từng chuyện một."
     ]
   },
   {
-    title:"Những điều em đang làm",
-    note:"Một chút động viên, không vội vàng.",
-    footer:"03 · ONE STEP AT A TIME",
-    light:"#e0e8df",
-    dark:"#b7c8b5",
-    tilt:-1,
+    title:"Từng bước một",note:"Cho những điều em đang cố gắng.",footer:"03 · ONE STEP AT A TIME",
+    colors:["#e7e5d5","#c0c3ac"],
     paragraphs:[
-      "Có những việc em cố gắng rất nhiều mà kết quả vẫn đến chậm. Anh mong em đừng vì thế mà xem nhẹ công sức của mình.",
-      "Cứ làm từng bước, học thêm điều cần học và nghỉ khi cần nghỉ. Không nhất thiết phải đi nhanh bằng người khác, miễn là em đang đi theo hướng phù hợp với mình.",
-      "Chúc những dự định của em dần thành hình. Và khi làm được một điều dù nhỏ, nhớ tự ghi nhận nó nhé. Em đã bỏ công sức vào đó."
+      "Chúc những dự định của em dần thành hình, từ việc nhỏ đang làm mỗi ngày đến điều lớn mà em vẫn muốn thử.",
+      "Có những kết quả đến chậm hơn mong đợi. Điều đó không có nghĩa là công sức của em không đáng giá. Cứ học thêm, điều chỉnh và bước tiếp theo nhịp phù hợp với mình.",
+      "Mong em có đủ kiên nhẫn khi chưa thấy kết quả, và nhớ tự ghi nhận bản thân mỗi khi làm được một điều dù nhỏ."
     ]
   },
   {
-    title:"Một năm mới vừa đủ",
-    note:"Ít áp lực hơn, nhiều điều đáng mong hơn.",
-    footer:"04 · A FRESH START",
-    light:"#e4e2ef",
-    dark:"#bbb6cf",
-    tilt:3,
+    title:"Một năm mới vừa đủ",note:"Ít áp lực hơn, nhiều điều đáng mong hơn.",footer:"04 · A FRESH START",
+    colors:["#e8e3dc","#c7bdb2"],
     paragraphs:[
-      "Năm mới, anh chúc em có sức khỏe, có công việc ổn định và có đủ thời gian cho những điều em thích.",
-      "Mong em gặp những người tử tế, giữ được những mối quan hệ khiến em thoải mái, và bớt phải dành năng lượng cho chuyện không đáng.",
+      "Chúc em một năm mới có sức khỏe, công việc ổn định và đủ thời gian cho những điều mình thích.",
+      "Mong em gặp người tử tế, giữ được những mối quan hệ khiến mình thoải mái, và bớt phải dành năng lượng cho những chuyện không đáng.",
       "Không cần một năm hoàn hảo. Chỉ cần khi nhìn lại, em thấy mình đã sống tốt hơn một chút, vui hơn một chút và hiểu bản thân hơn."
     ]
   },
   {
-    title:"Một lời cảm ơn",
-    note:"Dành cho những chuyện nhỏ mà anh nhớ.",
-    footer:"05 · THE LITTLE THINGS",
-    light:"#f0dfce",
-    dark:"#d1b195",
-    tilt:-2,
+    title:"Những niềm vui nhỏ",note:"Một lời chúc cho ngày bình thường.",footer:"05 · THE LITTLE THINGS",
+    colors:["#f0e0c9","#d1b18c"],
     paragraphs:[
-      "Cảm ơn em vì những cuộc trò chuyện, những lần hỏi han và cả những chuyện rất bình thường mà em đã chia sẻ với anh.",
-      "Có những hôm không có gì đặc biệt xảy ra, nhưng nói chuyện với em vẫn khiến ngày đó dễ chịu hơn. Anh trân trọng điều ấy, dù không phải lúc nào cũng nói ra.",
-      "Mong em cũng nhận được sự quan tâm rõ ràng và tử tế như cách em dành cho người khác. Không cần phô trương, chỉ cần thật lòng."
+      "Chúc em có nhiều ngày bình thường nhưng dễ chịu: ra đường gặp thời tiết đẹp, làm việc vừa sức, ăn đúng món mình thích và nhận được một tin vui nho nhỏ.",
+           "Mong em không phải chờ đến một dịp đặc biệt mới cho phép mình nghỉ ngơi hoặc làm điều khiến bản thân vui.",
+      "Một buổi đi dạo, một cuộc trò chuyện hay một tối không phải vội vàng cũng đáng để tận hưởng. Chúc em có thêm nhiều khoảng thời gian như thế, nhẹ nhàng và thật sự dành cho mình."
     ]
   },
   {
-    title:"Cứ là em thôi",
-    note:"Một lời nhắc nhỏ dành riêng cho Thuỳ.",
+    title:"Cứ là chính mình",
+    note:"Thoải mái hơn với những lựa chọn của mình.",
     footer:"06 · JUST BE YOURSELF",
-    light:"#e0e8eb",
-    dark:"#aec4cc",
-    tilt:1,
+    colors:["#e0e7e5","#b3c5c3"],
     paragraphs:[
-      "Anh mong em có thể thoải mái là chính mình: có ngày vui, có ngày khó chịu, có những điều thích và những điều không muốn làm.",
-      "Em không cần đồng ý với mọi người để được quý mến, cũng không cần cố gắng làm vừa lòng tất cả. Giữ sự tử tế của em, nhưng nhớ giữ cả giới hạn của mình.",
-      "Chúc em luôn có đủ tự tin để chọn điều phù hợp, đủ bình tĩnh để bỏ qua điều không đáng, và đủ thời gian để tận hưởng cuộc sống của mình."
+      "Chúc em có đủ tự tin để chọn điều phù hợp với mình, dù đôi khi lựa chọn ấy khác với mong đợi của người khác.",
+      "Không cần đồng ý với tất cả để được quý mến. Cứ giữ sự tử tế, nhưng nhớ giữ cả giới hạn và thời gian của bản thân.",
+      "Mong những ngày sắp tới, em được sống thoải mái hơn, bớt tự gây áp lực và có thêm nhiều lý do để mỉm cười."
     ]
   }
 ];
 
 const lettersGrid=$("#letters-grid");
-const lettersRead=$("#letters-read");
-
-const letterDialog=$("#letter-dialog");
-const letterStage=$("#letter-stage");
-const letterView=$("#letter-view");
-const letterSheet=$("#letter-sheet");
-
-const letterTitle=$("#letter-title");
-const letterBody=$("#letter-body");
-const letterFooter=$("#letter-footer");
-const letterIndexLabel=$("#letter-index");
-
 const openedLetters=new Set();
 
 let currentLetter=0;
 let letterTrigger=null;
-let letterRevealRaf=0;
-let letterRevealRaf2=0;
+let letterRevealFrame=0;
+let letterRevealFrame2=0;
 
 function updateLettersRead(){
-  lettersRead.textContent=
+  $("#letters-read").textContent=
     String(openedLetters.size).padStart(2,"0")+
     " / "+
     String(LETTERS.length).padStart(2,"0")+
     " ĐÃ MỞ";
 }
 
-function createEnvelope(letter,index){
+function createLetterCard(letter,index){
   const button=document.createElement("button");
   button.type="button";
   button.className="mail-card";
@@ -2717,13 +1601,15 @@ function createEnvelope(letter,index){
     "aria-label",
     "Mở lá thư: "+letter.title
   );
-
   button.setAttribute("aria-haspopup","dialog");
   button.setAttribute("aria-controls","letter-dialog");
 
-  button.style.setProperty("--tilt",letter.tilt+"deg");
-  button.style.setProperty("--mail-light",letter.light);
-  button.style.setProperty("--mail-dark",letter.dark);
+  button.style.setProperty("--mail-light",letter.colors[0]);
+  button.style.setProperty("--mail-dark",letter.colors[1]);
+  button.style.setProperty(
+    "--tilt",
+    [-2,1,-1,2,-1,1][index]+"deg"
+  );
 
   const envelope=document.createElement("span");
   envelope.className="envelope";
@@ -2744,18 +1630,18 @@ function createEnvelope(letter,index){
 
   const seal=document.createElement("span");
   seal.className="wax-seal";
-  seal.textContent="T";
-  envelope.append(seal);
+  seal.textContent="D";
 
   const address=document.createElement("span");
   address.className="envelope-address";
-  address.textContent="Gửi Thuỳ";
-  envelope.append(address);
+  address.textContent=
+    "Lá thư "+String(index+1).padStart(2,"0");
 
   const stamp=document.createElement("span");
   stamp.className="envelope-stamp";
   stamp.textContent="✦";
-  envelope.append(stamp);
+
+  envelope.append(seal,address,stamp);
 
   const meta=document.createElement("span");
   meta.className="mail-meta";
@@ -2787,7 +1673,7 @@ function buildLetters(){
   const fragment=document.createDocumentFragment();
 
   LETTERS.forEach((letter,index)=>{
-    fragment.append(createEnvelope(letter,index));
+    fragment.append(createLetterCard(letter,index));
   });
 
   lettersGrid.replaceChildren(fragment);
@@ -2795,30 +1681,23 @@ function buildLetters(){
 }
 
 function cancelLetterReveal(){
-  cancelAnimationFrame(letterRevealRaf);
-  cancelAnimationFrame(letterRevealRaf2);
-
-  letterRevealRaf=0;
-  letterRevealRaf2=0;
+  cancelAnimationFrame(letterRevealFrame);
+  cancelAnimationFrame(letterRevealFrame2);
+  letterRevealFrame=0;
+  letterRevealFrame2=0;
 }
 
-function animateLetterReveal(){
+function revealLetter(){
   cancelLetterReveal();
   letterDialog.classList.remove("reveal");
 
-  if(reduced){
-    return;
-  }
+  if(reduced) return;
 
-  /*
-    Hai frame giúp reset animation mà không cần
-    đọc offsetWidth để ép layout.
-  */
-  letterRevealRaf=requestAnimationFrame(()=>{
-    letterRevealRaf=0;
+  letterRevealFrame=requestAnimationFrame(()=>{
+    letterRevealFrame=0;
 
-    letterRevealRaf2=requestAnimationFrame(()=>{
-      letterRevealRaf2=0;
+    letterRevealFrame2=requestAnimationFrame(()=>{
+      letterRevealFrame2=0;
 
       if(letterDialog.open){
         letterDialog.classList.add("reveal");
@@ -2833,10 +1712,10 @@ function renderLetter(index){
 
   const letter=LETTERS[currentLetter];
 
-  letterTitle.textContent=letter.title;
-  letterFooter.textContent=letter.footer;
+  $("#letter-title").textContent=letter.title;
+  $("#letter-footer").textContent=letter.footer;
 
-  letterIndexLabel.textContent=
+  $("#letter-index").textContent=
     String(currentLetter+1).padStart(2,"0")+
     " / "+
     String(LETTERS.length).padStart(2,"0");
@@ -2849,13 +1728,13 @@ function renderLetter(index){
     fragment.append(p);
   });
 
-  letterBody.replaceChildren(fragment);
+  $("#letter-body").replaceChildren(fragment);
 
   openedLetters.add(currentLetter);
   updateLettersRead();
 
   letterDialog.scrollTop=0;
-  animateLetterReveal();
+  revealLetter();
 }
 
 function openLetter(index){
@@ -2872,17 +1751,11 @@ function openLetter(index){
   }
 
   renderLetter(index);
-  syncBodyLock();
-}
-
-function closeLetter(){
-  if(letterDialog.open){
-    letterDialog.close();
-  }
+  syncLock();
 }
 
 $("#close-letter").addEventListener("click",()=>{
-  closeLetter();
+  letterDialog.close();
 });
 
 $("#prev-letter").addEventListener("click",()=>{
@@ -2894,9 +1767,6 @@ $("#next-letter").addEventListener("click",()=>{
 });
 
 letterDialog.addEventListener("keydown",e=>{
-  /*
-    Không cản Esc: dialog tự hỗ trợ đóng bằng Esc.
-  */
   if(e.key==="ArrowLeft"){
     e.preventDefault();
     renderLetter(currentLetter-1);
@@ -2911,16 +1781,16 @@ letterDialog.addEventListener("keydown",e=>{
 letterDialog.addEventListener("click",e=>{
   if(
     e.target===letterDialog ||
-    e.target===letterStage
+    e.target===$("#letter-stage")
   ){
-    closeLetter();
+    letterDialog.close();
   }
 });
 
 letterDialog.addEventListener("close",()=>{
   cancelLetterReveal();
   letterDialog.classList.remove("reveal");
-  syncBodyLock();
+  syncLock();
 
   if(activeTab===2){
     letterTrigger?.focus({preventScroll:true});
@@ -2928,6 +1798,676 @@ letterDialog.addEventListener("close",()=>{
 
   lastTime=0;
 });
+
+/* ================= SHAPED FIREWORKS: TAB 3 =================
+   Bốn kiểu:
+   - Trái tim.
+   - Ngôi sao.
+   - Hộp quà có nơ.
+   - Chữ "thuỳ húi", bao gồm dấu tiếng Việt.
+
+   Điểm tạo hình được cache.
+   Không đọc pixel hoặc dựng chữ trong mỗi frame.
+   Không dùng hiệu ứng chữ rơi ở tab 3.
+=========================================================== */
+const celebration=$("#celebration");
+const shapeCanvas=$("#letter-fireworks");
+const shapeCtx=shapeCanvas.getContext("2d");
+const shapeStatus=$("#firework-status");
+const autoFireworksButton=$("#auto-fireworks");
+
+const SHAPE_TYPES=["heart","star","gift","name"];
+
+const SHAPE_LABELS={
+  heart:"TRÁI TIM",
+  star:"NGÔI SAO",
+  gift:"HỘP QUÀ",
+  name:"thuỳ húi"
+};
+
+const SHAPE_COLORS={
+  heart:["#ffb9d3","#ffdddf","#e8a3c6"],
+  star:["#ffe2a5","#fff0cf","#edc57e"],
+  gift:["#a9e6df","#e9cd9f","#cee7ff"],
+  name:["#ffe4b9","#f6d0df","#fff4e1"]
+};
+
+let shapeW=1;
+let shapeH=1;
+let shapeTime=0;
+let nextShapeAt=0;
+let shapeRockets=[];
+let shapeBursts=[];
+let shapeCache={};
+let shapeSpriteCache={};
+let autoShapes=!reduced;
+let autoShapeIndex=0;
+let lastShapeRequest=-100;
+let celebrationVisible=true;
+let shapeStaticType="name";
+
+function updateAutoFireworksUI(){
+  autoFireworksButton.setAttribute(
+    "aria-pressed",
+    String(autoShapes)
+  );
+
+  autoFireworksButton.textContent=
+    autoShapes?"Tự động: bật":"Tự động: tắt";
+}
+
+function normalizeShape(points){
+  if(!points.length) return [];
+
+  let minX=Infinity,minY=Infinity;
+  let maxX=-Infinity,maxY=-Infinity;
+
+  for(const p of points){
+    minX=Math.min(minX,p.x);
+    minY=Math.min(minY,p.y);
+    maxX=Math.max(maxX,p.x);
+    maxY=Math.max(maxY,p.y);
+  }
+
+  const centerX=(minX+maxX)/2;
+  const centerY=(minY+maxY)/2;
+  const span=Math.max(maxX-minX,maxY-minY,1)/2;
+
+  return points.map(p=>({
+    x:(p.x-centerX)/span,
+    y:(p.y-centerY)/span
+  }));
+}
+
+function sampleLine(points,x1,y1,x2,y2,spacing=5){
+  const length=Math.hypot(x2-x1,y2-y1);
+  const steps=Math.max(1,Math.ceil(length/spacing));
+
+  for(let i=0;i<steps;i++){
+    const t=i/steps;
+
+    points.push({
+      x:x1+(x2-x1)*t,
+      y:y1+(y2-y1)*t
+    });
+  }
+}
+
+function makeHeartPoints(){
+  const points=[];
+
+  for(let i=0;i<160;i++){
+    const t=i/160*TAU;
+
+    points.push({
+      x:16*Math.pow(Math.sin(t),3),
+      y:-(
+        13*Math.cos(t)-
+        5*Math.cos(2*t)-
+        2*Math.cos(3*t)-
+        Math.cos(4*t)
+      )
+    });
+  }
+
+  return normalizeShape(points);
+}
+
+function makeStarPoints(){
+  const vertices=[];
+  const points=[];
+
+  for(let i=0;i<10;i++){
+    const angle=-Math.PI/2+i*Math.PI/5;
+    const radius=i%2?43:100;
+
+    vertices.push({
+      x:Math.cos(angle)*radius,
+      y:Math.sin(angle)*radius
+    });
+  }
+
+  vertices.forEach((p,i)=>{
+    const next=vertices[(i+1)%vertices.length];
+
+    sampleLine(
+      points,
+      p.x,p.y,
+      next.x,next.y,
+      4.5
+    );
+  });
+
+  return normalizeShape(points);
+}
+
+function makeGiftPoints(){
+  const points=[];
+
+  const lines=[
+    [-78,-28,78,-28],
+    [78,-28,78,78],
+    [78,78,-78,78],
+    [-78,78,-78,-28],
+
+    [-87,-48,87,-48],
+    [87,-48,87,-26],
+    [87,-26,-87,-26],
+    [-87,-26,-87,-48],
+
+    [-12,-48,-12,78],
+    [12,-48,12,78],
+
+    [-78,15,78,15],
+    [-78,30,78,30]
+  ];
+
+  for(const line of lines){
+    sampleLine(points,...line,5);
+  }
+
+  /*
+    Hai vòng nơ phía trên hộp.
+  */
+  for(let side of [-1,1]){
+    for(let i=0;i<52;i++){
+      const t=i/52*TAU;
+
+      points.push({
+        x:side*29+Math.cos(t)*29,
+        y:-66+Math.sin(t)*19
+      });
+    }
+  }
+
+  return normalizeShape(points);
+}
+
+function makeNamePoints(){
+  const canvas=makeCanvas(760,190);
+  const ctx=canvas.getContext("2d",{
+    willReadFrequently:true
+  });
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#fff";
+  ctx.textAlign="center";
+  ctx.textBaseline="middle";
+  ctx.font='600 106px "Be Vietnam Pro",sans-serif';
+  ctx.fillText("thuỳ húi",380,97);
+
+  const image=ctx.getImageData(
+    0,0,canvas.width,canvas.height
+  );
+
+  const data=image.data;
+  const points=[];
+
+  /*
+    Giữ cả dấu trên chữ.
+    Lấy mẫu ở toàn bộ vùng chữ, không crop riêng thân chữ.
+  */
+  for(let y=6;y<canvas.height-6;y+=5){
+    for(let x=6;x<canvas.width-6;x+=5){
+      const alpha=data[(y*canvas.width+x)*4+3];
+
+      if(alpha>150){
+        points.push({x,y});
+      }
+    }
+  }
+
+  const normalized=normalizeShape(points);
+  const limit=mobile()?440:720;
+
+  if(normalized.length<=limit){
+    return normalized;
+  }
+
+  const result=[];
+  const step=normalized.length/limit;
+
+  for(let i=0;i<limit;i++){
+    result.push(normalized[Math.floor(i*step)]);
+  }
+
+  return result;
+}
+
+function buildShapeCache(){
+  shapeCache={
+    heart:makeHeartPoints(),
+    star:makeStarPoints(),
+    gift:makeGiftPoints(),
+    name:makeNamePoints()
+  };
+}
+
+function getSparkSprite(color){
+  if(shapeSpriteCache[color]){
+    return shapeSpriteCache[color];
+  }
+
+  const canvas=makeCanvas(24,24);
+  const ctx=canvas.getContext("2d");
+
+  const gradient=ctx.createRadialGradient(
+    12,12,0,
+    12,12,12
+  );
+
+  gradient.addColorStop(0,"#ffffff");
+  gradient.addColorStop(.14,color);
+  gradient.addColorStop(.35,color+"b0");
+  gradient.addColorStop(1,color+"00");
+
+  ctx.fillStyle=gradient;
+  ctx.fillRect(0,0,24,24);
+
+  shapeSpriteCache[color]=canvas;
+  return canvas;
+}
+
+function shapeRadius(type){
+  if(type==="name"){
+    return Math.min(shapeW*.40,360);
+  }
+
+  return Math.min(
+    shapeH*.30,
+    shapeW*.24,
+    105
+  );
+}
+
+function resizeCelebration(){
+  const rect=celebration.getBoundingClientRect();
+
+  if(rect.width<1 || rect.height<1){
+    return;
+  }
+
+  const changed=
+    Math.abs(shapeW-rect.width)>2 ||
+    Math.abs(shapeH-rect.height)>2;
+
+  shapeW=rect.width;
+  shapeH=rect.height;
+
+  fitCanvas(
+    shapeCanvas,
+    shapeW,
+    shapeH,
+    Math.min(DPR,1.5)
+  );
+
+  if(!Object.keys(shapeCache).length){
+    buildShapeCache();
+  }
+
+  if(changed){
+    shapeRockets=[];
+    shapeBursts=[];
+  }
+
+  if(reduced){
+    drawStaticShape(shapeStaticType);
+  }
+}
+
+function createShapeBurst(type,x,y){
+  const source=shapeCache[type] || shapeCache.heart;
+  const colors=SHAPE_COLORS[type] || SHAPE_COLORS.heart;
+  const radius=shapeRadius(type);
+
+  const points=source.map((p,i)=>({
+    dx:p.x*radius,
+    dy:p.y*radius,
+    colorIndex:i%colors.length,
+    size:type==="name"
+      ?rand(3.8,5.4)
+      :rand(5,7),
+    driftX:rand(-7,7),
+    driftY:rand(-3,7),
+    phase:rand(0,TAU)
+  }));
+
+  const sparks=Array.from(
+    {length:mobile()?20:34},
+    (_,i)=>{
+      const angle=i/(mobile()?20:34)*TAU;
+
+      return {
+        vx:Math.cos(angle)*rand(45,95),
+        vy:Math.sin(angle)*rand(35,80),
+        size:rand(3,5),
+        phase:rand(0,TAU)
+      };
+    }
+  );
+
+  shapeBursts.push({
+    type,x,y,
+    age:0,
+    duration:type==="name"?4.3:3.6,
+    points,
+    sparks,
+    colors,
+    sprites:colors.map(getSparkSprite)
+  });
+
+  /*
+    Giới hạn số cụm đang hiển thị.
+    Không để bấm liên tục làm số hạt tăng vô hạn.
+  */
+  if(shapeBursts.length>3){
+    shapeBursts.splice(0,shapeBursts.length-3);
+  }
+}
+
+function launchShape(requestedType="random",force=false){
+  if(activeTab!==2) return;
+
+  const type=requestedType==="random"
+    ?SHAPE_TYPES[Math.floor(rand(0,SHAPE_TYPES.length))]
+    :requestedType;
+
+  if(!SHAPE_TYPES.includes(type)) return;
+
+  const now=performance.now();
+
+  if(!force && now-lastShapeRequest<450){
+    return;
+  }
+
+  lastShapeRequest=now;
+  shapeStaticType=type;
+  shapeStatus.textContent=SHAPE_LABELS[type];
+
+  if(shapeW<2 || shapeH<2){
+    resizeCelebration();
+  }
+
+  if(reduced){
+    drawStaticShape(type);
+    return;
+  }
+
+  const radius=shapeRadius(type);
+
+  /*
+    Chữ luôn nằm giữa để không bị cắt.
+    Các hình còn lại có vị trí lệch nhẹ.
+  */
+  const targetX=type==="name"
+    ?shapeW*.5
+    :clamp(
+      shapeW*rand(.34,.66),
+      radius+15,
+      shapeW-radius-15
+    );
+
+  const targetY=shapeH*(type==="name"?.47:.48);
+
+  shapeRockets.push({
+    type,
+    startX:clamp(
+      targetX+rand(-70,70),
+      15,
+      shapeW-15
+    ),
+    startY:shapeH+15,
+    targetX,
+    targetY,
+    age:0,
+    duration:.8,
+    color:SHAPE_COLORS[type][0]
+  });
+
+  if(shapeRockets.length>3){
+    shapeRockets.shift();
+  }
+}
+
+function drawStaticShape(type){
+  shapeCtx.clearRect(0,0,shapeW,shapeH);
+
+  const points=shapeCache[type];
+
+  if(!points?.length) return;
+
+  const colors=SHAPE_COLORS[type];
+  const radius=shapeRadius(type);
+  const x=shapeW*.5;
+  const y=shapeH*.48;
+
+  shapeCtx.globalCompositeOperation="source-over";
+
+  points.forEach((p,i)=>{
+    const size=type==="name"?4:5;
+    const sprite=getSparkSprite(colors[i%colors.length]);
+
+    shapeCtx.globalAlpha=.85;
+
+    shapeCtx.drawImage(
+      sprite,
+      x+p.x*radius-size/2,
+      y+p.y*radius-size/2,
+      size,size
+    );
+  });
+
+  shapeCtx.globalAlpha=1;
+}
+
+function drawCelebration(dt){
+  if(
+    activeTab!==2 ||
+    letterDialog.open ||
+    !celebrationVisible
+  ){
+    return;
+  }
+
+  if(reduced) return;
+
+  shapeTime+=dt;
+
+  if(autoShapes && shapeTime>=nextShapeAt){
+    /*
+      Luân phiên đủ bốn kiểu thay vì random có thể
+      bỏ sót tên hoặc hộp quà trong thời gian dài.
+    */
+    const sequence=["heart","star","gift","name"];
+    const type=sequence[autoShapeIndex%sequence.length];
+
+    autoShapeIndex++;
+    launchShape(type);
+    nextShapeAt=shapeTime+(type==="name"?5.1:4.4);
+  }
+
+  shapeCtx.clearRect(0,0,shapeW,shapeH);
+  shapeCtx.globalCompositeOperation="lighter";
+
+  for(let i=shapeRockets.length-1;i>=0;i--){
+    const rocket=shapeRockets[i];
+    rocket.age+=dt;
+
+    const t=clamp(rocket.age/rocket.duration,0,1);
+    const eased=1-Math.pow(1-t,1.7);
+
+    const x=
+      rocket.startX+
+      (rocket.targetX-rocket.startX)*eased;
+
+    const y=
+      rocket.startY+
+      (rocket.targetY-rocket.startY)*eased;
+
+    const tailT=clamp(
+      (rocket.age-.09)/rocket.duration,
+      0,
+      1
+    );
+
+    const tailEased=1-Math.pow(1-tailT,1.7);
+
+    const tailX=
+      rocket.startX+
+      (rocket.targetX-rocket.startX)*tailEased;
+
+    const tailY=
+      rocket.startY+
+      (rocket.targetY-rocket.startY)*tailEased;
+
+    shapeCtx.globalAlpha=.75;
+    shapeCtx.strokeStyle=rocket.color;
+    shapeCtx.lineWidth=1.3;
+    shapeCtx.beginPath();
+    shapeCtx.moveTo(tailX,tailY);
+    shapeCtx.lineTo(x,y);
+    shapeCtx.stroke();
+
+    shapeCtx.drawImage(
+      getSparkSprite(rocket.color),
+      x-5,y-5,10,10
+    );
+
+    if(t>=1){
+      createShapeBurst(
+        rocket.type,
+        rocket.targetX,
+        rocket.targetY
+      );
+
+      shapeRockets.splice(i,1);
+    }
+  }
+
+  for(let i=shapeBursts.length-1;i>=0;i--){
+    const burst=shapeBursts[i];
+    burst.age+=dt;
+
+    if(burst.age>=burst.duration){
+      shapeBursts.splice(i,1);
+      continue;
+    }
+
+    const expansion=clamp(burst.age/.78,0,1);
+    const spread=1-Math.pow(1-expansion,3);
+
+    const fadeStart=burst.type==="name"?2.65:1.95;
+    const fade=1-clamp(
+      (burst.age-fadeStart)/
+      (burst.duration-fadeStart),
+      0,
+      1
+    );
+
+    const dissolve=Math.max(0,burst.age-fadeStart);
+    const gravity=dissolve*dissolve*7;
+
+    /*
+      Tên giữ hình đủ lâu để đọc.
+      Chỉ tản nhẹ vào cuối vòng đời.
+    */
+    for(const point of burst.points){
+      const x=
+        burst.x+
+        point.dx*spread+
+        point.driftX*dissolve;
+
+      const y=
+        burst.y+
+        point.dy*spread+
+        point.driftY*dissolve+
+        gravity;
+
+      const shimmer=
+        .88+.12*Math.sin(burst.age*5+point.phase);
+
+      const alpha=fade*shimmer*
+        clamp(burst.age/.12,0,1);
+
+      shapeCtx.globalAlpha=alpha;
+
+      shapeCtx.drawImage(
+        burst.sprites[point.colorIndex],
+        x-point.size/2,
+        y-point.size/2,
+        point.size,
+        point.size
+      );
+    }
+
+    /*
+      Các tia nhỏ bên ngoài hình.
+      Không dùng nhấp nháy toàn màn hình.
+    */
+    if(burst.age<1.65){
+      const sparkFade=1-burst.age/1.65;
+      const travel=1-Math.exp(-burst.age*1.5);
+
+      for(const spark of burst.sparks){
+        const x=burst.x+spark.vx*travel;
+        const y=
+          burst.y+
+          spark.vy*travel+
+          burst.age*burst.age*10;
+
+        shapeCtx.globalAlpha=sparkFade*.55;
+
+        shapeCtx.drawImage(
+          burst.sprites[0],
+          x-spark.size/2,
+          y-spark.size/2,
+          spark.size,
+          spark.size
+        );
+      }
+    }
+  }
+
+  shapeCtx.globalAlpha=1;
+  shapeCtx.globalCompositeOperation="source-over";
+}
+
+$$("[data-firework]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    launchShape(button.dataset.firework);
+    nextShapeAt=shapeTime+5;
+  });
+});
+
+autoFireworksButton.addEventListener("click",()=>{
+  autoShapes=!autoShapes;
+
+  /*
+    Trong chế độ giảm chuyển động, các nút hình
+    vẫn hiển thị hình tĩnh thay vì pháo hoa động.
+  */
+  if(reduced){
+    autoShapes=false;
+    shapeStatus.textContent="CHẾ ĐỘ GIẢM CHUYỂN ĐỘNG";
+  }else if(autoShapes){
+    nextShapeAt=shapeTime+.2;
+  }
+
+  updateAutoFireworksUI();
+});
+
+if("IntersectionObserver" in window){
+  const celebrationObserver=new IntersectionObserver(
+    entries=>{
+      for(const entry of entries){
+        celebrationVisible=entry.isIntersecting;
+      }
+    },
+    {threshold:.05}
+  );
+
+  celebrationObserver.observe(celebration);
+}
 
 /* ================= CHRISTMAS COUNTDOWN ================= */
 function updateCountdown(){
@@ -2946,24 +2486,12 @@ function updateCountdown(){
   if(christmasToday) return;
 
   let target=new Date(
-    now.getFullYear(),
-    11,
-    25,
-    0,
-    0,
-    0,
-    0
+    now.getFullYear(),11,25,0,0,0,0
   );
 
   if(now>=target){
     target=new Date(
-      now.getFullYear()+1,
-      11,
-      25,
-      0,
-      0,
-      0,
-      0
+      now.getFullYear()+1,11,25,0,0,0,0
     );
   }
 
@@ -2996,25 +2524,24 @@ function updateCountdown(){
   });
 }
 
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-/* ================= RESPONSIVE CANVAS SIZING ================= */
+/* ================= CANVAS RESIZE ================= */
 function resizeSky(){
   skyW=W;
 
-  if(activeTab===0){
-    skyH=panels[0].getBoundingClientRect().height;
-  }else{
-    skyH=mobile()
-      ?Math.min(1200,Math.max(890,H*1.10))
+  skyH=activeTab===0
+    ?panels[0].getBoundingClientRect().height
+    :mobile()
+      ?Math.min(1200,Math.max(890,H*1.1))
       :Math.min(1400,Math.max(800,H));
-  }
 
   fitCanvas(starsCanvas,skyW,skyH,DPR);
-  fitCanvas(fireworksCanvas,skyW,skyH,DPR);
+  fitCanvas(fwCanvas,skyW,skyH,DPR);
 
   drawStars();
+
+  if(reduced && activeTab===0){
+    drawIntroFireworks(clock,0);
+  }
 }
 
 function resize(){
@@ -3030,32 +2557,37 @@ function resize(){
   resizeSky();
 
   flakes=Array.from(
-    {length:mobile()?90:155},
+    {length:mobile()?85:140},
     newFlake
   );
 
   layoutOrbit();
 
   if(activeTab===1){
-    resizeLoveCanvas();
+    resizeRain();
   }
 
-  drawSnow(animationClock,0);
+  if(activeTab===2){
+    resizeCelebration();
 
-  if(activeTab===0 && reduced){
-    drawFireworks(animationClock,0);
+    if(!reduced){
+      nextShapeAt=shapeTime+.25;
+    }
   }
+
+  drawSnow(clock,0);
 }
 
 /* ================= SHARED ANIMATION LOOP =================
-   Một requestAnimationFrame chính điều khiển hiệu ứng.
+   Một vòng requestAnimationFrame chính.
 
-   Tab 1: tuyết + pháo hoa.
-   Tab 2: tuyết + chữ rơi + quỹ đạo + đèn cây thông.
-   Tab 3: chỉ tuyết, không render chữ rơi và pháo hoa.
+   Tab 1: tuyết + pháo hoa bầu trời.
+   Tab 2: tuyết + chữ rơi + quỹ đạo + cây thông.
+   Tab 3: tuyết + pháo hoa tạo hình.
 
-   Giữ chuyển tab tự động sau 6 giây ở phần mở đầu.
-*/
+   Canvas tab ẩn không được cập nhật.
+   Khi đọc thư, pháo hoa được tạm dừng.
+=========================================================== */
 function animate(timestamp){
   const elapsed=lastTime
     ?Math.max(0,(timestamp-lastTime)/1000)
@@ -3064,8 +2596,7 @@ function animate(timestamp){
   lastTime=timestamp;
 
   const dt=Math.min(elapsed,.05);
-
-  animationClock+=dt*1000;
+  clock+=dt*1000;
 
   if(
     activeTab===0 &&
@@ -3080,23 +2611,27 @@ function animate(timestamp){
     }
   }
 
-  drawSnow(animationClock,dt);
+  drawSnow(clock,dt);
 
   if(activeTab===0){
-    drawFireworks(animationClock,dt);
+    drawIntroFireworks(clock,dt);
   }
 
   if(activeTab===1){
-    updateOrbit(animationClock,dt);
-    drawLove(dt);
+    updateOrbit(clock,dt);
+    drawRain(dt);
 
     if(
       !lightbox.open &&
-      animationClock-lastTreeTime>=160
+      clock-lastTreeTime>=180
     ){
-      drawTree(animationClock);
-      lastTreeTime=animationClock;
+      drawTree(clock);
+      lastTreeTime=clock;
     }
+  }
+
+  if(activeTab===2){
+    drawCelebration(dt);
   }
 
   if(!document.hidden){
@@ -3136,34 +2671,43 @@ motionQuery.addEventListener("change",()=>{
   reduced=motionQuery.matches;
 
   if(reduced){
-    embers=[];
     rockets=[];
+    embers=[];
 
     velocityX=0;
     velocityY=0;
-
     targetYaw=restAngle(yaw);
     targetPitch=pitch;
 
+    shapeRockets=[];
+    shapeBursts=[];
+    autoShapes=false;
+
     cancelLetterReveal();
     letterDialog.classList.remove("reveal");
+
+    if(activeTab===2){
+      drawStaticShape(shapeStaticType);
+    }
   }else{
-    nextLaunch=animationClock+250;
+    nextLaunch=clock+250;
+    nextShapeAt=shapeTime+.5;
   }
+
+  updateAutoFireworksUI();
 
   if(activeTab===1){
     loadGif();
-    drawLove(0);
+    drawRain(0);
   }
 
   orbitDirty=true;
-  drawTree(animationClock);
+  drawTree(clock);
 });
 
 document.addEventListener("visibilitychange",()=>{
   if(document.hidden){
     cancelAnimationFrame(raf);
-
     raf=0;
     lastTime=0;
 
@@ -3172,7 +2716,7 @@ document.addEventListener("visibilitychange",()=>{
     }
   }else{
     updateCountdown();
-    nextLaunch=animationClock+250;
+    nextLaunch=clock+250;
     startLoop();
   }
 });
@@ -3180,7 +2724,6 @@ document.addEventListener("visibilitychange",()=>{
 addEventListener("pagehide",()=>{
   cancelAnimationFrame(raf);
   cancelLetterReveal();
-
   raf=0;
   lastTime=0;
 });
@@ -3190,12 +2733,39 @@ addEventListener("pageshow",()=>{
   startLoop();
 });
 
-/* ================= INITIALIZE ================= */
-document.body.dataset.scene="0";
+/* ================= FONT CACHE REFRESH ================= */
+if(document.fonts){
+  document.fonts.load(
+    '23px "Great Vibes"'
+  ).then(()=>{
+    makeRainSprites();
+  }).catch(()=>{});
 
+  document.fonts.load(
+    '600 106px "Be Vietnam Pro"'
+  ).then(()=>{
+    /*
+      Dựng lại riêng tên sau khi font tiếng Việt tải xong.
+      Không ảnh hưởng những cụm đang hiển thị.
+    */
+    shapeCache.name=makeNamePoints();
+
+    if(activeTab===2 && reduced){
+      drawStaticShape(shapeStaticType);
+    }
+  }).catch(()=>{});
+}
+
+/* ================= INITIALIZE ================= */
 buildLetters();
-makeTextMask();
+makeRainSprites();
+buildShapeCache();
+updateAutoFireworksUI();
+
 resize();
+updateCountdown();
+
+setInterval(updateCountdown,1000);
 
 if(!reduced){
   burst(skyW*.67,skyH*.25,.35);
@@ -3206,14 +2776,14 @@ startLoop();
 setupSound();
 
 /*
-  Dựng cây thông sau khi giao diện đầu tiên đã có
-  cơ hội hiển thị. Ưu tiên thời gian nhàn rỗi.
+  Dựng texture cây thông một lần.
+  Những frame tiếp theo chỉ dùng lại texture.
 */
 function initializeTree(){
   if(treeTexture) return;
 
   treeTexture=createTree();
-  drawTree(animationClock);
+  drawTree(clock);
 }
 
 if("requestIdleCallback" in window){
